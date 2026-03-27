@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git *)",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && .claude/hooks/run_pytest.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
