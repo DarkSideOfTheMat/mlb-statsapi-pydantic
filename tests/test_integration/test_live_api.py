@@ -105,6 +105,47 @@ class TestPeopleLive:
         assert result.people[0].bat_side is not None
 
 
+class TestBoxscoreLive:
+    def test_parse_boxscore_response(self, http: httpx.Client):
+        from mlb_statsapi.models.game import BoxscoreResponse
+
+        resp = http.get("/game/744914/boxscore")
+        resp.raise_for_status()
+        result = BoxscoreResponse.model_validate(resp.json())
+        assert result.teams.away.team.id == 117
+        assert len(result.teams.away.players) > 0
+
+
+class TestLinescoreLive:
+    def test_parse_linescore_response(self, http: httpx.Client):
+        from mlb_statsapi.models.game import LinescoreResponse
+
+        resp = http.get("/game/744914/linescore")
+        resp.raise_for_status()
+        result = LinescoreResponse.model_validate(resp.json())
+        assert len(result.innings) == 9
+        assert result.teams.away.runs == 3
+
+
+class TestStatsLeadersLive:
+    def test_parse_leaders_response(self, http: httpx.Client):
+        from mlb_statsapi.models.stats import StatsResponse
+
+        resp = http.get(
+            "/stats/leaders",
+            params={
+                "leaderCategories": "homeRuns",
+                "season": 2024,
+                "sportId": 1,
+                "limit": 5,
+            },
+        )
+        resp.raise_for_status()
+        result = StatsResponse.model_validate(resp.json())
+        assert len(result.league_leaders) > 0
+        assert len(result.league_leaders[0].leaders) > 0
+
+
 class TestScheduleLive:
     def test_parse_schedule_response(self, http: httpx.Client):
         from mlb_statsapi.models.schedule import ScheduleResponse
