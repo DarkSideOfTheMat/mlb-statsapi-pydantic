@@ -104,7 +104,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 3: Simple Domain Models (sports, divisions, leagues, venues, seasons)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the simplest response models — flat arrays with minimal nesting.
 
@@ -120,7 +120,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 4: Teams & People Models
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the team and player models with nested references.
 

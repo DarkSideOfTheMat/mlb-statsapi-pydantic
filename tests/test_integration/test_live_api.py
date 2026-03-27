@@ -103,3 +103,34 @@ class TestPeopleLive:
         assert len(result.people) == 1
         assert result.people[0].full_name == "Shohei Ohtani"
         assert result.people[0].bat_side is not None
+
+
+class TestScheduleLive:
+    def test_parse_schedule_response(self, http: httpx.Client):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        resp = http.get(
+            "/schedule", params={"sportId": 1, "date": "07/01/2024"}
+        )
+        resp.raise_for_status()
+        result = ScheduleResponse.model_validate(resp.json())
+        assert len(result.dates) >= 1
+        assert len(result.dates[0].games) >= 1
+        game = result.dates[0].games[0]
+        assert game.teams.away.team.id is not None
+        assert game.status.abstract_game_state == "Final"
+
+
+class TestStandingsLive:
+    def test_parse_standings_response(self, http: httpx.Client):
+        from mlb_statsapi.models.standings import StandingsResponse
+
+        resp = http.get(
+            "/standings",
+            params={"leagueId": "103,104", "season": 2024},
+        )
+        resp.raise_for_status()
+        result = StandingsResponse.model_validate(resp.json())
+        assert len(result.records) == 6
+        for record in result.records:
+            assert len(record.team_records) >= 4
