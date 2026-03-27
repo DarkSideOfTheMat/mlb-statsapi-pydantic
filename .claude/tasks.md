@@ -135,7 +135,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 5: Schedule & Standings Models
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the most complex response hierarchies.
 
@@ -150,7 +150,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 6: Game Models (Boxscore, Linescore, Live Feed)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 4 (reuses Team/Person models)
 **Goal:** TDD the deepest, most complex models.
 
