@@ -78,3 +78,28 @@ class TestSeasonsLive:
         assert len(result.seasons) >= 1
         assert result.seasons[0].season_id == "2024"
         assert result.seasons[0].regular_season_start_date is not None
+
+
+class TestTeamsLive:
+    def test_parse_teams_response(self, http: httpx.Client):
+        from mlb_statsapi.models.teams import TeamsResponse
+
+        resp = http.get("/teams", params={"sportId": 1})
+        resp.raise_for_status()
+        result = TeamsResponse.model_validate(resp.json())
+        assert len(result.teams) == 30
+        names = {t.abbreviation for t in result.teams}
+        assert "NYY" in names
+        assert "LAD" in names
+
+
+class TestPeopleLive:
+    def test_parse_person_response(self, http: httpx.Client):
+        from mlb_statsapi.models.people import PeopleResponse
+
+        resp = http.get("/people/660271")  # Ohtani
+        resp.raise_for_status()
+        result = PeopleResponse.model_validate(resp.json())
+        assert len(result.people) == 1
+        assert result.people[0].full_name == "Shohei Ohtani"
+        assert result.people[0].bat_side is not None
