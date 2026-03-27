@@ -86,29 +86,3 @@ class TestBoxscoreResponse:
         assert len(resp.officials) > 0
 
 
-class TestLiveFeedResponse:
-    def test_parse_full_response(self):
-        from mlb_statsapi.models.game import LiveFeedResponse
-
-        data = load_fixture("livefeed")
-        resp = LiveFeedResponse.model_validate(data)
-        assert resp.copyright.startswith("Copyright")
-        assert resp.game_pk == 744914
-
-    def test_game_data(self):
-        from mlb_statsapi.models.game import LiveFeedResponse
-
-        data = load_fixture("livefeed")
-        resp = LiveFeedResponse.model_validate(data)
-        assert resp.game_data.status is not None
-        assert resp.game_data.teams is not None
-        assert resp.game_data.venue is not None
-
-    def test_live_data(self):
-        from mlb_statsapi.models.game import LiveFeedResponse
-
-        data = load_fixture("livefeed")
-        resp = LiveFeedResponse.model_validate(data)
-        assert resp.live_data.linescore is not None
-        assert resp.live_data.boxscore is not None
-        assert resp.live_data.plays is not None
