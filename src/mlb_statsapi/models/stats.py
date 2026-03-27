@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from mlb_statsapi.models._base import (
     BaseResponse,
-    CodeDescription,
     IdNameLink,
     MlbBaseModel,
 )

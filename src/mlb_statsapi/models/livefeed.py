@@ -14,7 +14,6 @@ from mlb_statsapi.models._base import (
     MlbBaseModel,
 )
 
-
 # ---------------------------------------------------------------------------
 # Shared reference types used across plays
 # ---------------------------------------------------------------------------

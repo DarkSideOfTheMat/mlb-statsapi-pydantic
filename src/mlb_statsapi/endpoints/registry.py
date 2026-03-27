@@ -52,8 +52,12 @@ class EndpointDef:
 def _build_endpoints() -> dict[str, EndpointDef]:
     """Build the full endpoint registry with response model links."""
     # Lazy imports to avoid circular dependencies
+    from mlb_statsapi.models.attendance import AttendanceResponse
+    from mlb_statsapi.models.awards import AwardsResponse
     from mlb_statsapi.models.divisions import DivisionsResponse
+    from mlb_statsapi.models.draft import DraftResponse
     from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
+    from mlb_statsapi.models.jobs import JobsResponse
     from mlb_statsapi.models.leagues import LeaguesResponse
     from mlb_statsapi.models.livefeed import LiveFeedResponse
     from mlb_statsapi.models.people import PeopleResponse
@@ -63,6 +67,7 @@ def _build_endpoints() -> dict[str, EndpointDef]:
     from mlb_statsapi.models.standings import StandingsResponse
     from mlb_statsapi.models.stats import StatsResponse
     from mlb_statsapi.models.teams import TeamsResponse
+    from mlb_statsapi.models.transactions import TransactionsResponse
     from mlb_statsapi.models.venues import VenuesResponse
 
     return {
@@ -361,23 +366,27 @@ def _build_endpoints() -> dict[str, EndpointDef]:
         "awards": EndpointDef(
             url_template="{ver}/awards",
             query_params=("sportId", "leagueId", "season", "hydrate", "fields"),
+            response_model=AwardsResponse,
         ),
         # --- Draft ---
         "draft": EndpointDef(
             url_template="{ver}/draft",
             query_params=("limit", "fields", "round", "name", "school", "state", "country", "position", "teamId", "playerId", "bisPlayerId"),
+            response_model=DraftResponse,
         ),
         # --- Transactions ---
         "transactions": EndpointDef(
             url_template="{ver}/transactions",
             query_params=("teamId", "playerId", "date", "startDate", "endDate", "sportId", "fields"),
             required_params=(("teamId",), ("playerId",), ("date",), ("startDate", "endDate")),
+            response_model=TransactionsResponse,
         ),
         # --- Attendance ---
         "attendance": EndpointDef(
             url_template="{ver}/attendance",
             query_params=("teamId", "leagueId", "season", "date", "leagueListId", "gameType", "fields"),
             required_params=(("teamId",), ("leagueId",), ("leagueListId",)),
+            response_model=AttendanceResponse,
         ),
         # --- Home Run Derby ---
         "homeRunDerby": EndpointDef(
@@ -390,10 +399,12 @@ def _build_endpoints() -> dict[str, EndpointDef]:
             url_template="{ver}/jobs",
             query_params=("jobType", "sportId", "date", "fields"),
             required_params=(("jobType",),),
+            response_model=JobsResponse,
         ),
         "jobs_umpires": EndpointDef(
             url_template="{ver}/jobs/umpires",
             query_params=("sportId", "date", "fields"),
+            response_model=JobsResponse,
         ),
         "jobs_umpire_games": EndpointDef(
             url_template="{ver}/jobs/umpires/games/{umpireId}",
@@ -404,10 +415,12 @@ def _build_endpoints() -> dict[str, EndpointDef]:
         "jobs_datacasters": EndpointDef(
             url_template="{ver}/jobs/datacasters",
             query_params=("sportId", "date", "fields"),
+            response_model=JobsResponse,
         ),
         "jobs_officialScorers": EndpointDef(
             url_template="{ver}/jobs/officialScorers",
             query_params=("timecode", "fields"),
+            response_model=JobsResponse,
         ),
         # --- Meta ---
         "meta": EndpointDef(
