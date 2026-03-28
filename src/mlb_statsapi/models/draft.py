@@ -59,6 +59,26 @@ class DraftPick(MlbBaseModel):
     is_pass: bool | None = None
     year: int | None = None
 
+    @property
+    def pick_value_amount(self) -> float | None:
+        """Parse pick_value string like '9200000.00' into float."""
+        if not self.pick_value:
+            return None
+        try:
+            return float(self.pick_value)
+        except ValueError:
+            return None
+
+    @property
+    def signing_bonus_amount(self) -> float | None:
+        """Parse signing_bonus string like '9200000.00' into float."""
+        if not self.signing_bonus:
+            return None
+        try:
+            return float(self.signing_bonus)
+        except ValueError:
+            return None
+
 
 class DraftRound(MlbBaseModel):
     round: str | None = None

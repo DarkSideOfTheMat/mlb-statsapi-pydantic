@@ -51,6 +51,9 @@ class ScheduleGame(MlbBaseModel):
     is_tie: bool | None = None
     season_display: str | None = None
     public_facing: bool | None = None
+    series_description: str | None = None
+    games_in_series: int | None = None
+    series_game_number: int | None = None
 
 
 class ScheduleDate(MlbBaseModel):

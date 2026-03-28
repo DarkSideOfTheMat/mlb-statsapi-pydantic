@@ -85,6 +85,16 @@ class WinLossRecord(MlbBaseModel):
     ties: int | None = None
     type: str | None = None
 
+    @property
+    def win_pct(self) -> float | None:
+        """Parse pct string like '.512' into float."""
+        if self.pct is None:
+            return None
+        try:
+            return float(self.pct)
+        except ValueError:
+            return None
+
 
 class GameStatus(MlbBaseModel):
     """Game status — union of fields from schedule and live-feed responses."""

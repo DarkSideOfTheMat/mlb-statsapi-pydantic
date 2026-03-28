@@ -48,6 +48,17 @@ class Person(MlbBaseModel):
     name_first_last: str | None = None
     name_slug: str | None = None
 
+    @property
+    def height_inches(self) -> int | None:
+        """Parse height string like '6\\' 2\"' into total inches."""
+        if not self.height:
+            return None
+        try:
+            parts = self.height.replace('"', '').split("' ")
+            return int(parts[0]) * 12 + int(parts[1]) if len(parts) == 2 else None
+        except (ValueError, IndexError):
+            return None
+
 
 class PeopleResponse(BaseResponse):
     people: list[Person]

@@ -41,6 +41,30 @@ class TeamStanding(MlbBaseModel):
     conference_games_back: str | None = None
     league_record: WinLossRecord | None = None
     last_updated: datetime.datetime | None = None
+    wins: int | None = None
+    losses: int | None = None
+    winning_percentage: str | None = None
+    runs_scored: int | None = None
+    runs_allowed: int | None = None
+    run_differential: int | None = None
+    division_champ: bool | None = None
+    division_leader: bool | None = None
+    clinched: bool | None = None
+    elimination_number: str | None = None
+    magic_number: str | None = None
+    wild_card_elimination_number: str | None = None
+
+    @property
+    def games_back_float(self) -> float | None:
+        """Parse games_back string ('-' or '5.0') into float."""
+        if self.games_back is None:
+            return None
+        if self.games_back == "-":
+            return 0.0
+        try:
+            return float(self.games_back)
+        except ValueError:
+            return None
 
 
 class StandingsRecord(MlbBaseModel):

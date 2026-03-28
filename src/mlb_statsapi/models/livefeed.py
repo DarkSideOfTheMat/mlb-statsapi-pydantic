@@ -453,6 +453,7 @@ class GameData(MlbBaseModel):
     review: ReviewInfo | None = None
     flags: GameFlags | None = None
     probable_pitchers: ProbablePitchers | None = None
+    players: dict[str, MlbBaseModel] | None = None
 
 
 # ---------------------------------------------------------------------------

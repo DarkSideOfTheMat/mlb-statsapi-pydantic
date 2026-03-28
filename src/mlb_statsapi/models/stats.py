@@ -28,6 +28,7 @@ class LeaderEntry(MlbBaseModel):
     person: PersonRef
     sport: IdNameLink | None = None
     season: int | None = None
+    num_teams: int | None = None
 
 
 class LeaderCategory(MlbBaseModel):
