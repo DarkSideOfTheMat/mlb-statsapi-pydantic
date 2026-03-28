@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, cast
 
 import httpx
 
@@ -41,7 +41,7 @@ class MlbClient(ClientMixin):
     def __enter__(self) -> MlbClient:
         return self
 
-    def __exit__(self, *args: Any) -> None:
+    def __exit__(self, *args: object) -> None:
         self.close()
 
     def _request(self, endpoint: str, **params: Any) -> BaseResponse:
@@ -64,16 +64,16 @@ class MlbClient(ClientMixin):
     # -- Convenience methods --
 
     def sports(self, **params: Any) -> SportsResponse:
-        return self._request("sports", **params)
+        return cast(SportsResponse, self._request("sports", **params))
 
     def teams(self, sport_id: int = 1, **params: Any) -> TeamsResponse:
-        return self._request("teams", sportId=sport_id, **params)
+        return cast(TeamsResponse, self._request("teams", sportId=sport_id, **params))
 
     def team(self, team_id: int, **params: Any) -> TeamsResponse:
-        return self._request("team", teamId=str(team_id), **params)
+        return cast(TeamsResponse, self._request("team", teamId=str(team_id), **params))
 
     def person(self, person_id: int, **params: Any) -> PeopleResponse:
-        return self._request("person", personId=str(person_id), **params)
+        return cast(PeopleResponse, self._request("person", personId=str(person_id), **params))
 
     def schedule(
         self,
@@ -93,7 +93,7 @@ class MlbClient(ClientMixin):
             kw["endDate"] = end_date
         if team_id:
             kw["teamId"] = team_id
-        return self._request("schedule", **kw)
+        return cast(ScheduleResponse, self._request("schedule", **kw))
 
     def standings(
         self,
@@ -104,16 +104,16 @@ class MlbClient(ClientMixin):
         kw: dict[str, Any] = {"leagueId": league_id, **params}
         if season:
             kw["season"] = season
-        return self._request("standings", **kw)
+        return cast(StandingsResponse, self._request("standings", **kw))
 
     def game(self, game_pk: int, **params: Any) -> LiveFeedResponse:
-        return self._request("game", gamePk=str(game_pk), **params)
+        return cast(LiveFeedResponse, self._request("game", gamePk=str(game_pk), **params))
 
     def boxscore(self, game_pk: int, **params: Any) -> BoxscoreResponse:
-        return self._request("game_boxscore", gamePk=str(game_pk), **params)
+        return cast(BoxscoreResponse, self._request("game_boxscore", gamePk=str(game_pk), **params))
 
     def linescore(self, game_pk: int, **params: Any) -> LinescoreResponse:
-        return self._request("game_linescore", gamePk=str(game_pk), **params)
+        return cast(LinescoreResponse, self._request("game_linescore", gamePk=str(game_pk), **params))
 
     def league_leaders(
         self,
@@ -131,4 +131,4 @@ class MlbClient(ClientMixin):
         }
         if season:
             kw["season"] = season
-        return self._request("stats_leaders", **kw)
+        return cast(StatsResponse, self._request("stats_leaders", **kw))

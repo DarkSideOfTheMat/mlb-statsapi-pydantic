@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, cast
 
 import httpx
 
@@ -37,7 +37,7 @@ class AsyncMlbClient(ClientMixin):
     async def __aenter__(self) -> AsyncMlbClient:
         return self
 
-    async def __aexit__(self, *args: Any) -> None:
+    async def __aexit__(self, *args: object) -> None:
         await self.close()
 
     async def _request(self, endpoint: str, **params: Any) -> BaseResponse:
@@ -60,16 +60,16 @@ class AsyncMlbClient(ClientMixin):
     # -- Convenience methods --
 
     async def sports(self, **params: Any) -> SportsResponse:
-        return await self._request("sports", **params)
+        return cast(SportsResponse, await self._request("sports", **params))
 
     async def teams(self, sport_id: int = 1, **params: Any) -> TeamsResponse:
-        return await self._request("teams", sportId=sport_id, **params)
+        return cast(TeamsResponse, await self._request("teams", sportId=sport_id, **params))
 
     async def team(self, team_id: int, **params: Any) -> TeamsResponse:
-        return await self._request("team", teamId=str(team_id), **params)
+        return cast(TeamsResponse, await self._request("team", teamId=str(team_id), **params))
 
     async def person(self, person_id: int, **params: Any) -> PeopleResponse:
-        return await self._request("person", personId=str(person_id), **params)
+        return cast(PeopleResponse, await self._request("person", personId=str(person_id), **params))
 
     async def schedule(
         self,
@@ -89,7 +89,7 @@ class AsyncMlbClient(ClientMixin):
             kw["endDate"] = end_date
         if team_id:
             kw["teamId"] = team_id
-        return await self._request("schedule", **kw)
+        return cast(ScheduleResponse, await self._request("schedule", **kw))
 
     async def standings(
         self,
@@ -100,16 +100,16 @@ class AsyncMlbClient(ClientMixin):
         kw: dict[str, Any] = {"leagueId": league_id, **params}
         if season:
             kw["season"] = season
-        return await self._request("standings", **kw)
+        return cast(StandingsResponse, await self._request("standings", **kw))
 
     async def game(self, game_pk: int, **params: Any) -> LiveFeedResponse:
-        return await self._request("game", gamePk=str(game_pk), **params)
+        return cast(LiveFeedResponse, await self._request("game", gamePk=str(game_pk), **params))
 
     async def boxscore(self, game_pk: int, **params: Any) -> BoxscoreResponse:
-        return await self._request("game_boxscore", gamePk=str(game_pk), **params)
+        return cast(BoxscoreResponse, await self._request("game_boxscore", gamePk=str(game_pk), **params))
 
     async def linescore(self, game_pk: int, **params: Any) -> LinescoreResponse:
-        return await self._request("game_linescore", gamePk=str(game_pk), **params)
+        return cast(LinescoreResponse, await self._request("game_linescore", gamePk=str(game_pk), **params))
 
     async def league_leaders(
         self,
@@ -127,4 +127,4 @@ class AsyncMlbClient(ClientMixin):
         }
         if season:
             kw["season"] = season
-        return await self._request("stats_leaders", **kw)
+        return cast(StatsResponse, await self._request("stats_leaders", **kw))

@@ -42,7 +42,7 @@ select = ["E", "F", "I", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/mlb_statsapi/endpoints/registry.py" = ["E501"]
-"src/mlb_statsapi/client/_base.py" = ["E501"]
+"src/mlb_statsapi/client/*.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.10"
