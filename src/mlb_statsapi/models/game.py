@@ -2,7 +2,15 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+from mlb_statsapi.models._base import (
+    BaseResponse,
+    IdNameLink,
+    MlbBaseModel,
+    PersonId,
+    PersonRef,
+    PositionRef,
+    TeamId,
+)
 
 # --- Linescore ---
 
@@ -48,24 +56,16 @@ class LinescoreResponse(BaseResponse):
 # --- Boxscore ---
 
 
-class BoxscorePersonRef(MlbBaseModel):
-    id: int
-    full_name: str | None = None
-    link: str | None = None
-
-
-class BoxscorePosition(MlbBaseModel):
-    code: str
-    name: str | None = None
-    type: str | None = None
-    abbreviation: str | None = None
+# Backwards-compatible aliases
+BoxscorePersonRef = PersonRef
+BoxscorePosition = PositionRef
 
 
 class BoxscorePlayer(MlbBaseModel):
-    person: BoxscorePersonRef
+    person: PersonRef
     jersey_number: str | None = None
-    position: BoxscorePosition | None = None
-    parent_team_id: int | None = None
+    position: PositionRef | None = None
+    parent_team_id: TeamId | None = None
     stats: MlbBaseModel | None = None
     season_stats: MlbBaseModel | None = None
     game_status: MlbBaseModel | None = None
@@ -82,11 +82,11 @@ class BoxscoreTeam(MlbBaseModel):
     team: IdNameLink
     team_stats: BoxscoreTeamStats | None = None
     players: dict[str, BoxscorePlayer] = {}
-    batters: list[int] = []
-    pitchers: list[int] = []
-    bench: list[int] = []
-    bullpen: list[int] = []
-    batting_order: list[int] = []
+    batters: list[PersonId] = []
+    pitchers: list[PersonId] = []
+    bench: list[PersonId] = []
+    bullpen: list[PersonId] = []
+    batting_order: list[PersonId] = []
     info: list[MlbBaseModel] = []
     note: list[MlbBaseModel] = []
 
@@ -97,7 +97,7 @@ class BoxscoreTeams(MlbBaseModel):
 
 
 class BoxscoreOfficial(MlbBaseModel):
-    official: BoxscorePersonRef | None = None
+    official: PersonRef | None = None
     official_type: str | None = None
 
 

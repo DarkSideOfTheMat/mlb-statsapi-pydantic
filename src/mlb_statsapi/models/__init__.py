@@ -3,8 +3,15 @@
 from mlb_statsapi.models._base import (
     BaseResponse,
     CodeDescription,
+    GamePk,
+    GameStatus,
     IdNameLink,
     MlbBaseModel,
+    PersonId,
+    PersonRef,
+    PositionRef,
+    TeamId,
+    WinLossRecord,
 )
 from mlb_statsapi.models.attendance import AttendanceRecord, AttendanceResponse
 from mlb_statsapi.models.awards import Award, AwardsResponse
@@ -47,8 +54,15 @@ __all__ = [
     # Base
     "BaseResponse",
     "CodeDescription",
+    "GamePk",
+    "GameStatus",
     "IdNameLink",
     "MlbBaseModel",
+    "PersonId",
+    "PersonRef",
+    "PositionRef",
+    "TeamId",
+    "WinLossRecord",
     # Enums
     "AbstractGameState",
     "GameType",

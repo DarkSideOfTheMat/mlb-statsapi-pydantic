@@ -8,18 +8,16 @@ from mlb_statsapi.models._base import (
     BaseResponse,
     CodeDescription,
     MlbBaseModel,
+    PersonId,
+    PositionRef,
 )
 
-
-class PrimaryPosition(MlbBaseModel):
-    code: str
-    name: str
-    type: str
-    abbreviation: str
+# Backwards-compatible alias
+PrimaryPosition = PositionRef
 
 
 class Person(MlbBaseModel):
-    id: int
+    id: PersonId
     full_name: str
     link: str
     first_name: str | None = None
@@ -33,7 +31,7 @@ class Person(MlbBaseModel):
     height: str | None = None
     weight: int | None = None
     active: bool
-    primary_position: PrimaryPosition | None = None
+    primary_position: PositionRef | None = None
     use_name: str | None = None
     use_last_name: str | None = None
     boxscore_name: str | None = None

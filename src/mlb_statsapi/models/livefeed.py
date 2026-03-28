@@ -7,34 +7,20 @@ including every play, pitch, and runner movement.
 
 from __future__ import annotations
 
+import datetime
+
 from mlb_statsapi.models._base import (
     BaseResponse,
     CodeDescription,
+    GamePk,
+    GameStatus,
     IdNameLink,
     MlbBaseModel,
+    PersonRef,
+    PositionRef,
+    TeamId,
+    WinLossRecord,
 )
-
-# ---------------------------------------------------------------------------
-# Shared reference types used across plays
-# ---------------------------------------------------------------------------
-
-
-class PersonRef(MlbBaseModel):
-    """Lightweight person reference used throughout play data."""
-
-    id: int
-    full_name: str | None = None
-    link: str | None = None
-
-
-class PositionRef(MlbBaseModel):
-    """Position reference (not IdNameLink — uses code, not id)."""
-
-    code: str
-    name: str | None = None
-    type: str | None = None
-    abbreviation: str | None = None
-
 
 # ---------------------------------------------------------------------------
 # Pitch data — the core of play events
@@ -151,8 +137,8 @@ class PlayEvent(MlbBaseModel):
     index: int | None = None
     play_id: str | None = None
     pitch_number: int | None = None
-    start_time: str | None = None
-    end_time: str | None = None
+    start_time: datetime.datetime | None = None
+    end_time: datetime.datetime | None = None
     is_pitch: bool | None = None
     type: str | None = None
     player: PersonRef | None = None
@@ -259,8 +245,8 @@ class PlayAbout(MlbBaseModel):
     half_inning: str | None = None
     is_top_inning: bool | None = None
     inning: int | None = None
-    start_time: str | None = None
-    end_time: str | None = None
+    start_time: datetime.datetime | None = None
+    end_time: datetime.datetime | None = None
     is_complete: bool | None = None
     is_scoring_play: bool | None = None
     has_review: bool | None = None
@@ -289,7 +275,7 @@ class Play(MlbBaseModel):
     runner_index: list[int] = []
     runners: list[Runner] = []
     play_events: list[PlayEvent] = []
-    play_end_time: str | None = None
+    play_end_time: datetime.datetime | None = None
     at_bat_index: int | None = None
 
 
@@ -333,23 +319,13 @@ class Decisions(MlbBaseModel):
 # ---------------------------------------------------------------------------
 
 
-class GameDataStatus(MlbBaseModel):
-    abstract_game_state: str | None = None
-    coded_game_state: str | None = None
-    detailed_state: str | None = None
-    status_code: str | None = None
-    start_time_tbd: bool | None = None
-    abstract_game_code: str | None = None
-
-
-class GameDataTeamRecord(MlbBaseModel):
-    wins: int | None = None
-    losses: int | None = None
-    pct: str | None = None
+# Backwards-compatible aliases
+GameDataStatus = GameStatus
+GameDataTeamRecord = WinLossRecord
 
 
 class GameDataTeam(MlbBaseModel):
-    id: int
+    id: TeamId
     name: str | None = None
     link: str | None = None
     record: GameDataTeamRecord | None = None
@@ -410,7 +386,7 @@ class LiveFeedResponse(BaseResponse):
     boxscore, decisions, and game metadata.
     """
 
-    game_pk: int
+    game_pk: GamePk
     link: str | None = None
     meta_data: MlbBaseModel | None = None
     game_data: GameData

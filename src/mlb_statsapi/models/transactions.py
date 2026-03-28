@@ -2,23 +2,22 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+import datetime
 
+from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel, PersonRef
 
-class TransactionPerson(MlbBaseModel):
-    id: int
-    full_name: str
-    link: str
+# Backwards-compatible alias
+TransactionPerson = PersonRef
 
 
 class Transaction(MlbBaseModel):
     id: int
-    person: TransactionPerson | None = None
+    person: PersonRef | None = None
     from_team: IdNameLink | None = None
     to_team: IdNameLink | None = None
-    date: str | None = None
-    effective_date: str | None = None
-    resolution_date: str | None = None
+    date: datetime.date | None = None
+    effective_date: datetime.date | None = None
+    resolution_date: datetime.date | None = None
     type_code: str | None = None
     type_desc: str | None = None
     description: str | None = None

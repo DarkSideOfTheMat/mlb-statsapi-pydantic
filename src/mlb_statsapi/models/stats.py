@@ -6,7 +6,11 @@ from mlb_statsapi.models._base import (
     BaseResponse,
     IdNameLink,
     MlbBaseModel,
+    PersonRef,
 )
+
+# Backwards-compatible alias
+LeaderPersonRef = PersonRef
 
 
 class GameTypeRef(MlbBaseModel):
@@ -16,20 +20,14 @@ class GameTypeRef(MlbBaseModel):
     description: str | None = None
 
 
-class LeaderPersonRef(MlbBaseModel):
-    id: int
-    full_name: str
-    link: str | None = None
-
-
 class LeaderEntry(MlbBaseModel):
     rank: int
     value: str
     team: IdNameLink | None = None
     league: IdNameLink | None = None
-    person: LeaderPersonRef
+    person: PersonRef
     sport: IdNameLink | None = None
-    season: str | None = None
+    season: int | None = None
 
 
 class LeaderCategory(MlbBaseModel):

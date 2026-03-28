@@ -13,7 +13,7 @@ class TestSeason:
 
         data = load_fixture("seasons")
         season = Season.model_validate(data["seasons"][0])
-        assert season.season_id == "2024"
+        assert season.season_id == 2024
         assert season.has_wildcard is True
 
     def test_date_fields(self):
@@ -49,4 +49,4 @@ class TestSeasonsResponse:
         resp = SeasonsResponse.model_validate(data)
         assert resp.copyright.startswith("Copyright")
         assert len(resp.seasons) >= 1
-        assert resp.seasons[0].season_id == "2024"
+        assert resp.seasons[0].season_id == 2024

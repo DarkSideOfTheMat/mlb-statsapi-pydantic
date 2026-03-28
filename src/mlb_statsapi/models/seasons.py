@@ -8,7 +8,7 @@ from mlb_statsapi.models._base import BaseResponse, MlbBaseModel
 
 
 class Season(MlbBaseModel):
-    season_id: str
+    season_id: int
     has_wildcard: bool | None = None
     pre_season_start_date: datetime.date | None = None
     pre_season_end_date: datetime.date | None = None

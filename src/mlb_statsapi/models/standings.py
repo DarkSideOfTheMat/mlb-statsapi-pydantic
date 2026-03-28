@@ -2,7 +2,14 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+import datetime
+
+from mlb_statsapi.models._base import (
+    BaseResponse,
+    IdNameLink,
+    MlbBaseModel,
+    WinLossRecord,
+)
 
 
 class Streak(MlbBaseModel):
@@ -11,23 +18,14 @@ class Streak(MlbBaseModel):
     streak_number: int | None = None
 
 
-class StandingsLeagueRecord(MlbBaseModel):
-    wins: int
-    losses: int
-    pct: str
-    ties: int | None = None
-
-
-class SplitRecord(MlbBaseModel):
-    wins: int
-    losses: int
-    type: str
-    pct: str
+# Backwards-compatible aliases
+StandingsLeagueRecord = WinLossRecord
+SplitRecord = WinLossRecord
 
 
 class TeamStanding(MlbBaseModel):
     team: IdNameLink
-    season: str
+    season: int
     streak: Streak | None = None
     clinch_indicator: str | None = None
     division_rank: str | None = None
@@ -41,8 +39,8 @@ class TeamStanding(MlbBaseModel):
     sport_games_back: str | None = None
     division_games_back: str | None = None
     conference_games_back: str | None = None
-    league_record: StandingsLeagueRecord | None = None
-    last_updated: str | None = None
+    league_record: WinLossRecord | None = None
+    last_updated: datetime.datetime | None = None
 
 
 class StandingsRecord(MlbBaseModel):
@@ -50,7 +48,7 @@ class StandingsRecord(MlbBaseModel):
     league: IdNameLink
     division: IdNameLink
     sport: IdNameLink | None = None
-    last_updated: str | None = None
+    last_updated: datetime.datetime | None = None
     team_records: list[TeamStanding] = []
 
 

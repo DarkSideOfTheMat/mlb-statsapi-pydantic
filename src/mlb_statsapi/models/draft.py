@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import datetime
+
 from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
 
 
@@ -11,7 +13,7 @@ class DraftPerson(MlbBaseModel):
     link: str | None = None
     first_name: str | None = None
     last_name: str | None = None
-    birth_date: str | None = None
+    birth_date: datetime.date | None = None
     draft_year: int | None = None
     primary_position: MlbBaseModel | None = None
 
@@ -49,7 +51,7 @@ class DraftPick(MlbBaseModel):
     school: DraftSchool | None = None
     is_drafted: bool | None = None
     is_pass: bool | None = None
-    year: str | None = None
+    year: int | None = None
 
 
 class DraftRound(MlbBaseModel):

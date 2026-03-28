@@ -14,7 +14,7 @@ class TestTeamStanding:
             data["records"][0]["teamRecords"][0]
         )
         assert record.team.name == "Yankees"
-        assert record.season == "2024"
+        assert record.season == 2024
         assert record.division_rank == "1"
         assert record.games_played == 162
 

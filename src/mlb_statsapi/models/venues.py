@@ -10,7 +10,7 @@ class Venue(MlbBaseModel):
     name: str | None = None
     link: str
     active: bool | None = None
-    season: str | None = None
+    season: int | None = None
 
 
 class VenuesResponse(BaseResponse):

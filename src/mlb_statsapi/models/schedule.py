@@ -4,28 +4,22 @@ from __future__ import annotations
 
 import datetime
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+from mlb_statsapi.models._base import (
+    BaseResponse,
+    GamePk,
+    GameStatus,
+    IdNameLink,
+    MlbBaseModel,
+    WinLossRecord,
+)
 
-
-class GameStatus(MlbBaseModel):
-    abstract_game_state: str
-    coded_game_state: str | None = None
-    detailed_state: str
-    status_code: str | None = None
-    start_time_tbd: bool | None = None
-    abstract_game_code: str | None = None
-
-
-class LeagueRecord(MlbBaseModel):
-    wins: int
-    losses: int
-    pct: str
-    ties: int | None = None
+# Backwards-compatible alias
+LeagueRecord = WinLossRecord
 
 
 class ScheduleTeamInfo(MlbBaseModel):
     team: IdNameLink
-    league_record: LeagueRecord | None = None
+    league_record: WinLossRecord | None = None
     score: int | None = None
     is_winner: bool | None = None
     split_squad: bool | None = None
@@ -38,12 +32,12 @@ class ScheduleTeams(MlbBaseModel):
 
 
 class ScheduleGame(MlbBaseModel):
-    game_pk: int
+    game_pk: GamePk
     game_guid: str | None = None
     link: str
     game_type: str
-    season: str
-    game_date: str | None = None
+    season: int
+    game_date: datetime.datetime | None = None
     official_date: datetime.date | None = None
     status: GameStatus
     teams: ScheduleTeams
@@ -59,7 +53,7 @@ class ScheduleGame(MlbBaseModel):
 
 
 class ScheduleDate(MlbBaseModel):
-    date: str
+    date: datetime.date
     total_items: int | None = None
     total_events: int | None = None
     total_games: int | None = None

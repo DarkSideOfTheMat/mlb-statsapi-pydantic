@@ -2,8 +2,14 @@
 
 from __future__ import annotations
 
+from typing import NewType
+
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
+
+PersonId = NewType("PersonId", int)
+TeamId = NewType("TeamId", int)
+GamePk = NewType("GamePk", int)
 
 
 class MlbBaseModel(BaseModel):
@@ -43,3 +49,47 @@ class CodeDescription(MlbBaseModel):
 
     code: str
     description: str
+
+
+class PersonRef(MlbBaseModel):
+    """Lightweight person reference (id, fullName, link).
+
+    Used throughout the API for pitchers, batters, umpires, etc.
+    """
+
+    id: PersonId
+    full_name: str | None = None
+    link: str | None = None
+
+
+class PositionRef(MlbBaseModel):
+    """Position reference (code, name, type, abbreviation).
+
+    Uses ``code`` as the key (not ``id``), so this is *not* an IdNameLink.
+    """
+
+    code: str
+    name: str | None = None
+    type: str | None = None
+    abbreviation: str | None = None
+
+
+class WinLossRecord(MlbBaseModel):
+    """Win/loss record with optional pct, ties, and type."""
+
+    wins: int
+    losses: int
+    pct: str | None = None
+    ties: int | None = None
+    type: str | None = None
+
+
+class GameStatus(MlbBaseModel):
+    """Game status — union of fields from schedule and live-feed responses."""
+
+    abstract_game_state: str | None = None
+    coded_game_state: str | None = None
+    detailed_state: str | None = None
+    status_code: str | None = None
+    start_time_tbd: bool | None = None
+    abstract_game_code: str | None = None

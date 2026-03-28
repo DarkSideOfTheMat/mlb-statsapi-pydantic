@@ -17,7 +17,7 @@ class Team(MlbBaseModel):
     abbreviation: str
     team_name: str
     location_name: str | None = None
-    first_year_of_play: str | None = None
+    first_year_of_play: int | None = None
     league: IdNameLink
     division: IdNameLink | None = None
     sport: IdNameLink

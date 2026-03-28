@@ -76,7 +76,7 @@ class TestSeasonsLive:
         resp.raise_for_status()
         result = SeasonsResponse.model_validate(resp.json())
         assert len(result.seasons) >= 1
-        assert result.seasons[0].season_id == "2024"
+        assert result.seasons[0].season_id == 2024
         assert result.seasons[0].regular_season_start_date is not None
 
 

@@ -21,7 +21,7 @@ class TestVenue:
 
         data = load_fixture("venue_15")
         venue = Venue.model_validate(data["venues"][0])
-        assert venue.season == "2026"
+        assert venue.season == 2026
 
 
 class TestVenuesResponse:
