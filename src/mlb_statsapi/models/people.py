@@ -6,8 +6,8 @@ import datetime
 
 from mlb_statsapi.models._base import (
     ApiLink,
-    BaseResponse,
     CodeDescription,
+    ListResponse,
     MlbBaseModel,
     PersonId,
     PositionRef,
@@ -52,11 +52,11 @@ class Person(MlbBaseModel):
         if not self.height:
             return None
         try:
-            parts = self.height.replace('"', '').split("' ")
+            parts = self.height.replace('"', "").split("' ")
             return int(parts[0]) * 12 + int(parts[1]) if len(parts) == 2 else None
         except (ValueError, IndexError):
             return None
 
 
-class PeopleResponse(BaseResponse):
+class PeopleResponse(ListResponse[Person], items_field="people"):
     people: list[Person]

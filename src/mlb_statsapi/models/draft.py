@@ -8,9 +8,10 @@ from mlb_statsapi.models._base import (
     ApiLink,
     BaseResponse,
     CodeDescription,
-    IdNameLink,
     MlbBaseModel,
     PositionRef,
+    Ref,
+    TeamId,
 )
 
 
@@ -52,7 +53,7 @@ class DraftPick(MlbBaseModel):
     blurb: str | None = None
     headshot_link: str | None = None
     person: DraftPerson | None = None
-    team: IdNameLink | None = None
+    team: Ref[TeamId] | None = None
     draft_type: CodeDescription | None = None
     home: DraftHome | None = None
     school: DraftSchool | None = None

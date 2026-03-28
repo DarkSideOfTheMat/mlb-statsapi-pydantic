@@ -9,8 +9,10 @@ from mlb_statsapi.models._base import (
     BaseResponse,
     GamePk,
     GameStatus,
-    IdNameLink,
     MlbBaseModel,
+    Ref,
+    TeamId,
+    VenueId,
     WinLossRecord,
 )
 from mlb_statsapi.models.enums import (
@@ -22,7 +24,7 @@ from mlb_statsapi.models.enums import (
 
 
 class ScheduleTeamInfo(MlbBaseModel):
-    team: IdNameLink
+    team: Ref[TeamId]
     league_record: WinLossRecord | None = None
     score: int | None = None
     is_winner: bool | None = None
@@ -45,7 +47,7 @@ class ScheduleGame(MlbBaseModel):
     official_date: datetime.date | None = None
     status: GameStatus
     teams: ScheduleTeams
-    venue: IdNameLink
+    venue: Ref[VenueId]
     day_night: DayNight | str | None = None
     scheduled_innings: int | None = None
     game_number: int | None = None

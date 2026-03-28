@@ -8,8 +8,9 @@ from mlb_statsapi.models._base import (
     ApiLink,
     BaseResponse,
     GamePk,
-    IdNameLink,
     MlbBaseModel,
+    Ref,
+    TeamId,
 )
 from mlb_statsapi.models.stats import GameTypeRef
 
@@ -42,7 +43,7 @@ class AttendanceRecord(MlbBaseModel):
     attendance_total_away: int | None = None
     attendance_total_home: int | None = None
     game_type: GameTypeRef | None = None
-    team: IdNameLink | None = None
+    team: Ref[TeamId] | None = None
 
 
 class AttendanceResponse(BaseResponse):

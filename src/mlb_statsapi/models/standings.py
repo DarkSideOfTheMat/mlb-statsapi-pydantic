@@ -6,8 +6,12 @@ import datetime
 
 from mlb_statsapi.models._base import (
     BaseResponse,
-    IdNameLink,
+    DivisionId,
+    LeagueId,
     MlbBaseModel,
+    Ref,
+    SportId,
+    TeamId,
     WinLossRecord,
 )
 from mlb_statsapi.models.enums import StandingsType, StreakType
@@ -19,9 +23,8 @@ class Streak(MlbBaseModel):
     streak_number: int | None = None
 
 
-
 class TeamStanding(MlbBaseModel):
-    team: IdNameLink
+    team: Ref[TeamId]
     season: int
     streak: Streak | None = None
     clinch_indicator: str | None = None
@@ -66,9 +69,9 @@ class TeamStanding(MlbBaseModel):
 
 class StandingsRecord(MlbBaseModel):
     standings_type: StandingsType | str
-    league: IdNameLink
-    division: IdNameLink
-    sport: IdNameLink | None = None
+    league: Ref[LeagueId]
+    division: Ref[DivisionId]
+    sport: Ref[SportId] | None = None
     last_updated: datetime.datetime | None = None
     team_records: list[TeamStanding] = []
 

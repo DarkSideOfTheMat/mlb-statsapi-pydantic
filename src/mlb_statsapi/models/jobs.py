@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, MlbBaseModel, PersonRef
+from mlb_statsapi.models._base import ListResponse, MlbBaseModel, PersonRef
 
 
 class JobEntry(MlbBaseModel):
@@ -13,5 +13,5 @@ class JobEntry(MlbBaseModel):
     title: str | None = None
 
 
-class JobsResponse(BaseResponse):
+class JobsResponse(ListResponse[JobEntry], items_field="roster"):
     roster: list[JobEntry] = []

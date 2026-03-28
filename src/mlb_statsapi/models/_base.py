@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import NewType
+from typing import Any, ClassVar, Generic, NewType, TypeVar
 
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
@@ -13,11 +13,25 @@ from mlb_statsapi.models.enums import (
     PositionType,
 )
 
+# ---------------------------------------------------------------------------
+# Semantic ID types — use these instead of bare ``int`` for domain clarity
+# ---------------------------------------------------------------------------
+
 PersonId = NewType("PersonId", int)
 TeamId = NewType("TeamId", int)
 GamePk = NewType("GamePk", int)
+SportId = NewType("SportId", int)
+LeagueId = NewType("LeagueId", int)
+DivisionId = NewType("DivisionId", int)
+VenueId = NewType("VenueId", int)
 ApiLink = NewType("ApiLink", str)
 """An API endpoint path, e.g. ``/api/v1/people/660271``."""
+
+# TypeVar for the generic Ref model
+IdT = TypeVar("IdT", bound=int)
+
+# TypeVar for the generic ListResponse model
+T = TypeVar("T")
 
 
 class MlbBaseModel(BaseModel):
@@ -40,16 +54,54 @@ class BaseResponse(MlbBaseModel):
     copyright: str
 
 
-class IdNameLink(MlbBaseModel):
-    """Ubiquitous {id, name, link} reference pattern.
+class ListResponse(BaseResponse, Generic[T]):
+    """Generic base for API responses that wrap a list of items.
 
-    Used for teams, venues, leagues, divisions, and people references.
-    ``name`` is optional because some refs (e.g. springVenue) omit it.
+    Subclasses define their own field (e.g. ``sports``, ``teams``) and
+    pass ``items_field`` to provide uniform access via the ``items`` property.
+
+    Example::
+
+        class SportsResponse(ListResponse[Sport], items_field="sports"):
+            sports: list[Sport] = []
+
+        resp.items  # -> list[Sport], same as resp.sports
     """
 
-    id: int
+    _items_field: ClassVar[str] = ""
+
+    def __init_subclass__(cls, *, items_field: str = "", **kwargs: Any) -> None:
+        super().__init_subclass__(**kwargs)
+        if items_field:
+            cls._items_field = items_field
+
+    @property
+    def items(self) -> list[T]:
+        """Access the wrapped list regardless of the field name."""
+        return getattr(self, self._items_field, [])
+
+
+class Ref(MlbBaseModel, Generic[IdT]):
+    """Generic ``{id, name, link}`` reference with a typed ID.
+
+    The MLB API uses this pattern everywhere to reference entities:
+    teams, venues, leagues, divisions, sports, etc. The generic
+    parameter gives each reference an explicit ID type::
+
+        team: Ref[TeamId]       # team.id is TeamId (not bare int)
+        venue: Ref[VenueId]     # venue.id is VenueId
+        league: Ref[LeagueId]   # league.id is LeagueId
+
+    ``name`` is optional because some refs (e.g. ``springVenue``) omit it.
+    """
+
+    id: IdT
     name: str | None = None
     link: ApiLink
+
+
+# Backwards-compatible alias — prefer ``Ref[TeamId]`` etc. in new code
+IdNameLink = Ref[int]
 
 
 class CodeDescription(MlbBaseModel):
@@ -63,6 +115,7 @@ class PersonRef(MlbBaseModel):
     """Lightweight person reference (id, fullName, link).
 
     Used throughout the API for pitchers, batters, umpires, etc.
+    Unlike ``Ref``, uses ``fullName`` (not ``name``) and link is optional.
     """
 
     id: PersonId
@@ -73,7 +126,7 @@ class PersonRef(MlbBaseModel):
 class PositionRef(MlbBaseModel):
     """Position reference (code, name, type, abbreviation).
 
-    Uses ``code`` as the key (not ``id``), so this is *not* an IdNameLink.
+    Uses ``code`` as the key (not ``id``), so this is *not* a Ref.
     """
 
     code: str

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import datetime
 
-from mlb_statsapi.models._base import BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ListResponse, MlbBaseModel
 
 
 class Season(MlbBaseModel):
@@ -27,5 +27,5 @@ class Season(MlbBaseModel):
     off_season_end_date: datetime.date | None = None
 
 
-class SeasonsResponse(BaseResponse):
+class SeasonsResponse(ListResponse[Season], items_field="seasons"):
     seasons: list[Season]

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import ApiLink, BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, LeagueId, ListResponse, MlbBaseModel
 
 
 class League(MlbBaseModel):
-    id: int
+    id: LeagueId
     name: str | None = None
     link: ApiLink
     abbreviation: str | None = None
@@ -20,5 +20,5 @@ class League(MlbBaseModel):
     num_wildcard_teams: int | None = None
 
 
-class LeaguesResponse(BaseResponse):
+class LeaguesResponse(ListResponse[League], items_field="leagues"):
     leagues: list[League]

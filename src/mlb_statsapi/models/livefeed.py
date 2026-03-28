@@ -15,11 +15,12 @@ from mlb_statsapi.models._base import (
     CodeDescription,
     GamePk,
     GameStatus,
-    IdNameLink,
     MlbBaseModel,
     PersonRef,
     PositionRef,
+    Ref,
     TeamId,
+    VenueId,
     WinLossRecord,
 )
 from mlb_statsapi.models.enums import (
@@ -457,8 +458,8 @@ class GameData(MlbBaseModel):
     datetime: GameDateTime | None = None
     status: GameStatus | None = None
     teams: GameDataTeams | None = None
-    venue: IdNameLink | None = None
-    official_venue: IdNameLink | None = None
+    venue: Ref[VenueId] | None = None
+    official_venue: Ref[VenueId] | None = None
     weather: Weather | None = None
     game_info: GameInfoDetails | None = None
     review: ReviewInfo | None = None

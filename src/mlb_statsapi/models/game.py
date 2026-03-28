@@ -5,11 +5,11 @@ from __future__ import annotations
 from mlb_statsapi.models._base import (
     BaseResponse,
     CodeDescription,
-    IdNameLink,
     MlbBaseModel,
     PersonId,
     PersonRef,
     PositionRef,
+    Ref,
     TeamId,
 )
 from mlb_statsapi.models.enums import HalfInning
@@ -108,7 +108,7 @@ class BoxscoreTeamStats(MlbBaseModel):
 
 
 class BoxscoreTeam(MlbBaseModel):
-    team: IdNameLink
+    team: Ref[TeamId]
     team_stats: BoxscoreTeamStats | None = None
     players: dict[str, BoxscorePlayer] = {}
     batters: list[PersonId] = []

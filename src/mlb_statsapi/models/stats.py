@@ -4,9 +4,13 @@ from __future__ import annotations
 
 from mlb_statsapi.models._base import (
     BaseResponse,
-    IdNameLink,
+    LeagueId,
     MlbBaseModel,
+    PersonId,
     PersonRef,
+    Ref,
+    SportId,
+    TeamId,
 )
 from mlb_statsapi.models.enums import StatGroup as StatGroupEnum
 
@@ -21,10 +25,10 @@ class GameTypeRef(MlbBaseModel):
 class LeaderEntry(MlbBaseModel):
     rank: int
     value: str
-    team: IdNameLink | None = None
-    league: IdNameLink | None = None
+    team: Ref[TeamId] | None = None
+    league: Ref[LeagueId] | None = None
     person: PersonRef
-    sport: IdNameLink | None = None
+    sport: Ref[SportId] | None = None
     season: int | None = None
     num_teams: int | None = None
 
@@ -41,9 +45,9 @@ class LeaderCategory(MlbBaseModel):
 class StatSplit(MlbBaseModel):
     season: str | None = None
     stat: dict[str, int | str | float] | None = None
-    team: IdNameLink | None = None
-    player: IdNameLink | None = None
-    sport: IdNameLink | None = None
+    team: Ref[TeamId] | None = None
+    player: Ref[PersonId] | None = None
+    sport: Ref[SportId] | None = None
     game_type: GameTypeRef | str | None = None
 
 

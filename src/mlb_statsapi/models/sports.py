@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import ApiLink, BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, ListResponse, MlbBaseModel, SportId
 
 
 class Sport(MlbBaseModel):
-    id: int
+    id: SportId
     code: str
     link: ApiLink
     name: str
@@ -15,5 +15,5 @@ class Sport(MlbBaseModel):
     active_status: bool
 
 
-class SportsResponse(BaseResponse):
+class SportsResponse(ListResponse[Sport], items_field="sports"):
     sports: list[Sport]

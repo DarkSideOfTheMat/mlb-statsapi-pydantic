@@ -104,6 +104,105 @@ class TestIdNameLink:
         assert obj.model_extra["abbreviation"] == "CL"
 
 
+class TestRef:
+    """Test the generic Ref[IdT] pattern with typed IDs."""
+
+    def test_ref_with_team_id(self):
+        from mlb_statsapi.models._base import Ref, TeamId
+
+        team = Ref[TeamId].model_validate(
+            {"id": 147, "name": "New York Yankees", "link": "/api/v1/teams/147"}
+        )
+        assert team.id == 147
+        assert team.name == "New York Yankees"
+
+    def test_ref_with_venue_id(self):
+        from mlb_statsapi.models._base import Ref, VenueId
+
+        venue = Ref[VenueId].model_validate(
+            {"id": 3313, "name": "Yankee Stadium", "link": "/api/v1/venues/3313"}
+        )
+        assert venue.id == 3313
+
+    def test_ref_with_league_id(self):
+        from mlb_statsapi.models._base import LeagueId, Ref
+
+        league = Ref[LeagueId].model_validate(
+            {"id": 103, "name": "American League", "link": "/api/v1/league/103"}
+        )
+        assert league.id == 103
+
+    def test_ref_name_optional(self):
+        from mlb_statsapi.models._base import Ref, VenueId
+
+        venue = Ref[VenueId].model_validate(
+            {"id": 4249, "link": "/api/v1/venues/4249"}
+        )
+        assert venue.name is None
+
+    def test_ref_extra_fields_preserved(self):
+        from mlb_statsapi.models._base import LeagueId, Ref
+
+        obj = Ref[LeagueId].model_validate({
+            "id": 114,
+            "name": "Cactus League",
+            "link": "/api/v1/league/114",
+            "abbreviation": "CL",
+        })
+        assert obj.model_extra["abbreviation"] == "CL"
+
+    def test_idnamelink_alias_works(self):
+        """IdNameLink = Ref[int] should remain backwards compatible."""
+        from mlb_statsapi.models._base import IdNameLink
+
+        obj = IdNameLink.model_validate(
+            {"id": 1, "name": "Test", "link": "/test"}
+        )
+        assert obj.id == 1
+
+
+class TestListResponse:
+    """Test the generic ListResponse[T] base class."""
+
+    def test_items_property(self):
+        from mlb_statsapi.models.sports import SportsResponse
+
+        data = {
+            "copyright": "Copyright MLB",
+            "sports": [
+                {
+                    "id": 1,
+                    "code": "mlb",
+                    "link": "/api/v1/sports/1",
+                    "name": "Major League Baseball",
+                    "abbreviation": "MLB",
+                    "sortOrder": 11,
+                    "activeStatus": True,
+                }
+            ],
+        }
+        resp = SportsResponse.model_validate(data)
+        assert resp.items == resp.sports
+        assert len(resp.items) == 1
+        assert resp.items[0].name == "Major League Baseball"
+
+    def test_items_on_teams_response(self):
+        from mlb_statsapi.models.teams import TeamsResponse
+        from tests.conftest import load_fixture
+
+        data = load_fixture("teams")
+        resp = TeamsResponse.model_validate(data)
+        assert resp.items == resp.teams
+        assert len(resp.items) > 0
+
+    def test_items_empty_list(self):
+        from mlb_statsapi.models.venues import VenuesResponse
+
+        data = {"copyright": "Copyright MLB", "venues": []}
+        resp = VenuesResponse.model_validate(data)
+        assert resp.items == []
+
+
 class TestCodeDescription:
     """Test the {code, description} pattern used by batSide, pitchHand, etc."""
 

@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from tests.conftest import load_fixture
-
 from mlb_statsapi.models._base import PersonRef
 from mlb_statsapi.models.livefeed import (
     Count,
@@ -15,6 +13,7 @@ from mlb_statsapi.models.livefeed import (
     Runner,
     RunnerMovement,
 )
+from tests.conftest import load_fixture
 
 
 class TestLiveFeedResponse:
