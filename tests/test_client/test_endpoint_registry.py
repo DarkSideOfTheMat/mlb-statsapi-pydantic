@@ -74,9 +74,20 @@ class TestEndpointCoverage:
         from mlb_statsapi.endpoints.registry import ENDPOINTS
 
         tier1 = [
-            "sports", "teams", "team", "people", "person", "schedule",
-            "standings", "game", "game_boxscore", "game_linescore",
-            "game_playByPlay", "stats_leaders", "team_roster", "seasons",
+            "sports",
+            "teams",
+            "team",
+            "people",
+            "person",
+            "schedule",
+            "standings",
+            "game",
+            "game_boxscore",
+            "game_linescore",
+            "game_playByPlay",
+            "stats_leaders",
+            "team_roster",
+            "seasons",
         ]
         for name in tier1:
             assert name in ENDPOINTS, f"Missing Tier 1 endpoint: {name}"
@@ -91,8 +102,11 @@ class TestEndpointCoverage:
         from mlb_statsapi.endpoints.registry import ENDPOINTS
 
         game_eps = [
-            "game", "game_boxscore", "game_linescore",
-            "game_playByPlay", "game_content",
+            "game",
+            "game_boxscore",
+            "game_linescore",
+            "game_playByPlay",
+            "game_content",
         ]
         for name in game_eps:
             ep = ENDPOINTS[name]
@@ -109,9 +123,15 @@ class TestEndpointCoverage:
         from mlb_statsapi.endpoints.registry import ENDPOINTS
 
         tier1_with_models = [
-            "sports", "teams", "person", "schedule",
-            "standings", "game_boxscore", "game_linescore",
-            "stats_leaders", "seasons",
+            "sports",
+            "teams",
+            "person",
+            "schedule",
+            "standings",
+            "game_boxscore",
+            "game_linescore",
+            "stats_leaders",
+            "seasons",
         ]
         for name in tier1_with_models:
             ep = ENDPOINTS[name]

@@ -19,7 +19,6 @@ class Streak(MlbBaseModel):
     streak_number: int | None = None
 
 
-
 class TeamStanding(MlbBaseModel):
     team: IdNameLink
     season: int

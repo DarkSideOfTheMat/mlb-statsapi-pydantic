@@ -95,12 +95,14 @@ class TestIdNameLink:
         """Extended refs like springLeague include abbreviation."""
         from mlb_statsapi.models._base import IdNameLink
 
-        obj = IdNameLink.model_validate({
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        })
+        obj = IdNameLink.model_validate(
+            {
+                "id": 114,
+                "name": "Cactus League",
+                "link": "/api/v1/league/114",
+                "abbreviation": "CL",
+            }
+        )
         assert obj.model_extra["abbreviation"] == "CL"
 
 

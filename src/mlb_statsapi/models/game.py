@@ -58,7 +58,6 @@ class LinescoreResponse(BaseResponse):
 # --- Boxscore ---
 
 
-
 class BoxscoreInfoField(MlbBaseModel):
     """A single label/value field within a boxscore info section."""
 
@@ -120,14 +119,11 @@ class BoxscoreTeam(MlbBaseModel):
     note: list[BoxscoreInfoField] = []
 
     def _resolve_ids(
-        self, ids: list[PersonId],
+        self,
+        ids: list[PersonId],
     ) -> list[BoxscorePlayer]:
         """Resolve a list of player IDs to BoxscorePlayer objects."""
-        return [
-            self.players[key]
-            for pid in ids
-            if (key := f"ID{pid}") in self.players
-        ]
+        return [self.players[key] for pid in ids if (key := f"ID{pid}") in self.players]
 
     @property
     def batter_players(self) -> list[BoxscorePlayer]:

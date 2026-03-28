@@ -52,7 +52,7 @@ class Person(MlbBaseModel):
         if not self.height:
             return None
         try:
-            parts = self.height.replace('"', '').split("' ")
+            parts = self.height.replace('"', "").split("' ")
             return int(parts[0]) * 12 + int(parts[1]) if len(parts) == 2 else None
         except (ValueError, IndexError):
             return None

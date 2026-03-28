@@ -73,7 +73,9 @@ class MlbClient(ClientMixin):
         return cast(TeamsResponse, self._request("team", teamId=str(team_id), **params))
 
     def person(self, person_id: int, **params: Any) -> PeopleResponse:
-        return cast(PeopleResponse, self._request("person", personId=str(person_id), **params))
+        return cast(
+            PeopleResponse, self._request("person", personId=str(person_id), **params)
+        )
 
     def schedule(
         self,
@@ -107,13 +109,21 @@ class MlbClient(ClientMixin):
         return cast(StandingsResponse, self._request("standings", **kw))
 
     def game(self, game_pk: int, **params: Any) -> LiveFeedResponse:
-        return cast(LiveFeedResponse, self._request("game", gamePk=str(game_pk), **params))
+        return cast(
+            LiveFeedResponse, self._request("game", gamePk=str(game_pk), **params)
+        )
 
     def boxscore(self, game_pk: int, **params: Any) -> BoxscoreResponse:
-        return cast(BoxscoreResponse, self._request("game_boxscore", gamePk=str(game_pk), **params))
+        return cast(
+            BoxscoreResponse,
+            self._request("game_boxscore", gamePk=str(game_pk), **params),
+        )
 
     def linescore(self, game_pk: int, **params: Any) -> LinescoreResponse:
-        return cast(LinescoreResponse, self._request("game_linescore", gamePk=str(game_pk), **params))
+        return cast(
+            LinescoreResponse,
+            self._request("game_linescore", gamePk=str(game_pk), **params),
+        )
 
     def league_leaders(
         self,
