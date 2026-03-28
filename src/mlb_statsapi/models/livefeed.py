@@ -208,6 +208,15 @@ class MatchupSplits(MlbBaseModel):
     men_on_base: str | None = None
 
 
+class HotColdZone(MlbBaseModel):
+    """Strike zone heat map zone for a batter or pitcher."""
+
+    zone: str | None = None
+    color: str | None = None
+    temp: str | None = None
+    value: str | None = None
+
+
 class Matchup(MlbBaseModel):
     """Batter vs. pitcher matchup for an at-bat."""
 
@@ -215,8 +224,8 @@ class Matchup(MlbBaseModel):
     bat_side: CodeDescription | None = None
     pitcher: PersonRef
     pitch_hand: CodeDescription | None = None
-    batter_hot_cold_zones: list[MlbBaseModel] = []
-    pitcher_hot_cold_zones: list[MlbBaseModel] = []
+    batter_hot_cold_zones: list[HotColdZone] = []
+    pitcher_hot_cold_zones: list[HotColdZone] = []
     splits: MatchupSplits | None = None
 
 
@@ -278,6 +287,23 @@ class Play(MlbBaseModel):
     play_end_time: datetime.datetime | None = None
     at_bat_index: int | None = None
 
+    @property
+    def pitches(self) -> list[PlayEvent]:
+        """Resolve pitch_index to PlayEvent objects."""
+        n = len(self.play_events)
+        return [self.play_events[i] for i in self.pitch_index if i < n]
+
+    @property
+    def actions(self) -> list[PlayEvent]:
+        """Resolve action_index to PlayEvent objects."""
+        n = len(self.play_events)
+        return [self.play_events[i] for i in self.action_index if i < n]
+
+    @property
+    def indexed_runners(self) -> list[Runner]:
+        """Resolve runner_index to Runner objects."""
+        return [self.runners[i] for i in self.runner_index if i < len(self.runners)]
+
 
 # ---------------------------------------------------------------------------
 # Plays container and plays-by-inning
@@ -302,6 +328,12 @@ class Plays(MlbBaseModel):
     scoring_plays: list[int] = []
     plays_by_inning: list[InningPlays] = []
 
+    @property
+    def scoring_play_objects(self) -> list[Play]:
+        """Resolve scoring_plays indices to Play objects."""
+        n = len(self.all_plays)
+        return [self.all_plays[i] for i in self.scoring_plays if i < n]
+
 
 # ---------------------------------------------------------------------------
 # Decisions (winning/losing pitcher, save)
@@ -317,6 +349,66 @@ class Decisions(MlbBaseModel):
 # ---------------------------------------------------------------------------
 # Game data (top-level gameData in live feed)
 # ---------------------------------------------------------------------------
+
+
+class GameInfo(MlbBaseModel):
+    """Game identification from gameData.game."""
+
+    pk: GamePk | None = None
+    type: str | None = None
+    double_header: str | None = None
+    id: str | None = None
+    gameday_type: str | None = None
+    tiebreaker: str | None = None
+    game_number: int | None = None
+    calendar_event_id: str | None = None
+    season: str | None = None
+    season_display: str | None = None
+
+
+class GameDateTime(MlbBaseModel):
+    """Date and time info from gameData.datetime."""
+
+    date_time: datetime.datetime | None = None
+    original_date: str | None = None
+    official_date: str | None = None
+    day_night: str | None = None
+    time: str | None = None
+    ampm: str | None = None
+
+
+class GameInfoDetails(MlbBaseModel):
+    """Game logistics from gameData.gameInfo."""
+
+    attendance: int | None = None
+    first_pitch: datetime.datetime | None = None
+    game_duration_minutes: int | None = None
+
+
+class ReviewTeam(MlbBaseModel):
+    """Challenge review counts for one team."""
+
+    used: int | None = None
+    remaining: int | None = None
+
+
+class ReviewInfo(MlbBaseModel):
+    """Manager challenge review info."""
+
+    has_challenges: bool | None = None
+    away: ReviewTeam | None = None
+    home: ReviewTeam | None = None
+
+
+class GameFlags(MlbBaseModel):
+    """No-hitter and perfect game flags."""
+
+    no_hitter: bool | None = None
+    perfect_game: bool | None = None
+    away_team_no_hitter: bool | None = None
+    away_team_perfect_game: bool | None = None
+    home_team_no_hitter: bool | None = None
+    home_team_perfect_game: bool | None = None
 
 
 # Backwards-compatible aliases
@@ -350,16 +442,16 @@ class ProbablePitchers(MlbBaseModel):
 class GameData(MlbBaseModel):
     """Top-level gameData from live feed."""
 
-    game: MlbBaseModel | None = None
-    datetime: MlbBaseModel | None = None
+    game: GameInfo | None = None
+    datetime: GameDateTime | None = None
     status: GameDataStatus | None = None
     teams: GameDataTeams | None = None
     venue: IdNameLink | None = None
     official_venue: IdNameLink | None = None
     weather: Weather | None = None
-    game_info: MlbBaseModel | None = None
-    review: MlbBaseModel | None = None
-    flags: MlbBaseModel | None = None
+    game_info: GameInfoDetails | None = None
+    review: ReviewInfo | None = None
+    flags: GameFlags | None = None
     probable_pitchers: ProbablePitchers | None = None
 
 
@@ -372,7 +464,9 @@ class LiveData(MlbBaseModel):
     """Top-level liveData from live feed."""
 
     plays: Plays | None = None
+    # TODO: type as LinescoreResponse once response hierarchy is refactored
     linescore: MlbBaseModel | None = None
+    # TODO: type as BoxscoreResponse once response hierarchy is refactored
     boxscore: MlbBaseModel | None = None
     decisions: Decisions | None = None
     leaders: MlbBaseModel | None = None

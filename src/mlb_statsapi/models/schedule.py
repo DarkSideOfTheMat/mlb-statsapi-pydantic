@@ -12,6 +12,7 @@ from mlb_statsapi.models._base import (
     MlbBaseModel,
     WinLossRecord,
 )
+from mlb_statsapi.models.enums import GameType
 
 # Backwards-compatible alias
 LeagueRecord = WinLossRecord
@@ -35,7 +36,7 @@ class ScheduleGame(MlbBaseModel):
     game_pk: GamePk
     game_guid: str | None = None
     link: str
-    game_type: str
+    game_type: GameType | str
     season: int
     game_date: datetime.datetime | None = None
     official_date: datetime.date | None = None

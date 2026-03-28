@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import BaseResponse, GamePk, IdNameLink, MlbBaseModel
+from mlb_statsapi.models.stats import GameTypeRef
 
 
 class AttendanceGame(MlbBaseModel):
@@ -34,7 +35,7 @@ class AttendanceRecord(MlbBaseModel):
     attendance_total: int | None = None
     attendance_total_away: int | None = None
     attendance_total_home: int | None = None
-    game_type: MlbBaseModel | None = None
+    game_type: GameTypeRef | None = None
     team: IdNameLink | None = None
 
 
