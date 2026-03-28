@@ -21,6 +21,20 @@ from mlb_statsapi.models._base import (
     TeamId,
     WinLossRecord,
 )
+from mlb_statsapi.models.enums import (
+    DayNight,
+    DoubleHeaderCode,
+    EventType,
+    FieldingCredit,
+    GameType,
+    HalfInning,
+    PitchCode,
+    Sky,
+    TiebreakerCode,
+)
+from mlb_statsapi.models.enums import (
+    PitchType as PitchTypeEnum,
+)
 
 # ---------------------------------------------------------------------------
 # Pitch data — the core of play events
@@ -60,11 +74,15 @@ class PitchBreaks(MlbBaseModel):
     spin_direction: int | None = None
 
 
-class PitchType(MlbBaseModel):
+class PitchTypeInfo(MlbBaseModel):
     """Pitch classification (e.g. FF = Four-Seam Fastball)."""
 
-    code: str
+    code: PitchTypeEnum | str
     description: str | None = None
+
+
+# Backwards-compatible alias
+PitchType = PitchTypeInfo
 
 
 class PitchData(MlbBaseModel):
@@ -90,7 +108,7 @@ class PitchData(MlbBaseModel):
 class PlayEventCall(MlbBaseModel):
     """Umpire call on a pitch (B, S, X, etc.)."""
 
-    code: str
+    code: PitchCode | str
     description: str | None = None
 
 
@@ -105,12 +123,12 @@ class PlayEventDetails(MlbBaseModel):
     is_in_play: bool | None = None
     is_strike: bool | None = None
     is_ball: bool | None = None
-    type: PitchType | None = None
+    type: PitchTypeInfo | None = None
     is_out: bool | None = None
     has_review: bool | None = None
     # Action-specific fields
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     away_score: int | None = None
     home_score: int | None = None
     is_scoring_play: bool | None = None
@@ -168,7 +186,7 @@ class RunnerDetails(MlbBaseModel):
     """Details about a runner's action during a play."""
 
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     movement_reason: str | None = None
     runner: PersonRef | None = None
     responsible_pitcher: PersonRef | None = None
@@ -184,7 +202,7 @@ class RunnerCredit(MlbBaseModel):
 
     player: PersonRef | None = None
     position: PositionRef | None = None
-    credit: str | None = None
+    credit: FieldingCredit | str | None = None
 
 
 class Runner(MlbBaseModel):
@@ -239,7 +257,7 @@ class PlayResult(MlbBaseModel):
 
     type: str | None = None
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     description: str | None = None
     rbi: int | None = None
     away_score: int | None = None
@@ -251,7 +269,7 @@ class PlayAbout(MlbBaseModel):
     """Metadata about when/where a play occurred."""
 
     at_bat_index: int | None = None
-    half_inning: str | None = None
+    half_inning: HalfInning | str | None = None
     is_top_inning: bool | None = None
     inning: int | None = None
     start_time: datetime.datetime | None = None
@@ -355,11 +373,11 @@ class GameInfo(MlbBaseModel):
     """Game identification from gameData.game."""
 
     pk: GamePk | None = None
-    type: str | None = None
-    double_header: str | None = None
+    type: GameType | str | None = None
+    double_header: DoubleHeaderCode | str | None = None
     id: str | None = None
     gameday_type: str | None = None
-    tiebreaker: str | None = None
+    tiebreaker: TiebreakerCode | str | None = None
     game_number: int | None = None
     calendar_event_id: str | None = None
     season: str | None = None
@@ -372,7 +390,7 @@ class GameDateTime(MlbBaseModel):
     date_time: datetime.datetime | None = None
     original_date: str | None = None
     official_date: str | None = None
-    day_night: str | None = None
+    day_night: DayNight | str | None = None
     time: str | None = None
     ampm: str | None = None
 
@@ -429,7 +447,7 @@ class GameDataTeams(MlbBaseModel):
 
 
 class Weather(MlbBaseModel):
-    condition: str | None = None
+    condition: Sky | str | None = None
     temp: str | None = None
     wind: str | None = None
 

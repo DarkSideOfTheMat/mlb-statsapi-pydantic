@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel, PersonRef
+from mlb_statsapi.models.enums import TransactionType
 
 # Backwards-compatible alias
 TransactionPerson = PersonRef
@@ -18,7 +19,7 @@ class Transaction(MlbBaseModel):
     date: datetime.date | None = None
     effective_date: datetime.date | None = None
     resolution_date: datetime.date | None = None
-    type_code: str | None = None
+    type_code: TransactionType | str | None = None
     type_desc: str | None = None
     description: str | None = None
 

@@ -12,6 +12,7 @@ from mlb_statsapi.models._base import (
     PositionRef,
     TeamId,
 )
+from mlb_statsapi.models.enums import HalfInning
 
 # --- Linescore ---
 
@@ -47,7 +48,7 @@ class LinescoreResponse(BaseResponse):
     current_inning: int | None = None
     current_inning_ordinal: str | None = None
     inning_state: str | None = None
-    inning_half: str | None = None
+    inning_half: HalfInning | str | None = None
     is_top_inning: bool | None = None
     scheduled_innings: int | None = None
     innings: list[LinescoreInning] = []

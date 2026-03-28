@@ -7,7 +7,11 @@ from typing import NewType
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
-from mlb_statsapi.models.enums import AbstractGameState, PositionType
+from mlb_statsapi.models.enums import (
+    AbstractGameState,
+    CodedGameState,
+    PositionType,
+)
 
 PersonId = NewType("PersonId", int)
 TeamId = NewType("TeamId", int)
@@ -100,8 +104,8 @@ class GameStatus(MlbBaseModel):
     """Game status — union of fields from schedule and live-feed responses."""
 
     abstract_game_state: AbstractGameState | str | None = None
-    coded_game_state: str | None = None
+    coded_game_state: CodedGameState | str | None = None
     detailed_state: str | None = None
     status_code: str | None = None
     start_time_tbd: bool | None = None
-    abstract_game_code: str | None = None
+    abstract_game_code: AbstractGameState | str | None = None

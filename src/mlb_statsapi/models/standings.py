@@ -10,11 +10,12 @@ from mlb_statsapi.models._base import (
     MlbBaseModel,
     WinLossRecord,
 )
+from mlb_statsapi.models.enums import StandingsType, StreakType
 
 
 class Streak(MlbBaseModel):
     streak_code: str | None = None
-    streak_type: str | None = None
+    streak_type: StreakType | str | None = None
     streak_number: int | None = None
 
 
@@ -68,7 +69,7 @@ class TeamStanding(MlbBaseModel):
 
 
 class StandingsRecord(MlbBaseModel):
-    standings_type: str
+    standings_type: StandingsType | str
     league: IdNameLink
     division: IdNameLink
     sport: IdNameLink | None = None

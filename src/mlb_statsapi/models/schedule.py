@@ -12,7 +12,12 @@ from mlb_statsapi.models._base import (
     MlbBaseModel,
     WinLossRecord,
 )
-from mlb_statsapi.models.enums import GameType
+from mlb_statsapi.models.enums import (
+    DayNight,
+    DoubleHeaderCode,
+    GameType,
+    TiebreakerCode,
+)
 
 # Backwards-compatible alias
 LeagueRecord = WinLossRecord
@@ -43,11 +48,11 @@ class ScheduleGame(MlbBaseModel):
     status: GameStatus
     teams: ScheduleTeams
     venue: IdNameLink
-    day_night: str | None = None
+    day_night: DayNight | str | None = None
     scheduled_innings: int | None = None
     game_number: int | None = None
-    double_header: str | None = None
-    tiebreaker: str | None = None
+    double_header: DoubleHeaderCode | str | None = None
+    tiebreaker: TiebreakerCode | str | None = None
     is_tie: bool | None = None
     season_display: str | None = None
     public_facing: bool | None = None

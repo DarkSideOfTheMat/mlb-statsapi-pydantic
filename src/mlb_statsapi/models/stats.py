@@ -8,6 +8,7 @@ from mlb_statsapi.models._base import (
     MlbBaseModel,
     PersonRef,
 )
+from mlb_statsapi.models.enums import StatGroup as StatGroupEnum
 
 # Backwards-compatible alias
 LeaderPersonRef = PersonRef
@@ -35,7 +36,7 @@ class LeaderCategory(MlbBaseModel):
     leader_category: str
     season: str | None = None
     game_type: GameTypeRef | str | None = None
-    stat_group: str | None = None
+    stat_group: StatGroupEnum | str | None = None
     total_splits: int | None = None
     leaders: list[LeaderEntry] = []
 
