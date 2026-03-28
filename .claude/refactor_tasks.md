@@ -6,7 +6,7 @@
 ---
 
 ## Task 1: Consolidate shared models into `_base.py`
-**Status:** not started
+**Status:** completed
 **Blocked by:** —
 
 Deduplicate models repeated across files:
