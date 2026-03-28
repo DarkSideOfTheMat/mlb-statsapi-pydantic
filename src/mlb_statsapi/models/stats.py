@@ -10,9 +10,6 @@ from mlb_statsapi.models._base import (
 )
 from mlb_statsapi.models.enums import StatGroup as StatGroupEnum
 
-# Backwards-compatible alias
-LeaderPersonRef = PersonRef
-
 
 class GameTypeRef(MlbBaseModel):
     """gameType can be a string or {id, description} object."""

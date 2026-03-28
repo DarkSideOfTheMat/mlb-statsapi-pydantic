@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, BaseResponse, MlbBaseModel
 
 
 class Sport(MlbBaseModel):
     id: int
     code: str
-    link: str
+    link: ApiLink
     name: str
     abbreviation: str
     sort_order: int

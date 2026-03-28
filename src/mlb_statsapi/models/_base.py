@@ -16,6 +16,8 @@ from mlb_statsapi.models.enums import (
 PersonId = NewType("PersonId", int)
 TeamId = NewType("TeamId", int)
 GamePk = NewType("GamePk", int)
+ApiLink = NewType("ApiLink", str)
+"""An API endpoint path, e.g. ``/api/v1/people/660271``."""
 
 
 class MlbBaseModel(BaseModel):
@@ -47,7 +49,7 @@ class IdNameLink(MlbBaseModel):
 
     id: int
     name: str | None = None
-    link: str
+    link: ApiLink
 
 
 class CodeDescription(MlbBaseModel):
@@ -65,7 +67,7 @@ class PersonRef(MlbBaseModel):
 
     id: PersonId
     full_name: str | None = None
-    link: str | None = None
+    link: ApiLink | None = None
 
 
 class PositionRef(MlbBaseModel):

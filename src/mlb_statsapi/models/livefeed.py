@@ -10,6 +10,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
     GamePk,
@@ -35,6 +36,7 @@ from mlb_statsapi.models.enums import (
 from mlb_statsapi.models.enums import (
     PitchType as PitchTypeEnum,
 )
+from mlb_statsapi.models.people import Person
 
 # ---------------------------------------------------------------------------
 # Pitch data — the core of play events
@@ -79,10 +81,6 @@ class PitchTypeInfo(MlbBaseModel):
 
     code: PitchTypeEnum | str
     description: str | None = None
-
-
-# Backwards-compatible alias
-PitchType = PitchTypeInfo
 
 
 class PitchData(MlbBaseModel):
@@ -429,16 +427,11 @@ class GameFlags(MlbBaseModel):
     home_team_perfect_game: bool | None = None
 
 
-# Backwards-compatible aliases
-GameDataStatus = GameStatus
-GameDataTeamRecord = WinLossRecord
-
-
 class GameDataTeam(MlbBaseModel):
     id: TeamId
     name: str | None = None
-    link: str | None = None
-    record: GameDataTeamRecord | None = None
+    link: ApiLink | None = None
+    record: WinLossRecord | None = None
 
 
 class GameDataTeams(MlbBaseModel):
@@ -462,7 +455,7 @@ class GameData(MlbBaseModel):
 
     game: GameInfo | None = None
     datetime: GameDateTime | None = None
-    status: GameDataStatus | None = None
+    status: GameStatus | None = None
     teams: GameDataTeams | None = None
     venue: IdNameLink | None = None
     official_venue: IdNameLink | None = None
@@ -471,7 +464,7 @@ class GameData(MlbBaseModel):
     review: ReviewInfo | None = None
     flags: GameFlags | None = None
     probable_pitchers: ProbablePitchers | None = None
-    players: dict[str, MlbBaseModel] | None = None
+    players: dict[str, Person] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -500,7 +493,7 @@ class LiveFeedResponse(BaseResponse):
     """
 
     game_pk: GamePk
-    link: str | None = None
+    link: ApiLink | None = None
     meta_data: MlbBaseModel | None = None
     game_data: GameData
     live_data: LiveData

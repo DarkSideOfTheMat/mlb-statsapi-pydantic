@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, BaseResponse, IdNameLink, MlbBaseModel
 
 
 class Division(MlbBaseModel):
@@ -10,7 +10,7 @@ class Division(MlbBaseModel):
     name: str
     season: int
     name_short: str
-    link: str
+    link: ApiLink
     abbreviation: str
     league: IdNameLink
     sport: IdNameLink

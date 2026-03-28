@@ -58,10 +58,6 @@ class LinescoreResponse(BaseResponse):
 # --- Boxscore ---
 
 
-# Backwards-compatible aliases
-BoxscorePersonRef = PersonRef
-BoxscorePosition = PositionRef
-
 
 class BoxscoreInfoField(MlbBaseModel):
     """A single label/value field within a boxscore info section."""

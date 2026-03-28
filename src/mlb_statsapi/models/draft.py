@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
     IdNameLink,
@@ -16,7 +17,7 @@ from mlb_statsapi.models._base import (
 class DraftPerson(MlbBaseModel):
     id: int | None = None
     full_name: str | None = None
-    link: str | None = None
+    link: ApiLink | None = None
     first_name: str | None = None
     last_name: str | None = None
     birth_date: datetime.date | None = None

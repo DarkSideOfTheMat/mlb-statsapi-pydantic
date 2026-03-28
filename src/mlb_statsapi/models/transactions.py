@@ -7,9 +7,6 @@ import datetime
 from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel, PersonRef
 from mlb_statsapi.models.enums import TransactionType
 
-# Backwards-compatible alias
-TransactionPerson = PersonRef
-
 
 class Transaction(MlbBaseModel):
     id: int

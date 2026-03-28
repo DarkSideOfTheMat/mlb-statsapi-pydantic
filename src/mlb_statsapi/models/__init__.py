@@ -1,6 +1,7 @@
 """Pydantic models for MLB Stats API responses."""
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
     GamePk,
@@ -73,6 +74,7 @@ from mlb_statsapi.models.venues import Venue, VenuesResponse
 
 __all__ = [
     # Base
+    "ApiLink",
     "BaseResponse",
     "CodeDescription",
     "GamePk",

@@ -4,9 +4,6 @@ from __future__ import annotations
 
 from mlb_statsapi.models._base import BaseResponse, MlbBaseModel, PersonRef
 
-# Backwards-compatible alias
-JobPerson = PersonRef
-
 
 class JobEntry(MlbBaseModel):
     person: PersonRef | None = None

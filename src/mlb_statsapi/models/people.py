@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
     MlbBaseModel,
@@ -12,14 +13,11 @@ from mlb_statsapi.models._base import (
     PositionRef,
 )
 
-# Backwards-compatible alias
-PrimaryPosition = PositionRef
-
 
 class Person(MlbBaseModel):
     id: PersonId
     full_name: str
-    link: str
+    link: ApiLink
     first_name: str | None = None
     last_name: str | None = None
     primary_number: str | None = None

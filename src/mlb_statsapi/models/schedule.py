@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     GamePk,
     GameStatus,
@@ -18,9 +19,6 @@ from mlb_statsapi.models.enums import (
     GameType,
     TiebreakerCode,
 )
-
-# Backwards-compatible alias
-LeagueRecord = WinLossRecord
 
 
 class ScheduleTeamInfo(MlbBaseModel):
@@ -40,7 +38,7 @@ class ScheduleTeams(MlbBaseModel):
 class ScheduleGame(MlbBaseModel):
     game_pk: GamePk
     game_guid: str | None = None
-    link: str
+    link: ApiLink
     game_type: GameType | str
     season: int
     game_date: datetime.datetime | None = None

@@ -4,13 +4,19 @@ from __future__ import annotations
 
 import datetime
 
-from mlb_statsapi.models._base import BaseResponse, GamePk, IdNameLink, MlbBaseModel
+from mlb_statsapi.models._base import (
+    ApiLink,
+    BaseResponse,
+    GamePk,
+    IdNameLink,
+    MlbBaseModel,
+)
 from mlb_statsapi.models.stats import GameTypeRef
 
 
 class AttendanceGame(MlbBaseModel):
     game_pk: GamePk | None = None
-    link: str | None = None
+    link: ApiLink | None = None
 
 
 class AttendanceRecord(MlbBaseModel):

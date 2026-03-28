@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, BaseResponse, MlbBaseModel
 
 
 class League(MlbBaseModel):
     id: int
     name: str | None = None
-    link: str
+    link: ApiLink
     abbreviation: str | None = None
     name_short: str | None = None
     season_state: str | None = None

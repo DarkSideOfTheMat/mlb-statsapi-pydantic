@@ -19,10 +19,6 @@ class Streak(MlbBaseModel):
     streak_number: int | None = None
 
 
-# Backwards-compatible aliases
-StandingsLeagueRecord = WinLossRecord
-SplitRecord = WinLossRecord
-
 
 class TeamStanding(MlbBaseModel):
     team: IdNameLink
