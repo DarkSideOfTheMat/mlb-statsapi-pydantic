@@ -2,12 +2,21 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+import datetime
+
+from mlb_statsapi.models._base import (
+    ApiLink,
+    BaseResponse,
+    GamePk,
+    IdNameLink,
+    MlbBaseModel,
+)
+from mlb_statsapi.models.stats import GameTypeRef
 
 
 class AttendanceGame(MlbBaseModel):
-    game_pk: int | None = None
-    link: str | None = None
+    game_pk: GamePk | None = None
+    link: ApiLink | None = None
 
 
 class AttendanceRecord(MlbBaseModel):
@@ -23,16 +32,16 @@ class AttendanceRecord(MlbBaseModel):
     attendance_average_home: int | None = None
     attendance_average_ytd: int | None = None
     attendance_high: int | None = None
-    attendance_high_date: str | None = None
+    attendance_high_date: datetime.datetime | None = None
     attendance_high_game: AttendanceGame | None = None
     attendance_low: int | None = None
-    attendance_low_date: str | None = None
+    attendance_low_date: datetime.datetime | None = None
     attendance_low_game: AttendanceGame | None = None
     attendance_opening_average: int | None = None
     attendance_total: int | None = None
     attendance_total_away: int | None = None
     attendance_total_home: int | None = None
-    game_type: MlbBaseModel | None = None
+    game_type: GameTypeRef | None = None
     team: IdNameLink | None = None
 
 

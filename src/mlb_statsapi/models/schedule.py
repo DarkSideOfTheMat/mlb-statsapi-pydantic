@@ -4,28 +4,26 @@ from __future__ import annotations
 
 import datetime
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
-
-
-class GameStatus(MlbBaseModel):
-    abstract_game_state: str
-    coded_game_state: str | None = None
-    detailed_state: str
-    status_code: str | None = None
-    start_time_tbd: bool | None = None
-    abstract_game_code: str | None = None
-
-
-class LeagueRecord(MlbBaseModel):
-    wins: int
-    losses: int
-    pct: str
-    ties: int | None = None
+from mlb_statsapi.models._base import (
+    ApiLink,
+    BaseResponse,
+    GamePk,
+    GameStatus,
+    IdNameLink,
+    MlbBaseModel,
+    WinLossRecord,
+)
+from mlb_statsapi.models.enums import (
+    DayNight,
+    DoubleHeaderCode,
+    GameType,
+    TiebreakerCode,
+)
 
 
 class ScheduleTeamInfo(MlbBaseModel):
     team: IdNameLink
-    league_record: LeagueRecord | None = None
+    league_record: WinLossRecord | None = None
     score: int | None = None
     is_winner: bool | None = None
     split_squad: bool | None = None
@@ -38,28 +36,31 @@ class ScheduleTeams(MlbBaseModel):
 
 
 class ScheduleGame(MlbBaseModel):
-    game_pk: int
+    game_pk: GamePk
     game_guid: str | None = None
-    link: str
-    game_type: str
-    season: str
-    game_date: str | None = None
+    link: ApiLink
+    game_type: GameType | str
+    season: int
+    game_date: datetime.datetime | None = None
     official_date: datetime.date | None = None
     status: GameStatus
     teams: ScheduleTeams
     venue: IdNameLink
-    day_night: str | None = None
+    day_night: DayNight | str | None = None
     scheduled_innings: int | None = None
     game_number: int | None = None
-    double_header: str | None = None
-    tiebreaker: str | None = None
+    double_header: DoubleHeaderCode | str | None = None
+    tiebreaker: TiebreakerCode | str | None = None
     is_tie: bool | None = None
     season_display: str | None = None
     public_facing: bool | None = None
+    series_description: str | None = None
+    games_in_series: int | None = None
+    series_game_number: int | None = None
 
 
 class ScheduleDate(MlbBaseModel):
-    date: str
+    date: datetime.date
     total_items: int | None = None
     total_events: int | None = None
     total_games: int | None = None

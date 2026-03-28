@@ -2,18 +2,27 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+import datetime
+
+from mlb_statsapi.models._base import (
+    ApiLink,
+    BaseResponse,
+    CodeDescription,
+    IdNameLink,
+    MlbBaseModel,
+    PositionRef,
+)
 
 
 class DraftPerson(MlbBaseModel):
     id: int | None = None
     full_name: str | None = None
-    link: str | None = None
+    link: ApiLink | None = None
     first_name: str | None = None
     last_name: str | None = None
-    birth_date: str | None = None
+    birth_date: datetime.date | None = None
     draft_year: int | None = None
-    primary_position: MlbBaseModel | None = None
+    primary_position: PositionRef | None = None
 
 
 class DraftSchool(MlbBaseModel):
@@ -44,12 +53,32 @@ class DraftPick(MlbBaseModel):
     headshot_link: str | None = None
     person: DraftPerson | None = None
     team: IdNameLink | None = None
-    draft_type: MlbBaseModel | None = None
+    draft_type: CodeDescription | None = None
     home: DraftHome | None = None
     school: DraftSchool | None = None
     is_drafted: bool | None = None
     is_pass: bool | None = None
-    year: str | None = None
+    year: int | None = None
+
+    @property
+    def pick_value_amount(self) -> float | None:
+        """Parse pick_value string like '9200000.00' into float."""
+        if not self.pick_value:
+            return None
+        try:
+            return float(self.pick_value)
+        except ValueError:
+            return None
+
+    @property
+    def signing_bonus_amount(self) -> float | None:
+        """Parse signing_bonus string like '9200000.00' into float."""
+        if not self.signing_bonus:
+            return None
+        try:
+            return float(self.signing_bonus)
+        except ValueError:
+            return None
 
 
 class DraftRound(MlbBaseModel):

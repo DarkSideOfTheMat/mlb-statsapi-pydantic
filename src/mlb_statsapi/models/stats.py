@@ -6,7 +6,9 @@ from mlb_statsapi.models._base import (
     BaseResponse,
     IdNameLink,
     MlbBaseModel,
+    PersonRef,
 )
+from mlb_statsapi.models.enums import StatGroup as StatGroupEnum
 
 
 class GameTypeRef(MlbBaseModel):
@@ -16,27 +18,22 @@ class GameTypeRef(MlbBaseModel):
     description: str | None = None
 
 
-class LeaderPersonRef(MlbBaseModel):
-    id: int
-    full_name: str
-    link: str | None = None
-
-
 class LeaderEntry(MlbBaseModel):
     rank: int
     value: str
     team: IdNameLink | None = None
     league: IdNameLink | None = None
-    person: LeaderPersonRef
+    person: PersonRef
     sport: IdNameLink | None = None
-    season: str | None = None
+    season: int | None = None
+    num_teams: int | None = None
 
 
 class LeaderCategory(MlbBaseModel):
     leader_category: str
     season: str | None = None
     game_type: GameTypeRef | str | None = None
-    stat_group: str | None = None
+    stat_group: StatGroupEnum | str | None = None
     total_splits: int | None = None
     leaders: list[LeaderEntry] = []
 

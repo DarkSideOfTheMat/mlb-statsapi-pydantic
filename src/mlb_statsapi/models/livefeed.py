@@ -7,34 +7,36 @@ including every play, pitch, and runner movement.
 
 from __future__ import annotations
 
+import datetime
+
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
+    GamePk,
+    GameStatus,
     IdNameLink,
     MlbBaseModel,
+    PersonRef,
+    PositionRef,
+    TeamId,
+    WinLossRecord,
 )
-
-# ---------------------------------------------------------------------------
-# Shared reference types used across plays
-# ---------------------------------------------------------------------------
-
-
-class PersonRef(MlbBaseModel):
-    """Lightweight person reference used throughout play data."""
-
-    id: int
-    full_name: str | None = None
-    link: str | None = None
-
-
-class PositionRef(MlbBaseModel):
-    """Position reference (not IdNameLink — uses code, not id)."""
-
-    code: str
-    name: str | None = None
-    type: str | None = None
-    abbreviation: str | None = None
-
+from mlb_statsapi.models.enums import (
+    DayNight,
+    DoubleHeaderCode,
+    EventType,
+    FieldingCredit,
+    GameType,
+    HalfInning,
+    PitchCode,
+    Sky,
+    TiebreakerCode,
+)
+from mlb_statsapi.models.enums import (
+    PitchType as PitchTypeEnum,
+)
+from mlb_statsapi.models.people import Person
 
 # ---------------------------------------------------------------------------
 # Pitch data — the core of play events
@@ -74,10 +76,10 @@ class PitchBreaks(MlbBaseModel):
     spin_direction: int | None = None
 
 
-class PitchType(MlbBaseModel):
+class PitchTypeInfo(MlbBaseModel):
     """Pitch classification (e.g. FF = Four-Seam Fastball)."""
 
-    code: str
+    code: PitchTypeEnum | str
     description: str | None = None
 
 
@@ -104,7 +106,7 @@ class PitchData(MlbBaseModel):
 class PlayEventCall(MlbBaseModel):
     """Umpire call on a pitch (B, S, X, etc.)."""
 
-    code: str
+    code: PitchCode | str
     description: str | None = None
 
 
@@ -119,12 +121,12 @@ class PlayEventDetails(MlbBaseModel):
     is_in_play: bool | None = None
     is_strike: bool | None = None
     is_ball: bool | None = None
-    type: PitchType | None = None
+    type: PitchTypeInfo | None = None
     is_out: bool | None = None
     has_review: bool | None = None
     # Action-specific fields
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     away_score: int | None = None
     home_score: int | None = None
     is_scoring_play: bool | None = None
@@ -151,8 +153,8 @@ class PlayEvent(MlbBaseModel):
     index: int | None = None
     play_id: str | None = None
     pitch_number: int | None = None
-    start_time: str | None = None
-    end_time: str | None = None
+    start_time: datetime.datetime | None = None
+    end_time: datetime.datetime | None = None
     is_pitch: bool | None = None
     type: str | None = None
     player: PersonRef | None = None
@@ -182,7 +184,7 @@ class RunnerDetails(MlbBaseModel):
     """Details about a runner's action during a play."""
 
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     movement_reason: str | None = None
     runner: PersonRef | None = None
     responsible_pitcher: PersonRef | None = None
@@ -198,7 +200,7 @@ class RunnerCredit(MlbBaseModel):
 
     player: PersonRef | None = None
     position: PositionRef | None = None
-    credit: str | None = None
+    credit: FieldingCredit | str | None = None
 
 
 class Runner(MlbBaseModel):
@@ -222,6 +224,15 @@ class MatchupSplits(MlbBaseModel):
     men_on_base: str | None = None
 
 
+class HotColdZone(MlbBaseModel):
+    """Strike zone heat map zone for a batter or pitcher."""
+
+    zone: str | None = None
+    color: str | None = None
+    temp: str | None = None
+    value: str | None = None
+
+
 class Matchup(MlbBaseModel):
     """Batter vs. pitcher matchup for an at-bat."""
 
@@ -229,8 +240,8 @@ class Matchup(MlbBaseModel):
     bat_side: CodeDescription | None = None
     pitcher: PersonRef
     pitch_hand: CodeDescription | None = None
-    batter_hot_cold_zones: list[MlbBaseModel] = []
-    pitcher_hot_cold_zones: list[MlbBaseModel] = []
+    batter_hot_cold_zones: list[HotColdZone] = []
+    pitcher_hot_cold_zones: list[HotColdZone] = []
     splits: MatchupSplits | None = None
 
 
@@ -244,7 +255,7 @@ class PlayResult(MlbBaseModel):
 
     type: str | None = None
     event: str | None = None
-    event_type: str | None = None
+    event_type: EventType | str | None = None
     description: str | None = None
     rbi: int | None = None
     away_score: int | None = None
@@ -256,11 +267,11 @@ class PlayAbout(MlbBaseModel):
     """Metadata about when/where a play occurred."""
 
     at_bat_index: int | None = None
-    half_inning: str | None = None
+    half_inning: HalfInning | str | None = None
     is_top_inning: bool | None = None
     inning: int | None = None
-    start_time: str | None = None
-    end_time: str | None = None
+    start_time: datetime.datetime | None = None
+    end_time: datetime.datetime | None = None
     is_complete: bool | None = None
     is_scoring_play: bool | None = None
     has_review: bool | None = None
@@ -289,8 +300,25 @@ class Play(MlbBaseModel):
     runner_index: list[int] = []
     runners: list[Runner] = []
     play_events: list[PlayEvent] = []
-    play_end_time: str | None = None
+    play_end_time: datetime.datetime | None = None
     at_bat_index: int | None = None
+
+    @property
+    def pitches(self) -> list[PlayEvent]:
+        """Resolve pitch_index to PlayEvent objects."""
+        n = len(self.play_events)
+        return [self.play_events[i] for i in self.pitch_index if i < n]
+
+    @property
+    def actions(self) -> list[PlayEvent]:
+        """Resolve action_index to PlayEvent objects."""
+        n = len(self.play_events)
+        return [self.play_events[i] for i in self.action_index if i < n]
+
+    @property
+    def indexed_runners(self) -> list[Runner]:
+        """Resolve runner_index to Runner objects."""
+        return [self.runners[i] for i in self.runner_index if i < len(self.runners)]
 
 
 # ---------------------------------------------------------------------------
@@ -316,6 +344,12 @@ class Plays(MlbBaseModel):
     scoring_plays: list[int] = []
     plays_by_inning: list[InningPlays] = []
 
+    @property
+    def scoring_play_objects(self) -> list[Play]:
+        """Resolve scoring_plays indices to Play objects."""
+        n = len(self.all_plays)
+        return [self.all_plays[i] for i in self.scoring_plays if i < n]
+
 
 # ---------------------------------------------------------------------------
 # Decisions (winning/losing pitcher, save)
@@ -333,26 +367,71 @@ class Decisions(MlbBaseModel):
 # ---------------------------------------------------------------------------
 
 
-class GameDataStatus(MlbBaseModel):
-    abstract_game_state: str | None = None
-    coded_game_state: str | None = None
-    detailed_state: str | None = None
-    status_code: str | None = None
-    start_time_tbd: bool | None = None
-    abstract_game_code: str | None = None
+class GameInfo(MlbBaseModel):
+    """Game identification from gameData.game."""
+
+    pk: GamePk | None = None
+    type: GameType | str | None = None
+    double_header: DoubleHeaderCode | str | None = None
+    id: str | None = None
+    gameday_type: str | None = None
+    tiebreaker: TiebreakerCode | str | None = None
+    game_number: int | None = None
+    calendar_event_id: str | None = None
+    season: str | None = None
+    season_display: str | None = None
 
 
-class GameDataTeamRecord(MlbBaseModel):
-    wins: int | None = None
-    losses: int | None = None
-    pct: str | None = None
+class GameDateTime(MlbBaseModel):
+    """Date and time info from gameData.datetime."""
+
+    date_time: datetime.datetime | None = None
+    original_date: str | None = None
+    official_date: str | None = None
+    day_night: DayNight | str | None = None
+    time: str | None = None
+    ampm: str | None = None
+
+
+class GameInfoDetails(MlbBaseModel):
+    """Game logistics from gameData.gameInfo."""
+
+    attendance: int | None = None
+    first_pitch: datetime.datetime | None = None
+    game_duration_minutes: int | None = None
+
+
+class ReviewTeam(MlbBaseModel):
+    """Challenge review counts for one team."""
+
+    used: int | None = None
+    remaining: int | None = None
+
+
+class ReviewInfo(MlbBaseModel):
+    """Manager challenge review info."""
+
+    has_challenges: bool | None = None
+    away: ReviewTeam | None = None
+    home: ReviewTeam | None = None
+
+
+class GameFlags(MlbBaseModel):
+    """No-hitter and perfect game flags."""
+
+    no_hitter: bool | None = None
+    perfect_game: bool | None = None
+    away_team_no_hitter: bool | None = None
+    away_team_perfect_game: bool | None = None
+    home_team_no_hitter: bool | None = None
+    home_team_perfect_game: bool | None = None
 
 
 class GameDataTeam(MlbBaseModel):
-    id: int
+    id: TeamId
     name: str | None = None
-    link: str | None = None
-    record: GameDataTeamRecord | None = None
+    link: ApiLink | None = None
+    record: WinLossRecord | None = None
 
 
 class GameDataTeams(MlbBaseModel):
@@ -361,7 +440,7 @@ class GameDataTeams(MlbBaseModel):
 
 
 class Weather(MlbBaseModel):
-    condition: str | None = None
+    condition: Sky | str | None = None
     temp: str | None = None
     wind: str | None = None
 
@@ -374,17 +453,18 @@ class ProbablePitchers(MlbBaseModel):
 class GameData(MlbBaseModel):
     """Top-level gameData from live feed."""
 
-    game: MlbBaseModel | None = None
-    datetime: MlbBaseModel | None = None
-    status: GameDataStatus | None = None
+    game: GameInfo | None = None
+    datetime: GameDateTime | None = None
+    status: GameStatus | None = None
     teams: GameDataTeams | None = None
     venue: IdNameLink | None = None
     official_venue: IdNameLink | None = None
     weather: Weather | None = None
-    game_info: MlbBaseModel | None = None
-    review: MlbBaseModel | None = None
-    flags: MlbBaseModel | None = None
+    game_info: GameInfoDetails | None = None
+    review: ReviewInfo | None = None
+    flags: GameFlags | None = None
     probable_pitchers: ProbablePitchers | None = None
+    players: dict[str, Person] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -396,7 +476,9 @@ class LiveData(MlbBaseModel):
     """Top-level liveData from live feed."""
 
     plays: Plays | None = None
+    # TODO: type as LinescoreResponse once response hierarchy is refactored
     linescore: MlbBaseModel | None = None
+    # TODO: type as BoxscoreResponse once response hierarchy is refactored
     boxscore: MlbBaseModel | None = None
     decisions: Decisions | None = None
     leaders: MlbBaseModel | None = None
@@ -410,8 +492,8 @@ class LiveFeedResponse(BaseResponse):
     boxscore, decisions, and game metadata.
     """
 
-    game_pk: int
-    link: str | None = None
+    game_pk: GamePk
+    link: ApiLink | None = None
     meta_data: MlbBaseModel | None = None
     game_data: GameData
     live_data: LiveData

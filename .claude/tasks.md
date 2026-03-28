@@ -165,7 +165,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 7: Endpoint Registry
-**Status:** not started
+**Status:** completed
 **Depends on:** Tasks 2–6
 **Goal:** Define all 60+ MLB API endpoints in a typed registry.
 
@@ -182,7 +182,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 8: Client Implementation (Sync + Async)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 7
 **Goal:** Build the httpx-based client with typed convenience methods.
 
@@ -200,7 +200,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 9: Remaining Models & Public API Polish
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 8
 **Goal:** Fill in Tier 2 models and finalize the package surface.
 

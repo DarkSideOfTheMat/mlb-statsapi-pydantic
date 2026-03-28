@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, BaseResponse, MlbBaseModel
 
 
 class Venue(MlbBaseModel):
     id: int
     name: str | None = None
-    link: str
+    link: ApiLink
     active: bool | None = None
-    season: str | None = None
+    season: int | None = None
 
 
 class VenuesResponse(BaseResponse):

@@ -2,8 +2,22 @@
 
 from __future__ import annotations
 
+from typing import NewType
+
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
+
+from mlb_statsapi.models.enums import (
+    AbstractGameState,
+    CodedGameState,
+    PositionType,
+)
+
+PersonId = NewType("PersonId", int)
+TeamId = NewType("TeamId", int)
+GamePk = NewType("GamePk", int)
+ApiLink = NewType("ApiLink", str)
+"""An API endpoint path, e.g. ``/api/v1/people/660271``."""
 
 
 class MlbBaseModel(BaseModel):
@@ -35,7 +49,7 @@ class IdNameLink(MlbBaseModel):
 
     id: int
     name: str | None = None
-    link: str
+    link: ApiLink
 
 
 class CodeDescription(MlbBaseModel):
@@ -43,3 +57,57 @@ class CodeDescription(MlbBaseModel):
 
     code: str
     description: str
+
+
+class PersonRef(MlbBaseModel):
+    """Lightweight person reference (id, fullName, link).
+
+    Used throughout the API for pitchers, batters, umpires, etc.
+    """
+
+    id: PersonId
+    full_name: str | None = None
+    link: ApiLink | None = None
+
+
+class PositionRef(MlbBaseModel):
+    """Position reference (code, name, type, abbreviation).
+
+    Uses ``code`` as the key (not ``id``), so this is *not* an IdNameLink.
+    """
+
+    code: str
+    name: str | None = None
+    type: PositionType | str | None = None
+    abbreviation: str | None = None
+
+
+class WinLossRecord(MlbBaseModel):
+    """Win/loss record with optional pct, ties, and type."""
+
+    wins: int
+    losses: int
+    pct: str | None = None
+    ties: int | None = None
+    type: str | None = None
+
+    @property
+    def win_pct(self) -> float | None:
+        """Parse pct string like '.512' into float."""
+        if self.pct is None:
+            return None
+        try:
+            return float(self.pct)
+        except ValueError:
+            return None
+
+
+class GameStatus(MlbBaseModel):
+    """Game status — union of fields from schedule and live-feed responses."""
+
+    abstract_game_state: AbstractGameState | str | None = None
+    coded_game_state: CodedGameState | str | None = None
+    detailed_state: str | None = None
+    status_code: str | None = None
+    start_time_tbd: bool | None = None
+    abstract_game_code: AbstractGameState | str | None = None

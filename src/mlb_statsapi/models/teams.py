@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import BaseResponse, IdNameLink, MlbBaseModel
+from mlb_statsapi.models._base import ApiLink, BaseResponse, IdNameLink, MlbBaseModel
 
 
 class Team(MlbBaseModel):
     id: int
     name: str
-    link: str
+    link: ApiLink
     season: int | None = None
     venue: IdNameLink
     spring_venue: IdNameLink | None = None
@@ -17,7 +17,7 @@ class Team(MlbBaseModel):
     abbreviation: str
     team_name: str
     location_name: str | None = None
-    first_year_of_play: str | None = None
+    first_year_of_play: int | None = None
     league: IdNameLink
     division: IdNameLink | None = None
     sport: IdNameLink

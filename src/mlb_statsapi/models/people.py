@@ -5,23 +5,19 @@ from __future__ import annotations
 import datetime
 
 from mlb_statsapi.models._base import (
+    ApiLink,
     BaseResponse,
     CodeDescription,
     MlbBaseModel,
+    PersonId,
+    PositionRef,
 )
 
 
-class PrimaryPosition(MlbBaseModel):
-    code: str
-    name: str
-    type: str
-    abbreviation: str
-
-
 class Person(MlbBaseModel):
-    id: int
+    id: PersonId
     full_name: str
-    link: str
+    link: ApiLink
     first_name: str | None = None
     last_name: str | None = None
     primary_number: str | None = None
@@ -33,7 +29,7 @@ class Person(MlbBaseModel):
     height: str | None = None
     weight: int | None = None
     active: bool
-    primary_position: PrimaryPosition | None = None
+    primary_position: PositionRef | None = None
     use_name: str | None = None
     use_last_name: str | None = None
     boxscore_name: str | None = None
@@ -49,6 +45,17 @@ class Person(MlbBaseModel):
     strike_zone_bottom: float | None = None
     name_first_last: str | None = None
     name_slug: str | None = None
+
+    @property
+    def height_inches(self) -> int | None:
+        """Parse height string like '6\\' 2\"' into total inches."""
+        if not self.height:
+            return None
+        try:
+            parts = self.height.replace('"', '').split("' ")
+            return int(parts[0]) * 12 + int(parts[1]) if len(parts) == 2 else None
+        except (ValueError, IndexError):
+            return None
 
 
 class PeopleResponse(BaseResponse):
