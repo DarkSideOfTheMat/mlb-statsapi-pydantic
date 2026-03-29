@@ -54,7 +54,12 @@ from mlb_statsapi.models.enums import (
     TransactionType,
     WindDirection,
 )
-from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
+from mlb_statsapi.models.game import (
+    Boxscore,
+    BoxscoreResponse,
+    Linescore,
+    LinescoreResponse,
+)
 from mlb_statsapi.models.hydrations import (
     PeopleHydrations,
     ScheduleHydrations,
@@ -150,6 +155,7 @@ __all__ = [
     "AwardResult",
     "AwardWinner",
     "AwardsResponse",
+    "Boxscore",
     "BoxscoreResponse",
     "Division",
     "DivisionsResponse",
@@ -164,6 +170,7 @@ __all__ = [
     "LeaderEntry",
     "League",
     "LeaguesResponse",
+    "Linescore",
     "LinescoreResponse",
     "LiveFeedResponse",
     "MetaItem",
