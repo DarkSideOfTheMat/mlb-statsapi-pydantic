@@ -251,7 +251,7 @@ class Boxscore(MlbBaseModel):
 
     teams: BoxscoreTeams
     officials: list[BoxscoreOfficial] = []
-    info: list[BoxscoreInfoField] = []
+    info: list[BoxscoreInfo] = []
     pitching_notes: list[str] = []
     top_performers: list[MlbBaseModel] = []
 
