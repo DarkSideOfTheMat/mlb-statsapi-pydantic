@@ -76,6 +76,26 @@ class TestMlbClientGet:
             client.get("sports")
 
 
+class TestMlbClientHttpErrors:
+    """Test HTTP error status codes."""
+
+    @pytest.mark.parametrize(
+        "status_code",
+        [400, 404, 429, 500, 503],
+        ids=["bad_request", "not_found", "rate_limited", "server_error", "unavailable"],
+    )
+    def test_http_status_error(self, mock_api, status_code):
+        from mlb_statsapi.client.sync_client import MlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").respond(status_code)
+
+        client = MlbClient()
+        with pytest.raises(MlbApiError) as exc_info:
+            client.get("sports")
+        assert exc_info.value.status_code == status_code
+
+
 class TestMlbClientConvenience:
     """Test typed convenience methods."""
 
