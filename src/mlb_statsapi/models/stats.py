@@ -45,7 +45,7 @@ class LeaderEntry(MlbBaseModel):
     league: Ref[LeagueId] | None = None
     person: PersonRef
     sport: Ref[SportId] | None = None
-    season: str | None = None
+    season: int | None = None
     num_teams: int | None = None
 
 
@@ -57,7 +57,7 @@ class LeaderCategory(MlbBaseModel):
     """
 
     leader_category: str
-    season: str | None = None
+    season: int | None = None
     game_type: GameTypeRef | str | None = None
     stat_group: StatGroupEnum | str | None = None
     total_splits: int | None = None
@@ -71,7 +71,7 @@ class StatSplit(MlbBaseModel):
     stat group (hitting stats differ from pitching stats).
     """
 
-    season: str | None = None
+    season: int | None = None
     stat: dict[str, int | str | float] | None = None
     team: Ref[TeamId] | None = None
     player: Ref[PersonId] | None = None

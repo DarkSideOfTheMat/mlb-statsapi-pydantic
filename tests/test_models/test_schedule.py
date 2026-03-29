@@ -17,7 +17,7 @@ class TestScheduleGame:
         game = ScheduleGame.model_validate(data["dates"][0]["games"][0])
         assert game.game_pk == 744914
         assert game.game_type == "R"
-        assert game.season == "2024"
+        assert game.season == 2024
         assert game.official_date == datetime.date(2024, 7, 1)
 
     def test_status(self):

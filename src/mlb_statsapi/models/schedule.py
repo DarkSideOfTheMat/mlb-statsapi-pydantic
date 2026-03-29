@@ -76,7 +76,7 @@ class ScheduleGame(MlbBaseModel):
     game_guid: str | None = None
     link: ApiLink
     game_type: GameType | str
-    season: str | None = None
+    season: int | None = None
     game_date: datetime.datetime | None = None
     official_date: datetime.date | None = None
     status: GameStatus

@@ -65,7 +65,7 @@ class Venue(Ref[VenueId]):
     time_zone: VenueTimeZone | None = None
     field_info: VenueFieldInfo | None = None
     active: bool | None = None
-    season: str | None = None
+    season: int | None = None
 
 
 class VenuesResponse(ListResponse[Venue], items_field="venues"):

@@ -49,7 +49,7 @@ class Team(Ref[TeamId]):
     abbreviation: str | None = None
     team_name: str | None = None
     location_name: str | None = None
-    first_year_of_play: str | None = None
+    first_year_of_play: int | None = None
     league: League | Ref[LeagueId] | None = None
     division: Division | Ref[DivisionId] | None = None
     sport: Sport | Ref[SportId] | None = None

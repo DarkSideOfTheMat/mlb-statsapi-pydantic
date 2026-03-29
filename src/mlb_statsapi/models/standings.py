@@ -43,7 +43,7 @@ class TeamStanding(MlbBaseModel):
     """
 
     team: Team
-    season: str | None = None
+    season: int | None = None
     streak: Streak | None = None
     clinch_indicator: str | None = None
     division_rank: str | None = None

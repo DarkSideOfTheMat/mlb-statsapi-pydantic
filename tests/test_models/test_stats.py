@@ -12,7 +12,7 @@ class TestLeaderCategory:
         data = load_fixture("stats_leaders")
         cat = LeaderCategory.model_validate(data["leagueLeaders"][0])
         assert cat.leader_category == "homeRuns"
-        assert cat.season == "2024"
+        assert cat.season == 2024
         assert cat.game_type.id == "R"
         assert len(cat.leaders) > 0
 
