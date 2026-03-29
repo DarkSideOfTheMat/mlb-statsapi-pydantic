@@ -47,6 +47,7 @@ from mlb_statsapi.models.enums import (
 from mlb_statsapi.models.enums import (
     PitchType as PitchTypeEnum,
 )
+from mlb_statsapi.models.game import Boxscore, Linescore
 from mlb_statsapi.models.people import Person
 from mlb_statsapi.models.venues import Venue
 
@@ -577,10 +578,8 @@ class LiveData(MlbBaseModel):
     """
 
     plays: Plays | None = None
-    # TODO: type as LinescoreResponse once response hierarchy is refactored
-    linescore: MlbBaseModel | None = None
-    # TODO: type as BoxscoreResponse once response hierarchy is refactored
-    boxscore: MlbBaseModel | None = None
+    linescore: Linescore | None = None
+    boxscore: Boxscore | None = None
     decisions: Decisions | None = None
     leaders: MlbBaseModel | None = None
 
