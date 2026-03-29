@@ -643,3 +643,67 @@ class RosterType(StrEnum):
     DEPTH_CHART = "depthChart"
     GAMEDAY = "gameday"
     COACH = "coach"
+
+
+# ---------------------------------------------------------------------------
+# Gameday types
+# ---------------------------------------------------------------------------
+
+
+class GamedayType(StrEnum):
+    """Gameday coverage level for a game.
+
+    Determines the level of real-time data available.
+    """
+
+    PREMIUM = "P"
+    ENHANCED = "E"
+    REGULAR = "Y"
+    NO_GAMEDAY = "D"
+    NO_GAMEDAY_2 = "N"
+    NO_GAMEDAY_3 = "L"
+    NO_GAMEDAY_4 = "B"
+    NO_GAMEDAY_5 = "S"
+
+
+# ---------------------------------------------------------------------------
+# Player status codes
+# ---------------------------------------------------------------------------
+
+
+class PlayerStatusCode(StrEnum):
+    """Player roster status codes."""
+
+    ACTIVE = "A"
+    INJURED_LIST_7 = "D7"
+    INJURED_LIST_10 = "D10"
+    INJURED_LIST_15 = "D15"
+    INJURED_LIST_60 = "D60"
+    REASSIGNED_MINOR = "RM"
+    REASSIGNED = "RA"
+    SUSPENDED = "SU"
+    RESTRICTED = "RST"
+    RETIRED = "RET"
+    BEREAVEMENT = "BRV"
+    PATERNITY = "PAT"
+    MILITARY = "MIL"
+    NON_ROSTER = "NRI"
+    UNCONDITIONAL_RELEASE = "URL"
+    DESIGNATED_FOR_ASSIGNMENT = "DES"
+    OPTIONAL_ASSIGNMENT = "OPT"
+    OUTRIGHT_ASSIGNMENT = "OUT"
+    MINORS = "MIN"
+
+
+# ---------------------------------------------------------------------------
+# Tracking system
+# ---------------------------------------------------------------------------
+
+
+class TrackingSystemType(StrEnum):
+    """Pitch tracking system types."""
+
+    SPORTVISION = "Sportvision"
+    TRACKMAN = "TrackMan"
+    CHYRON_HEGO = "ChyronHego"
+    HAWK_EYE = "Hawk-Eye"

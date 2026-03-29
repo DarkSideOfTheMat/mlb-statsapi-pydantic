@@ -37,23 +37,19 @@ class TestScheduleE2E:
             assert game.venue.name is not None
 
     def test_fetch_date_range(self, client):
-        schedule = client.schedule(
-            start_date="09/28/2024", end_date="09/30/2024"
-        )
+        schedule = client.schedule(start_date="09/28/2024", end_date="09/30/2024")
         assert len(schedule.dates) == 3
         for date in schedule.dates:
             assert len(date.games) > 0
 
     def test_fetch_team_schedule(self, client):
-        schedule = client.schedule(
-            team_id=147, date="06/15/2024"
-        )  # Yankees
+        schedule = client.schedule(team_id=147, date="06/15/2024")  # Yankees
         assert len(schedule.dates) == 1
         games = schedule.dates[0].games
         assert len(games) >= 1
-        team_ids = {
-            g.teams.away.team.id for g in games
-        } | {g.teams.home.team.id for g in games}
+        team_ids = {g.teams.away.team.id for g in games} | {
+            g.teams.home.team.id for g in games
+        }
         assert 147 in team_ids
 
 

@@ -1,11 +1,19 @@
-"""Game models — boxscore, linescore, live feed."""
+"""Game models — boxscore and linescore.
+
+Endpoints:
+- ``/api/v1/game/{gamePk}/boxscore``
+- ``/api/v1/game/{gamePk}/linescore``
+
+The boxscore provides aggregate and per-player statistics for a completed
+or in-progress game. The linescore provides the inning-by-inning scoring
+breakdown.
+"""
 
 from __future__ import annotations
 
 from mlb_statsapi.models._base import (
     BaseResponse,
     CodeDescription,
-    IdNameLink,
     MlbBaseModel,
     PersonId,
     PersonRef,
@@ -13,11 +21,16 @@ from mlb_statsapi.models._base import (
     TeamId,
 )
 from mlb_statsapi.models.enums import HalfInning
+from mlb_statsapi.models.teams import Team
 
-# --- Linescore ---
+# ---------------------------------------------------------------------------
+# Linescore
+# ---------------------------------------------------------------------------
 
 
 class InningTeamLine(MlbBaseModel):
+    """Runs, hits, errors, and LOB for one team in one inning."""
+
     runs: int | None = None
     hits: int | None = None
     errors: int | None = None
@@ -25,6 +38,12 @@ class InningTeamLine(MlbBaseModel):
 
 
 class LinescoreInning(MlbBaseModel):
+    """A single inning in the linescore.
+
+    ``num`` is the 1-based inning number; ``ordinal_num`` is the display
+    string (e.g. "1st", "2nd").
+    """
+
     num: int
     ordinal_num: str | None = None
     home: InningTeamLine
@@ -32,6 +51,8 @@ class LinescoreInning(MlbBaseModel):
 
 
 class LinescoreTeamTotal(MlbBaseModel):
+    """Game totals for one team in the linescore."""
+
     runs: int | None = None
     hits: int | None = None
     errors: int | None = None
@@ -40,11 +61,19 @@ class LinescoreTeamTotal(MlbBaseModel):
 
 
 class LinescoreTeams(MlbBaseModel):
+    """Home and away team totals in the linescore."""
+
     home: LinescoreTeamTotal
     away: LinescoreTeamTotal
 
 
 class LinescoreResponse(BaseResponse):
+    """Response from ``/api/v1/game/{gamePk}/linescore``.
+
+    Contains the inning-by-inning breakdown and current game state
+    (current inning, half, and scheduled innings).
+    """
+
     current_inning: int | None = None
     current_inning_ordinal: str | None = None
     inning_state: str | None = None
@@ -53,10 +82,22 @@ class LinescoreResponse(BaseResponse):
     scheduled_innings: int | None = None
     innings: list[LinescoreInning] = []
     teams: LinescoreTeams | None = None
+    note: str | None = None
+    balls: int | None = None
+    strikes: int | None = None
+    outs: int | None = None
+    batter: PersonRef | None = None
+    on_deck: PersonRef | None = None
+    in_hole: PersonRef | None = None
+    pitcher: PersonRef | None = None
+    on_first: PersonRef | None = None
+    on_second: PersonRef | None = None
+    on_third: PersonRef | None = None
 
 
-# --- Boxscore ---
-
+# ---------------------------------------------------------------------------
+# Boxscore
+# ---------------------------------------------------------------------------
 
 
 class BoxscoreInfoField(MlbBaseModel):
@@ -67,14 +108,22 @@ class BoxscoreInfoField(MlbBaseModel):
 
 
 class BoxscoreInfo(MlbBaseModel):
-    """A titled section of boxscore info (e.g. BATTING, FIELDING)."""
+    """A titled section of boxscore info (e.g. BATTING, FIELDING).
+
+    Each section has a title and a list of label/value fields describing
+    notable events (e.g. "2B: Player Name (5, line drive)").
+    """
 
     title: str | None = None
     field_list: list[BoxscoreInfoField] = []
 
 
 class PlayerGameStats(MlbBaseModel):
-    """Batting/pitching/fielding stats for a player in a game context."""
+    """Batting/pitching/fielding stats for a player in a game context.
+
+    Stats are stored as dicts because the exact fields vary by stat group
+    and the API does not guarantee a fixed schema.
+    """
 
     batting: dict[str, object] = {}
     pitching: dict[str, object] = {}
@@ -91,6 +140,12 @@ class PlayerGameStatus(MlbBaseModel):
 
 
 class BoxscorePlayer(MlbBaseModel):
+    """An individual player's boxscore entry.
+
+    Contains the player reference, position, jersey number, and
+    both game-level and season-level stats.
+    """
+
     person: PersonRef
     jersey_number: str | None = None
     position: PositionRef | None = None
@@ -99,16 +154,28 @@ class BoxscorePlayer(MlbBaseModel):
     season_stats: PlayerGameStats | None = None
     game_status: PlayerGameStatus | None = None
     status: CodeDescription | None = None
+    all_positions: list[PositionRef] | None = None
+    batting_order: str | None = None
 
 
 class BoxscoreTeamStats(MlbBaseModel):
+    """Team-level aggregate stats (batting, pitching, fielding)."""
+
     batting: dict[str, object] | None = None
     pitching: dict[str, object] | None = None
     fielding: dict[str, object] | None = None
 
 
 class BoxscoreTeam(MlbBaseModel):
-    team: IdNameLink
+    """One team's boxscore data.
+
+    Players are stored in a dict keyed by ``"ID{playerId}"``.
+    The ``batters``, ``pitchers``, ``bench``, and ``bullpen`` fields
+    contain player IDs that can be resolved to ``BoxscorePlayer``
+    objects using the helper properties.
+    """
+
+    team: Team
     team_stats: BoxscoreTeamStats | None = None
     players: dict[str, BoxscorePlayer] = {}
     batters: list[PersonId] = []
@@ -120,14 +187,11 @@ class BoxscoreTeam(MlbBaseModel):
     note: list[BoxscoreInfoField] = []
 
     def _resolve_ids(
-        self, ids: list[PersonId],
+        self,
+        ids: list[PersonId],
     ) -> list[BoxscorePlayer]:
         """Resolve a list of player IDs to BoxscorePlayer objects."""
-        return [
-            self.players[key]
-            for pid in ids
-            if (key := f"ID{pid}") in self.players
-        ]
+        return [self.players[key] for pid in ids if (key := f"ID{pid}") in self.players]
 
     @property
     def batter_players(self) -> list[BoxscorePlayer]:
@@ -156,17 +220,28 @@ class BoxscoreTeam(MlbBaseModel):
 
 
 class BoxscoreTeams(MlbBaseModel):
+    """Away and home team boxscore data."""
+
     away: BoxscoreTeam
     home: BoxscoreTeam
 
 
 class BoxscoreOfficial(MlbBaseModel):
+    """A game official (umpire) in the boxscore."""
+
     official: PersonRef | None = None
     official_type: str | None = None
 
 
 class BoxscoreResponse(BaseResponse):
+    """Response from ``/api/v1/game/{gamePk}/boxscore``.
+
+    Contains team-level and player-level statistics, batting orders,
+    game officials, and supplementary info sections.
+    """
+
     teams: BoxscoreTeams
     officials: list[BoxscoreOfficial] = []
     info: list[BoxscoreInfoField] = []
     pitching_notes: list[str] = []
+    top_performers: list[MlbBaseModel] = []

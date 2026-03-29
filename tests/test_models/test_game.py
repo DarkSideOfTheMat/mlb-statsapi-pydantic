@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from tests.conftest import load_fixture
-
+from mlb_statsapi.models._base import PersonRef
 from mlb_statsapi.models.game import (
     BoxscorePlayer,
     BoxscoreResponse,
@@ -11,7 +10,8 @@ from mlb_statsapi.models.game import (
     LinescoreInning,
     LinescoreResponse,
 )
-from mlb_statsapi.models._base import IdNameLink, PersonRef
+from mlb_statsapi.models.teams import Team
+from tests.conftest import load_fixture
 
 
 class TestLinescoreInning:
@@ -47,9 +47,8 @@ class TestLinescoreResponse:
         data = load_fixture("linescore")
         resp = LinescoreResponse.model_validate(data)
         if resp.inning_half is not None:
-            assert resp.inning_half in (HalfInning.TOP, HalfInning.BOTTOM) or isinstance(
-                resp.inning_half, str
-            )
+            valid = (HalfInning.TOP, HalfInning.BOTTOM)
+            assert resp.inning_half in valid or isinstance(resp.inning_half, str)
 
 
 class TestBoxscoreResponse:
@@ -123,7 +122,7 @@ class TestBoxscoreTeamResolveIds:
             for pid in all_ids
         }
         return BoxscoreTeam(
-            team=IdNameLink(id=1, name="Test", link="/api/v1/teams/1"),
+            team=Team(id=1, name="Test", link="/api/v1/teams/1"),
             players=players,
             batters=batters or [],
             pitchers=pitchers or [],
@@ -218,5 +217,3 @@ class TestBoxscoreTeamResolveIds:
         bullpen_players = away.bullpen_players
         assert len(bullpen_players) > 0
         assert len(bullpen_players) == len(away.bullpen)
-
-
