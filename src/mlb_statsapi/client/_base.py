@@ -31,6 +31,24 @@ class ClientMixin:
         self, endpoint: str, **params: Any
     ) -> tuple[str, dict[str, str]]:
         ep = self._resolve_endpoint(endpoint)
+
+        # Validate required params before making the request.
+        # required_params is a tuple of groups — at least one group must be
+        # fully satisfied (OR between groups, AND within each group).
+        # An empty group ((),) means no params are required.
+        if ep.required_params and not any(
+            all(p in params for p in group) for group in ep.required_params
+        ):
+            groups_str = " OR ".join(
+                "(" + ", ".join(g) + ")" for g in ep.required_params if g
+            )
+            raise MlbApiError(
+                0,
+                f"Missing required parameters for '{endpoint}': "
+                f"must provide {groups_str}",
+                "",
+            )
+
         # Separate path params from query params
         path_params = {
             k: str(params.pop(k))

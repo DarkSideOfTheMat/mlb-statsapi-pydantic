@@ -57,6 +57,14 @@ class TestMlbClientGet:
         with pytest.raises(MlbApiError, match="Unknown endpoint"):
             client.get("bogus_endpoint")
 
+    def test_get_missing_required_params_raises(self):
+        from mlb_statsapi.client.sync_client import MlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        client = MlbClient()
+        with pytest.raises(MlbApiError, match="Missing required parameters"):
+            client.get("standings")
+
     def test_get_http_error(self, mock_api):
         from mlb_statsapi.client.sync_client import MlbClient
         from mlb_statsapi.exceptions import MlbApiError
