@@ -13,6 +13,6 @@ class MlbApiError(Exception):
 class MlbValidationError(Exception):
     """Raised when an API response fails Pydantic validation."""
 
-    def __init__(self, message: str, raw_data: dict | None = None) -> None:
+    def __init__(self, message: str, raw_data: dict[str, object] | None = None) -> None:
         self.raw_data = raw_data
         super().__init__(message)

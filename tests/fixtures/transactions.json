@@ -1,0 +1,4653 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "transactions": [
+    {
+      "id": 752750,
+      "person": {
+        "id": 823333,
+        "fullName": "Trevor Moore",
+        "link": "/api/v1/people/823333"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Trevor Moore assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752640,
+      "person": {
+        "id": 691938,
+        "fullName": "Willy Vasquez",
+        "link": "/api/v1/people/691938"
+      },
+      "toTeam": {
+        "id": 139,
+        "name": "Tampa Bay Rays",
+        "link": "/api/v1/teams/139"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Willy Vasquez assigned to Tampa Bay Rays."
+    },
+    {
+      "id": 775672,
+      "person": {
+        "id": 823350,
+        "fullName": "Cesar Pierret",
+        "link": "/api/v1/people/823350"
+      },
+      "toTeam": {
+        "id": 2270,
+        "name": "DSL Cubs Red",
+        "link": "/api/v1/teams/2270"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Cesar Pierret roster status changed by DSL Cubs Red."
+    },
+    {
+      "id": 752845,
+      "person": {
+        "id": 822650,
+        "fullName": "Josh Gunther",
+        "link": "/api/v1/people/822650"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Josh Gunther assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752793,
+      "person": {
+        "id": 686624,
+        "fullName": "Nick Clayton",
+        "link": "/api/v1/people/686624"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Nick Clayton assigned to Clemson Tigers."
+    },
+    {
+      "id": 752700,
+      "person": {
+        "id": 802408,
+        "fullName": "Brycen Mautz",
+        "link": "/api/v1/people/802408"
+      },
+      "toTeam": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "link": "/api/v1/teams/138"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Brycen Mautz assigned to St. Louis Cardinals."
+    },
+    {
+      "id": 752723,
+      "person": {
+        "id": 809251,
+        "fullName": "Brandon Larson",
+        "link": "/api/v1/people/809251"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Brandon Larson assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752826,
+      "person": {
+        "id": 822585,
+        "fullName": "Liam Willson",
+        "link": "/api/v1/people/822585"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Liam Willson assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752694,
+      "person": {
+        "id": 691276,
+        "fullName": "Luis Caicuto",
+        "link": "/api/v1/people/691276"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Luis Caicuto assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752916,
+      "person": {
+        "id": 823346,
+        "fullName": "Geremy Tovar",
+        "link": "/api/v1/people/823346"
+      },
+      "toTeam": {
+        "id": 118,
+        "name": "Kansas City Royals",
+        "link": "/api/v1/teams/118"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Kansas City Royals signed free agent LHP Geremy Tovar to a minor league contract."
+    },
+    {
+      "id": 752795,
+      "person": {
+        "id": 703449,
+        "fullName": "Nathan Hall",
+        "link": "/api/v1/people/703449"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Nathan Hall assigned to Clemson Tigers."
+    },
+    {
+      "id": 752754,
+      "person": {
+        "id": 681168,
+        "fullName": "Luis Curvelo",
+        "link": "/api/v1/people/681168"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Luis Curvelo assigned to Seattle Mariners."
+    },
+    {
+      "id": 752711,
+      "person": {
+        "id": 696525,
+        "fullName": "Saborn Campbell",
+        "link": "/api/v1/people/696525"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Saborn Campbell assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752789,
+      "person": {
+        "id": 803122,
+        "fullName": "Reed Garris",
+        "link": "/api/v1/people/803122"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Reed Garris assigned to Clemson Tigers."
+    },
+    {
+      "id": 752852,
+      "person": {
+        "id": 702277,
+        "fullName": "Luke Schmolke",
+        "link": "/api/v1/people/702277"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Luke Schmolke assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752786,
+      "person": {
+        "id": 687616,
+        "fullName": "Jimmy Obertop",
+        "link": "/api/v1/people/687616"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Jimmy Obertop assigned to Clemson Tigers."
+    },
+    {
+      "id": 752782,
+      "person": {
+        "id": 688871,
+        "fullName": "Jacob Hinderleider",
+        "link": "/api/v1/people/688871"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jacob Hinderleider assigned to Clemson Tigers."
+    },
+    {
+      "id": 752637,
+      "person": {
+        "id": 703612,
+        "fullName": "Nick Peoples",
+        "link": "/api/v1/people/703612"
+      },
+      "toTeam": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "link": "/api/v1/teams/120"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Nick Peoples assigned to Washington Nationals."
+    },
+    {
+      "id": 756152,
+      "person": {
+        "id": 688815,
+        "fullName": "Anthony Quirion",
+        "link": "/api/v1/people/688815"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "C Anthony Quirion roster status changed by Philadelphia Phillies."
+    },
+    {
+      "id": 752756,
+      "person": {
+        "id": 681377,
+        "fullName": "Josh Hood",
+        "link": "/api/v1/people/681377"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Josh Hood assigned to Seattle Mariners."
+    },
+    {
+      "id": 752832,
+      "person": {
+        "id": 703444,
+        "fullName": "Hudson Lee",
+        "link": "/api/v1/people/703444"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Hudson Lee assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752895,
+      "person": {
+        "id": 702745,
+        "fullName": "Sebastian Santana",
+        "link": "/api/v1/people/702745"
+      },
+      "toTeam": {
+        "id": 1991,
+        "name": "ACL D-backs",
+        "link": "/api/v1/teams/1991"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "ACL D-backs Black released RHP Sebastian Santana."
+    },
+    {
+      "id": 752757,
+      "person": {
+        "id": 692046,
+        "fullName": "Axel Sanchez",
+        "link": "/api/v1/people/692046"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Axel Sanchez assigned to Seattle Mariners."
+    },
+    {
+      "id": 752720,
+      "person": {
+        "id": 823332,
+        "fullName": "Ethan Hott",
+        "link": "/api/v1/people/823332"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Ethan Hott assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752817,
+      "person": {
+        "id": 701793,
+        "fullName": "Rocco Reid",
+        "link": "/api/v1/people/701793"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Rocco Reid assigned to Clemson Tigers."
+    },
+    {
+      "id": 752813,
+      "person": {
+        "id": 822583,
+        "fullName": "Ty Marshall",
+        "link": "/api/v1/people/822583"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Ty Marshall assigned to Clemson Tigers."
+    },
+    {
+      "id": 752902,
+      "person": {
+        "id": 802070,
+        "fullName": "David Dominguez",
+        "link": "/api/v1/people/802070"
+      },
+      "toTeam": {
+        "id": 2101,
+        "name": "DSL Brewers Gold",
+        "link": "/api/v1/teams/2101"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "DSL Brewers 2 released LHP David Dominguez."
+    },
+    {
+      "id": 752903,
+      "person": {
+        "id": 807205,
+        "fullName": "Yonawil Florimon",
+        "link": "/api/v1/people/807205"
+      },
+      "toTeam": {
+        "id": 607,
+        "name": "DSL Brewers Blue",
+        "link": "/api/v1/teams/607"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "DSL Brewers 1 released RHP Yonawil Florimon."
+    },
+    {
+      "id": 752790,
+      "person": {
+        "id": 696142,
+        "fullName": "Will Taylor",
+        "link": "/api/v1/people/696142"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Will Taylor assigned to Clemson Tigers."
+    },
+    {
+      "id": 752794,
+      "person": {
+        "id": 813438,
+        "fullName": "Jay Dillard",
+        "link": "/api/v1/people/813438"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Jay Dillard assigned to Clemson Tigers."
+    },
+    {
+      "id": 752767,
+      "person": {
+        "id": 702283,
+        "fullName": "Tucker Toman",
+        "link": "/api/v1/people/702283"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Tucker Toman assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752807,
+      "person": {
+        "id": 822656,
+        "fullName": "Matthew Marchal",
+        "link": "/api/v1/people/822656"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Matthew Marchal assigned to Clemson Tigers."
+    },
+    {
+      "id": 752809,
+      "person": {
+        "id": 703443,
+        "fullName": "Ethan Darden",
+        "link": "/api/v1/people/703443"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Ethan Darden assigned to Clemson Tigers."
+    },
+    {
+      "id": 752676,
+      "person": {
+        "id": 694580,
+        "fullName": "Kemp Alderman",
+        "link": "/api/v1/people/694580"
+      },
+      "toTeam": {
+        "id": 146,
+        "name": "Miami Marlins",
+        "link": "/api/v1/teams/146"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Kemp Alderman assigned to Miami Marlins."
+    },
+    {
+      "id": 752746,
+      "person": {
+        "id": 676466,
+        "fullName": "Jack Winkler",
+        "link": "/api/v1/people/676466"
+      },
+      "toTeam": {
+        "id": 133,
+        "name": "Athletics",
+        "link": "/api/v1/teams/133"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jack Winkler assigned to Oakland Athletics."
+    },
+    {
+      "id": 752716,
+      "person": {
+        "id": 692852,
+        "fullName": "Beycker Barroso",
+        "link": "/api/v1/people/692852"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Beycker Barroso assigned to Texas Rangers."
+    },
+    {
+      "id": 752712,
+      "person": {
+        "id": 695579,
+        "fullName": "Trevor Haskins",
+        "link": "/api/v1/people/695579"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Trevor Haskins assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752778,
+      "person": {
+        "id": 805026,
+        "fullName": "Nolan Nawrocki",
+        "link": "/api/v1/people/805026"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Nolan Nawrocki assigned to Clemson Tigers."
+    },
+    {
+      "id": 752643,
+      "person": {
+        "id": 701209,
+        "fullName": "Colton Bender",
+        "link": "/api/v1/people/701209"
+      },
+      "toTeam": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "link": "/api/v1/teams/135"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Colton Bender assigned to San Diego Padres."
+    },
+    {
+      "id": 752851,
+      "person": {
+        "id": 695601,
+        "fullName": "Chris Katz",
+        "link": "/api/v1/people/695601"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Chris Katz assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752928,
+      "person": {
+        "id": 823350,
+        "fullName": "Cesar Pierret",
+        "link": "/api/v1/people/823350"
+      },
+      "toTeam": {
+        "id": 2270,
+        "name": "DSL Cubs Red",
+        "link": "/api/v1/teams/2270"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Cesar Pierret assigned to DSL Cubs Red."
+    },
+    {
+      "id": 752930,
+      "person": {
+        "id": 823351,
+        "fullName": "Jhon Rosario",
+        "link": "/api/v1/people/823351"
+      },
+      "toTeam": {
+        "id": 609,
+        "name": "DSL Cubs Blue",
+        "link": "/api/v1/teams/609"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jhon Rosario assigned to DSL Cubs Blue."
+    },
+    {
+      "id": 752644,
+      "person": {
+        "id": 670033,
+        "fullName": "Cole Duensing",
+        "link": "/api/v1/people/670033"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Cole Duensing assigned to Chicago White Sox."
+    },
+    {
+      "id": 752687,
+      "person": {
+        "id": 694918,
+        "fullName": "Blade Tidwell",
+        "link": "/api/v1/people/694918"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Blade Tidwell assigned to New York Mets."
+    },
+    {
+      "id": 752695,
+      "person": {
+        "id": 703151,
+        "fullName": "William Bergolla Jr.",
+        "link": "/api/v1/people/703151"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS William Bergolla assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752900,
+      "person": {
+        "id": 701376,
+        "fullName": "Bryant Zayas",
+        "link": "/api/v1/people/701376"
+      },
+      "toTeam": {
+        "id": 471,
+        "name": "FCL Red Sox",
+        "link": "/api/v1/teams/471"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "FCL Red Sox released SS Bryant Zayas."
+    },
+    {
+      "id": 752717,
+      "person": {
+        "id": 672629,
+        "fullName": "Gerardo Carrillo",
+        "link": "/api/v1/people/672629"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Gerardo Carrillo assigned to Texas Rangers."
+    },
+    {
+      "id": 752686,
+      "person": {
+        "id": 703492,
+        "fullName": "Nick Morabito",
+        "link": "/api/v1/people/703492"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Nick Morabito assigned to New York Mets."
+    },
+    {
+      "id": 752738,
+      "person": {
+        "id": 823333,
+        "fullName": "Trevor Moore",
+        "link": "/api/v1/people/823333"
+      },
+      "toTeam": {
+        "id": 5580,
+        "name": "College Workout",
+        "link": "/api/v1/teams/5580"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Trevor Moore assigned to College Workout."
+    },
+    {
+      "id": 752812,
+      "person": {
+        "id": 703557,
+        "fullName": "Devin Parks",
+        "link": "/api/v1/people/703557"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Devin Parks assigned to Clemson Tigers."
+    },
+    {
+      "id": 752715,
+      "person": {
+        "id": 702270,
+        "fullName": "Malcolm Moore",
+        "link": "/api/v1/people/702270"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Malcolm Moore assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752810,
+      "person": {
+        "id": 813436,
+        "fullName": "Brodey Conn",
+        "link": "/api/v1/people/813436"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Brodey Conn assigned to Clemson Tigers."
+    },
+    {
+      "id": 752856,
+      "person": {
+        "id": 813409,
+        "fullName": "Joe Ariola",
+        "link": "/api/v1/people/813409"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Joe Ariola assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752929,
+      "person": {
+        "id": 823351,
+        "fullName": "Jhon Rosario",
+        "link": "/api/v1/people/823351"
+      },
+      "toTeam": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "link": "/api/v1/teams/112"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Chicago Cubs signed free agent RHP Jhon Rosario to a minor league contract."
+    },
+    {
+      "id": 782579,
+      "person": {
+        "id": 695579,
+        "fullName": "Trevor Haskins",
+        "link": "/api/v1/people/695579"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "Stanford Cardinal activated SS Trevor Haskins."
+    },
+    {
+      "id": 752779,
+      "person": {
+        "id": 702680,
+        "fullName": "Jack Crighton",
+        "link": "/api/v1/people/702680"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Jack Crighton assigned to Clemson Tigers."
+    },
+    {
+      "id": 752783,
+      "person": {
+        "id": 694543,
+        "fullName": "Blake Wright",
+        "link": "/api/v1/people/694543"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Blake Wright assigned to Clemson Tigers."
+    },
+    {
+      "id": 752824,
+      "person": {
+        "id": 806171,
+        "fullName": "Blake Morningstar",
+        "link": "/api/v1/people/806171"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Blake Morningstar assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752827,
+      "person": {
+        "id": 701339,
+        "fullName": "Marek Houston",
+        "link": "/api/v1/people/701339"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Marek Houston assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752833,
+      "person": {
+        "id": 822651,
+        "fullName": "Andrew Koshy",
+        "link": "/api/v1/people/822651"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Andrew Koshy assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752846,
+      "person": {
+        "id": 822584,
+        "fullName": "Cameron Gill",
+        "link": "/api/v1/people/822584"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Cameron Gill assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752857,
+      "person": {
+        "id": 803160,
+        "fullName": "Dylan Zucker",
+        "link": "/api/v1/people/803160"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Dylan Zucker assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752905,
+      "person": {
+        "id": 701626,
+        "fullName": "Arielbi Gonzalez",
+        "link": "/api/v1/people/701626"
+      },
+      "toTeam": {
+        "id": 249,
+        "name": "Wilson Warbirds",
+        "link": "/api/v1/teams/249"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "Carolina Mudcats released RHP Arielbi Gonzalez."
+    },
+    {
+      "id": 752645,
+      "person": {
+        "id": 689185,
+        "fullName": "Everhett Hazelwood",
+        "link": "/api/v1/people/689185"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Everhett Hazelwood assigned to Chicago White Sox."
+    },
+    {
+      "id": 752727,
+      "person": {
+        "id": 687277,
+        "fullName": "Nathan Fleischli",
+        "link": "/api/v1/people/687277"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Nathan Fleischli assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752736,
+      "person": {
+        "id": 702523,
+        "fullName": "Matt Scott",
+        "link": "/api/v1/people/702523"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Matt Scott assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752788,
+      "person": {
+        "id": 801915,
+        "fullName": "B.J. Bailey",
+        "link": "/api/v1/people/801915"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP B.J. Bailey assigned to Clemson Tigers."
+    },
+    {
+      "id": 752798,
+      "person": {
+        "id": 807745,
+        "fullName": "Luke Brown",
+        "link": "/api/v1/people/807745"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Luke Brown assigned to Clemson Tigers."
+    },
+    {
+      "id": 752801,
+      "person": {
+        "id": 803283,
+        "fullName": "Joe Allen",
+        "link": "/api/v1/people/803283"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Joe Allen assigned to Clemson Tigers."
+    },
+    {
+      "id": 752819,
+      "person": {
+        "id": 803135,
+        "fullName": "Austin Gordon",
+        "link": "/api/v1/people/803135"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Austin Gordon assigned to Clemson Tigers."
+    },
+    {
+      "id": 752841,
+      "person": {
+        "id": 813400,
+        "fullName": "Jack Winnay",
+        "link": "/api/v1/people/813400"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "3B Jack Winnay assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 781675,
+      "person": {
+        "id": 805026,
+        "fullName": "Nolan Nawrocki",
+        "link": "/api/v1/people/805026"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "Clemson Tigers activated SS Nolan Nawrocki."
+    },
+    {
+      "id": 754423,
+      "person": {
+        "id": 678276,
+        "fullName": "Jose Ferrer",
+        "link": "/api/v1/people/678276"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "C Jose Ferrer roster status changed by Toronto Blue Jays."
+    },
+    {
+      "id": 752741,
+      "person": {
+        "id": 699130,
+        "fullName": "Jadher Areinamo",
+        "link": "/api/v1/people/699130"
+      },
+      "toTeam": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "link": "/api/v1/teams/158"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jadher Areinamo assigned to Milwaukee Brewers."
+    },
+    {
+      "id": 752855,
+      "person": {
+        "id": 822581,
+        "fullName": "Jacob Burley",
+        "link": "/api/v1/people/822581"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Jacob Burley assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 776278,
+      "person": {
+        "id": 823346,
+        "fullName": "Geremy Tovar",
+        "link": "/api/v1/people/823346"
+      },
+      "toTeam": {
+        "id": 2128,
+        "name": "DSL Royals Fortuna",
+        "link": "/api/v1/teams/2128"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "DSL Royals Fortuna activated LHP Geremy Tovar."
+    },
+    {
+      "id": 752710,
+      "person": {
+        "id": 701530,
+        "fullName": "Temo Becerra",
+        "link": "/api/v1/people/701530"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Temo Becerra assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752799,
+      "person": {
+        "id": 695614,
+        "fullName": "Casey Tallent",
+        "link": "/api/v1/people/695614"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Casey Tallent assigned to Clemson Tigers."
+    },
+    {
+      "id": 752821,
+      "person": {
+        "id": 822654,
+        "fullName": "Will Gervase",
+        "link": "/api/v1/people/822654"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Will Gervase assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752725,
+      "person": {
+        "id": 702282,
+        "fullName": "Kassius Thomas",
+        "link": "/api/v1/people/702282"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Kassius Thomas assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752978,
+      "person": {
+        "id": 681540,
+        "fullName": "Dylan Neuse",
+        "link": "/api/v1/people/681540"
+      },
+      "toTeam": {
+        "id": 142,
+        "name": "Minnesota Twins",
+        "link": "/api/v1/teams/142"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "2B Dylan Neuse roster status changed by Minnesota Twins."
+    },
+    {
+      "id": 752722,
+      "person": {
+        "id": 806116,
+        "fullName": "Champ Hampton",
+        "link": "/api/v1/people/806116"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Champ Hampton assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752853,
+      "person": {
+        "id": 822658,
+        "fullName": "Levi Strahm",
+        "link": "/api/v1/people/822658"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Levi Strahm assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752639,
+      "person": {
+        "id": 681540,
+        "fullName": "Dylan Neuse",
+        "link": "/api/v1/people/681540"
+      },
+      "toTeam": {
+        "id": 142,
+        "name": "Minnesota Twins",
+        "link": "/api/v1/teams/142"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Dylan Neuse assigned to Minnesota Twins."
+    },
+    {
+      "id": 752641,
+      "person": {
+        "id": 670399,
+        "fullName": "Jeffry Parra",
+        "link": "/api/v1/people/670399"
+      },
+      "toTeam": {
+        "id": 139,
+        "name": "Tampa Bay Rays",
+        "link": "/api/v1/teams/139"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Jeffry Parra assigned to Tampa Bay Rays."
+    },
+    {
+      "id": 752818,
+      "person": {
+        "id": 812697,
+        "fullName": "Tryston McCladdie",
+        "link": "/api/v1/people/812697"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Tryston McCladdie assigned to Clemson Tigers."
+    },
+    {
+      "id": 752925,
+      "person": {
+        "id": 823349,
+        "fullName": "Alvaro Rios",
+        "link": "/api/v1/people/823349"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Chicago White Sox signed free agent C Alvaro Rios to a minor league contract."
+    },
+    {
+      "id": 752638,
+      "person": {
+        "id": 803385,
+        "fullName": "Jay Harry",
+        "link": "/api/v1/people/803385"
+      },
+      "toTeam": {
+        "id": 142,
+        "name": "Minnesota Twins",
+        "link": "/api/v1/teams/142"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jay Harry assigned to Minnesota Twins."
+    },
+    {
+      "id": 752698,
+      "person": {
+        "id": 804706,
+        "fullName": "Dylan Cumming",
+        "link": "/api/v1/people/804706"
+      },
+      "toTeam": {
+        "id": 137,
+        "name": "San Francisco Giants",
+        "link": "/api/v1/teams/137"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Dylan Cumming assigned to San Francisco Giants."
+    },
+    {
+      "id": 752730,
+      "person": {
+        "id": 814361,
+        "fullName": "Jaden Bruno",
+        "link": "/api/v1/people/814361"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jaden Bruno assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752898,
+      "person": {
+        "id": 805471,
+        "fullName": "Enmanuel Martinez",
+        "link": "/api/v1/people/805471"
+      },
+      "toTeam": {
+        "id": 471,
+        "name": "FCL Red Sox",
+        "link": "/api/v1/teams/471"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "FCL Red Sox released C Enmanuel Martinez."
+    },
+    {
+      "id": 752899,
+      "person": {
+        "id": 681548,
+        "fullName": "Yusniel Padron-Artiles",
+        "link": "/api/v1/people/681548"
+      },
+      "toTeam": {
+        "id": 546,
+        "name": "Portland Sea Dogs",
+        "link": "/api/v1/teams/546"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "Portland Sea Dogs released RHP Yusniel Padron-Artiles."
+    },
+    {
+      "id": 752737,
+      "person": {
+        "id": 804554,
+        "fullName": "Gabe Springer",
+        "link": "/api/v1/people/804554"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Gabe Springer assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752803,
+      "person": {
+        "id": 822582,
+        "fullName": "Jacob McGovern",
+        "link": "/api/v1/people/822582"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Jacob McGovern assigned to Clemson Tigers."
+    },
+    {
+      "id": 752828,
+      "person": {
+        "id": 701762,
+        "fullName": "Nick Kurtz",
+        "link": "/api/v1/people/701762"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Nick Kurtz assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752831,
+      "person": {
+        "id": 700462,
+        "fullName": "Chase Walter",
+        "link": "/api/v1/people/700462"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Chase Walter assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752743,
+      "person": {
+        "id": 701707,
+        "fullName": "Jake Sapien",
+        "link": "/api/v1/people/701707"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jake Sapien assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752837,
+      "person": {
+        "id": 813399,
+        "fullName": "Zach Johnston",
+        "link": "/api/v1/people/813399"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Zach Johnston assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752842,
+      "person": {
+        "id": 806174,
+        "fullName": "Cameron Nelson",
+        "link": "/api/v1/people/806174"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Cameron Nelson assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752859,
+      "person": {
+        "id": 822649,
+        "fullName": "Ryan Preisano",
+        "link": "/api/v1/people/822649"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Ryan Preisano assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752693,
+      "person": {
+        "id": 691905,
+        "fullName": "Ricardo Rosario",
+        "link": "/api/v1/people/691905"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Ricardo Rosario assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752775,
+      "person": {
+        "id": 689141,
+        "fullName": "Anthony Hall",
+        "link": "/api/v1/people/689141"
+      },
+      "toTeam": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Anthony Hall assigned to New York Yankees."
+    },
+    {
+      "id": 752822,
+      "person": {
+        "id": 803138,
+        "fullName": "Will Ray",
+        "link": "/api/v1/people/803138"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Will Ray assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752844,
+      "person": {
+        "id": 822655,
+        "fullName": "Antonio Morales",
+        "link": "/api/v1/people/822655"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Antonio Morales assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 782603,
+      "person": {
+        "id": 701530,
+        "fullName": "Temo Becerra",
+        "link": "/api/v1/people/701530"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "Stanford Cardinal activated SS Temo Becerra."
+    },
+    {
+      "id": 752758,
+      "person": {
+        "id": 806223,
+        "fullName": "Aidan Smith",
+        "link": "/api/v1/people/806223"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Aidan Smith assigned to Seattle Mariners."
+    },
+    {
+      "id": 752796,
+      "person": {
+        "id": 803905,
+        "fullName": "Jarren Purify",
+        "link": "/api/v1/people/803905"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jarren Purify assigned to Clemson Tigers."
+    },
+    {
+      "id": 752843,
+      "person": {
+        "id": 691776,
+        "fullName": "Josh Hartle",
+        "link": "/api/v1/people/691776"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Josh Hartle assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752719,
+      "person": {
+        "id": 805302,
+        "fullName": "Toran O'Harran",
+        "link": "/api/v1/people/805302"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Toran O'Harran assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752823,
+      "person": {
+        "id": 814797,
+        "fullName": "Adam Tellier",
+        "link": "/api/v1/people/814797"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Adam Tellier assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752642,
+      "person": {
+        "id": 687239,
+        "fullName": "Ben Peoples",
+        "link": "/api/v1/people/687239"
+      },
+      "toTeam": {
+        "id": 139,
+        "name": "Tampa Bay Rays",
+        "link": "/api/v1/teams/139"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ben Peoples assigned to Tampa Bay Rays."
+    },
+    {
+      "id": 752691,
+      "person": {
+        "id": 679602,
+        "fullName": "Drew Ehrhard",
+        "link": "/api/v1/people/679602"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Drew Ehrhard assigned to Boston Red Sox."
+    },
+    {
+      "id": 752713,
+      "person": {
+        "id": 805823,
+        "fullName": "Paul Bonzagni",
+        "link": "/api/v1/people/805823"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Paul Bonzagni assigned to Texas Rangers."
+    },
+    {
+      "id": 752729,
+      "person": {
+        "id": 822679,
+        "fullName": "Cort MacDonald",
+        "link": "/api/v1/people/822679"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Cort MacDonald assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752777,
+      "person": {
+        "id": 813440,
+        "fullName": "Lleyton Lackey",
+        "link": "/api/v1/people/813440"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Lleyton Lackey assigned to Clemson Tigers."
+    },
+    {
+      "id": 752740,
+      "person": {
+        "id": 814512,
+        "fullName": "Tommy O'Rourke",
+        "link": "/api/v1/people/814512"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Tommy O'Rourke assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752745,
+      "person": {
+        "id": 814712,
+        "fullName": "Christian Lim",
+        "link": "/api/v1/people/814712"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Christian Lim assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752784,
+      "person": {
+        "id": 703447,
+        "fullName": "Jacob Jarrell",
+        "link": "/api/v1/people/703447"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Jacob Jarrell assigned to Clemson Tigers."
+    },
+    {
+      "id": 752791,
+      "person": {
+        "id": 806307,
+        "fullName": "Alden Mathes",
+        "link": "/api/v1/people/806307"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Alden Mathes assigned to Clemson Tigers."
+    },
+    {
+      "id": 752806,
+      "person": {
+        "id": 805215,
+        "fullName": "Noah Samol",
+        "link": "/api/v1/people/805215"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Noah Samol assigned to Clemson Tigers."
+    },
+    {
+      "id": 752829,
+      "person": {
+        "id": 702627,
+        "fullName": "Austin Hawke",
+        "link": "/api/v1/people/702627"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Austin Hawke assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752924,
+      "person": {
+        "id": 823348,
+        "fullName": "Jehancarlos Mendez",
+        "link": "/api/v1/people/823348"
+      },
+      "toTeam": {
+        "id": 633,
+        "name": "DSL White Sox",
+        "link": "/api/v1/teams/633"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jehancarlos Mendez assigned to DSL White Sox."
+    },
+    {
+      "id": 752927,
+      "person": {
+        "id": 823350,
+        "fullName": "Cesar Pierret",
+        "link": "/api/v1/people/823350"
+      },
+      "toTeam": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "link": "/api/v1/teams/112"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Chicago Cubs signed free agent RHP Cesar Pierret to a minor league contract."
+    },
+    {
+      "id": 752675,
+      "person": {
+        "id": 698929,
+        "fullName": "Jesus Hernandez",
+        "link": "/api/v1/people/698929"
+      },
+      "toTeam": {
+        "id": 146,
+        "name": "Miami Marlins",
+        "link": "/api/v1/teams/146"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jesus Hernandez assigned to Miami Marlins."
+    },
+    {
+      "id": 752749,
+      "person": {
+        "id": 800631,
+        "fullName": "Ryan Speshyock",
+        "link": "/api/v1/people/800631"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ryan Speshyock assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752804,
+      "person": {
+        "id": 813439,
+        "fullName": "Nick Couch",
+        "link": "/api/v1/people/813439"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Nick Couch assigned to Clemson Tigers."
+    },
+    {
+      "id": 752805,
+      "person": {
+        "id": 806141,
+        "fullName": "Justin LeGuernic",
+        "link": "/api/v1/people/806141"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Justin LeGuernic assigned to Clemson Tigers."
+    },
+    {
+      "id": 752808,
+      "person": {
+        "id": 822653,
+        "fullName": "Jackson Cole",
+        "link": "/api/v1/people/822653"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Jackson Cole assigned to Clemson Tigers."
+    },
+    {
+      "id": 752714,
+      "person": {
+        "id": 698840,
+        "fullName": "Jimmy Nati",
+        "link": "/api/v1/people/698840"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "3B Jimmy Nati assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752797,
+      "person": {
+        "id": 803130,
+        "fullName": "Ty Olenchuk",
+        "link": "/api/v1/people/803130"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ty Olenchuk assigned to Clemson Tigers."
+    },
+    {
+      "id": 752752,
+      "person": {
+        "id": 807744,
+        "fullName": "Ty Cummings",
+        "link": "/api/v1/people/807744"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ty Cummings assigned to Seattle Mariners."
+    },
+    {
+      "id": 752814,
+      "person": {
+        "id": 822652,
+        "fullName": "Lucas Mahlstedt",
+        "link": "/api/v1/people/822652"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Lucas Mahlstedt assigned to Clemson Tigers."
+    },
+    {
+      "id": 752834,
+      "person": {
+        "id": 814191,
+        "fullName": "Javar Williams",
+        "link": "/api/v1/people/814191"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Javar Williams assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752681,
+      "person": {
+        "id": 691775,
+        "fullName": "Ryan Clifford",
+        "link": "/api/v1/people/691775"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Ryan Clifford assigned to New York Mets."
+    },
+    {
+      "id": 752835,
+      "person": {
+        "id": 686629,
+        "fullName": "David Falco Jr.",
+        "link": "/api/v1/people/686629"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP David Falco Jr. assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752766,
+      "person": {
+        "id": 678276,
+        "fullName": "Jose Ferrer",
+        "link": "/api/v1/people/678276"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Jose Ferrer assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752800,
+      "person": {
+        "id": 803124,
+        "fullName": "Tristan Bissetta",
+        "link": "/api/v1/people/803124"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Tristan Bissetta assigned to Clemson Tigers."
+    },
+    {
+      "id": 752820,
+      "person": {
+        "id": 686848,
+        "fullName": "Tate Ballestero",
+        "link": "/api/v1/people/686848"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Tate Ballestero assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752840,
+      "person": {
+        "id": 806140,
+        "fullName": "Haiden Leffew",
+        "link": "/api/v1/people/806140"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Haiden Leffew assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752816,
+      "person": {
+        "id": 806702,
+        "fullName": "Chance Fitzgerald",
+        "link": "/api/v1/people/806702"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Chance Fitzgerald assigned to Clemson Tigers."
+    },
+    {
+      "id": 752894,
+      "person": {
+        "id": 808005,
+        "fullName": "Walvin Mena",
+        "link": "/api/v1/people/808005"
+      },
+      "toTeam": {
+        "id": 610,
+        "name": "DSL Arizona Black",
+        "link": "/api/v1/teams/610"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "DSL Arizona Black activated RHP Walvin Mena from the restricted list."
+    },
+    {
+      "id": 752917,
+      "person": {
+        "id": 823346,
+        "fullName": "Geremy Tovar",
+        "link": "/api/v1/people/823346"
+      },
+      "toTeam": {
+        "id": 2128,
+        "name": "DSL Royals Fortuna",
+        "link": "/api/v1/teams/2128"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Geremy Tovar assigned to DSL Royals Gold."
+    },
+    {
+      "id": 752692,
+      "person": {
+        "id": 683610,
+        "fullName": "Leandro Pineda",
+        "link": "/api/v1/people/683610"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Leandro Pineda assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752718,
+      "person": {
+        "id": 806138,
+        "fullName": "Luke Lavin",
+        "link": "/api/v1/people/806138"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Luke Lavin assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752726,
+      "person": {
+        "id": 811285,
+        "fullName": "Joey Volchko",
+        "link": "/api/v1/people/811285"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Joey Volchko assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752735,
+      "person": {
+        "id": 800628,
+        "fullName": "Brady Reynolds",
+        "link": "/api/v1/people/800628"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Brady Reynolds assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752753,
+      "person": {
+        "id": 805299,
+        "fullName": "Brandyn Garcia",
+        "link": "/api/v1/people/805299"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Brandyn Garcia assigned to Seattle Mariners."
+    },
+    {
+      "id": 752825,
+      "person": {
+        "id": 814409,
+        "fullName": "Seaver King",
+        "link": "/api/v1/people/814409"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Seaver King assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752926,
+      "person": {
+        "id": 823349,
+        "fullName": "Alvaro Rios",
+        "link": "/api/v1/people/823349"
+      },
+      "toTeam": {
+        "id": 633,
+        "name": "DSL White Sox",
+        "link": "/api/v1/teams/633"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Alvaro Rios assigned to DSL White Sox."
+    },
+    {
+      "id": 752734,
+      "person": {
+        "id": 805909,
+        "fullName": "Sam Garewal",
+        "link": "/api/v1/people/805909"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Sam Garewal assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752748,
+      "person": {
+        "id": 823336,
+        "fullName": "Gavin Nalu",
+        "link": "/api/v1/people/823336"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Gavin Nalu assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752792,
+      "person": {
+        "id": 806328,
+        "fullName": "Aidan Knaak",
+        "link": "/api/v1/people/806328"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Aidan Knaak assigned to Clemson Tigers."
+    },
+    {
+      "id": 752747,
+      "person": {
+        "id": 695497,
+        "fullName": "Brett Blair",
+        "link": "/api/v1/people/695497"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Brett Blair assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752636,
+      "person": {
+        "id": 691183,
+        "fullName": "Kevin Made",
+        "link": "/api/v1/people/691183"
+      },
+      "toTeam": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "link": "/api/v1/teams/120"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Kevin Made assigned to Washington Nationals."
+    },
+    {
+      "id": 752721,
+      "person": {
+        "id": 806055,
+        "fullName": "Sebastian David",
+        "link": "/api/v1/people/806055"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Sebastian David assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752850,
+      "person": {
+        "id": 803152,
+        "fullName": "Jake Reinisch",
+        "link": "/api/v1/people/803152"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Jake Reinisch assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752858,
+      "person": {
+        "id": 806220,
+        "fullName": "Brody Shawn",
+        "link": "/api/v1/people/806220"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Brody Shawn assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752709,
+      "person": {
+        "id": 686540,
+        "fullName": "Owen Cobb",
+        "link": "/api/v1/people/686540"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Owen Cobb assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752769,
+      "person": {
+        "id": 686481,
+        "fullName": "Jake Agnos",
+        "link": "/api/v1/people/686481"
+      },
+      "toTeam": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Jake Agnos assigned to New York Yankees."
+    },
+    {
+      "id": 752776,
+      "person": {
+        "id": 815037,
+        "fullName": "Drew Titsworth",
+        "link": "/api/v1/people/815037"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Drew Titsworth assigned to Clemson Tigers."
+    },
+    {
+      "id": 752780,
+      "person": {
+        "id": 804532,
+        "fullName": "Cooper Blauser",
+        "link": "/api/v1/people/804532"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Cooper Blauser assigned to Clemson Tigers."
+    },
+    {
+      "id": 752785,
+      "person": {
+        "id": 703448,
+        "fullName": "Cam Cannarella",
+        "link": "/api/v1/people/703448"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Cam Cannarella assigned to Clemson Tigers."
+    },
+    {
+      "id": 752732,
+      "person": {
+        "id": 702660,
+        "fullName": "Nick Dugan",
+        "link": "/api/v1/people/702660"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Nick Dugan assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752739,
+      "person": {
+        "id": 701741,
+        "fullName": "Ty Uber",
+        "link": "/api/v1/people/701741"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ty Uber assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752781,
+      "person": {
+        "id": 688628,
+        "fullName": "Andrew Ciufo",
+        "link": "/api/v1/people/688628"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Andrew Ciufo assigned to Clemson Tigers."
+    },
+    {
+      "id": 752854,
+      "person": {
+        "id": 803156,
+        "fullName": "Pirmin Brechbuhl",
+        "link": "/api/v1/people/803156"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Pirmin Brechbuhl assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752896,
+      "person": {
+        "id": 695283,
+        "fullName": "Junior Pina",
+        "link": "/api/v1/people/695283"
+      },
+      "toTeam": {
+        "id": 599,
+        "name": "FCL Orioles",
+        "link": "/api/v1/teams/599"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "FCL Orioles released RHP Junior Pina."
+    },
+    {
+      "id": 752897,
+      "person": {
+        "id": 701563,
+        "fullName": "Connor Butler",
+        "link": "/api/v1/people/701563"
+      },
+      "toTeam": {
+        "id": 414,
+        "name": "Salem RidgeYaks",
+        "link": "/api/v1/teams/414"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "Salem Red Sox released LHP Connor Butler."
+    },
+    {
+      "id": 752847,
+      "person": {
+        "id": 813401,
+        "fullName": "Cole Roland",
+        "link": "/api/v1/people/813401"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Cole Roland assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752728,
+      "person": {
+        "id": 691793,
+        "fullName": "Charlie Saum",
+        "link": "/api/v1/people/691793"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Charlie Saum assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752923,
+      "person": {
+        "id": 823348,
+        "fullName": "Jehancarlos Mendez",
+        "link": "/api/v1/people/823348"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Chicago White Sox signed free agent SS Jehancarlos Mendez to a minor league contract."
+    },
+    {
+      "id": 752646,
+      "person": {
+        "id": 692021,
+        "fullName": "Oswaldo Linares",
+        "link": "/api/v1/people/692021"
+      },
+      "toTeam": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "link": "/api/v1/teams/135"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Oswaldo Linares assigned to San Diego Padres."
+    },
+    {
+      "id": 752696,
+      "person": {
+        "id": 688815,
+        "fullName": "Anthony Quirion",
+        "link": "/api/v1/people/688815"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Anthony Quirion assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752697,
+      "person": {
+        "id": 804858,
+        "fullName": "Bryan Rincon",
+        "link": "/api/v1/people/804858"
+      },
+      "toTeam": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "link": "/api/v1/teams/143"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Bryan Rincon assigned to Philadelphia Phillies."
+    },
+    {
+      "id": 752802,
+      "person": {
+        "id": 701775,
+        "fullName": "Billy Barlow",
+        "link": "/api/v1/people/701775"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Billy Barlow assigned to Clemson Tigers."
+    },
+    {
+      "id": 752815,
+      "person": {
+        "id": 701543,
+        "fullName": "Rob Hughes",
+        "link": "/api/v1/people/701543"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Rob Hughes assigned to Clemson Tigers."
+    },
+    {
+      "id": 752830,
+      "person": {
+        "id": 813394,
+        "fullName": "Skip Shenosky",
+        "link": "/api/v1/people/813394"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ben Shenosky assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752848,
+      "person": {
+        "id": 695505,
+        "fullName": "Chase Burns",
+        "link": "/api/v1/people/695505"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Chase Burns assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752901,
+      "person": {
+        "id": 678642,
+        "fullName": "Jose Reina",
+        "link": "/api/v1/people/678642"
+      },
+      "toTeam": {
+        "id": 473,
+        "name": "FCL Tigers",
+        "link": "/api/v1/teams/473"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "REL",
+      "typeDesc": "Released",
+      "description": "FCL Tigers released OF Jose Reina."
+    },
+    {
+      "id": 752683,
+      "person": {
+        "id": 692190,
+        "fullName": "Donovan Antonia",
+        "link": "/api/v1/people/692190"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Donovan Antonia assigned to New York Mets."
+    },
+    {
+      "id": 752811,
+      "person": {
+        "id": 813437,
+        "fullName": "Nathan Dvorsky",
+        "link": "/api/v1/people/813437"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Nathan Dvorsky assigned to Clemson Tigers."
+    },
+    {
+      "id": 752838,
+      "person": {
+        "id": 804162,
+        "fullName": "Jeter Polledo",
+        "link": "/api/v1/people/804162"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jeter Polledo assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752849,
+      "person": {
+        "id": 695602,
+        "fullName": "Michael Massey",
+        "link": "/api/v1/people/695602"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Michael Massey assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752937,
+      "person": {
+        "id": 691183,
+        "fullName": "Kevin Made",
+        "link": "/api/v1/people/691183"
+      },
+      "toTeam": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "link": "/api/v1/teams/120"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "SS Kevin Made roster status changed by Washington Nationals."
+    },
+    {
+      "id": 752731,
+      "person": {
+        "id": 805788,
+        "fullName": "Aidan Keenan",
+        "link": "/api/v1/people/805788"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Aidan Keenan assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752787,
+      "person": {
+        "id": 806197,
+        "fullName": "Hideki Prather",
+        "link": "/api/v1/people/806197"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Hideki Prather assigned to Clemson Tigers."
+    },
+    {
+      "id": 752839,
+      "person": {
+        "id": 695401,
+        "fullName": "Crawford Wade",
+        "link": "/api/v1/people/695401"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Crawford Wade assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 752742,
+      "person": {
+        "id": 823334,
+        "fullName": "Jack Svinth",
+        "link": "/api/v1/people/823334"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jack Svinth assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752744,
+      "person": {
+        "id": 823335,
+        "fullName": "Ben Reimers",
+        "link": "/api/v1/people/823335"
+      },
+      "toTeam": {
+        "id": 6267,
+        "name": "Stanford Cardinal",
+        "link": "/api/v1/teams/6267"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Ben Reimers assigned to Stanford Cardinal."
+    },
+    {
+      "id": 752836,
+      "person": {
+        "id": 822660,
+        "fullName": "Mitchell Salvino",
+        "link": "/api/v1/people/822660"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Mitchell Salvino assigned to Wake Forest Demon Deacons."
+    },
+    {
+      "id": 753122,
+      "person": {
+        "id": 664697,
+        "fullName": "Cobie Fletcher-Vance",
+        "link": "/api/v1/people/664697"
+      },
+      "toTeam": {
+        "id": 4124,
+        "name": "Pensacola Blue Wahoos",
+        "link": "/api/v1/teams/4124"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "RET",
+      "typeDesc": "Retired",
+      "description": "SS Cobie Fletcher-Vance retired."
+    },
+    {
+      "id": 753125,
+      "person": {
+        "id": 686843,
+        "fullName": "Will Matthiessen",
+        "link": "/api/v1/people/686843"
+      },
+      "toTeam": {
+        "id": 452,
+        "name": "Altoona Curve",
+        "link": "/api/v1/teams/452"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "RET",
+      "typeDesc": "Retired",
+      "description": "1B Will Matthiessen retired."
+    },
+    {
+      "id": 753166,
+      "person": {
+        "id": 643265,
+        "fullName": "Garrett Cooper",
+        "link": "/api/v1/people/643265"
+      },
+      "toTeam": {
+        "id": 451,
+        "name": "Iowa Cubs",
+        "link": "/api/v1/teams/451"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Garrett Cooper assigned to Iowa Cubs."
+    },
+    {
+      "id": 753169,
+      "person": {
+        "id": 643265,
+        "fullName": "Garrett Cooper",
+        "link": "/api/v1/people/643265"
+      },
+      "toTeam": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "link": "/api/v1/teams/112"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SFA",
+      "typeDesc": "Signed as Free Agent",
+      "description": "Chicago Cubs signed free agent 1B Garrett Cooper to a minor league contract and invited him to spring training."
+    },
+    {
+      "id": 754435,
+      "person": {
+        "id": 681168,
+        "fullName": "Luis Curvelo",
+        "link": "/api/v1/people/681168"
+      },
+      "toTeam": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "link": "/api/v1/teams/136"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Luis Curvelo roster status changed by Seattle Mariners."
+    },
+    {
+      "id": 782470,
+      "person": {
+        "id": 813399,
+        "fullName": "Zach Johnston",
+        "link": "/api/v1/people/813399"
+      },
+      "toTeam": {
+        "id": 6041,
+        "name": "Wake Forest Demon Deacons",
+        "link": "/api/v1/teams/6041"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "Wake Forest Demon Deacons activated LHP Zach Johnston."
+    },
+    {
+      "id": 754701,
+      "person": {
+        "id": 670033,
+        "fullName": "Cole Duensing",
+        "link": "/api/v1/people/670033"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Cole Duensing roster status changed by Chicago White Sox."
+    },
+    {
+      "id": 781716,
+      "person": {
+        "id": 703449,
+        "fullName": "Nathan Hall",
+        "link": "/api/v1/people/703449"
+      },
+      "toTeam": {
+        "id": 6042,
+        "name": "Clemson Tigers",
+        "link": "/api/v1/teams/6042"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "Clemson Tigers activated OF Nathan Hall."
+    },
+    {
+      "id": 755489,
+      "person": {
+        "id": 692852,
+        "fullName": "Beycker Barroso",
+        "link": "/api/v1/people/692852"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-01",
+      "effectiveDate": "2024-03-01",
+      "resolutionDate": "2024-03-01",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "C Beycker Barroso roster status changed by Texas Rangers."
+    },
+    {
+      "id": 752913,
+      "person": {
+        "id": 806964,
+        "fullName": "Sebastian Walcott",
+        "link": "/api/v1/people/806964"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Sebastian Walcott assigned to Texas Rangers."
+    },
+    {
+      "id": 752862,
+      "person": {
+        "id": 688311,
+        "fullName": "Drake Osborn",
+        "link": "/api/v1/people/688311"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Drake Osborn assigned to New York Mets."
+    },
+    {
+      "id": 754421,
+      "person": {
+        "id": 672078,
+        "fullName": "Eric Pardinho",
+        "link": "/api/v1/people/672078"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Eric Pardinho roster status changed by Toronto Blue Jays."
+    },
+    {
+      "id": 752869,
+      "person": {
+        "id": 701327,
+        "fullName": "Elijah Green",
+        "link": "/api/v1/people/701327"
+      },
+      "toTeam": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "link": "/api/v1/teams/120"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Elijah Green assigned to Washington Nationals."
+    },
+    {
+      "id": 752870,
+      "person": {
+        "id": 699144,
+        "fullName": "Luis Ravelo",
+        "link": "/api/v1/people/699144"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Luis Ravelo assigned to Boston Red Sox."
+    },
+    {
+      "id": 755440,
+      "person": {
+        "id": 663519,
+        "fullName": "Kekai Rios",
+        "link": "/api/v1/people/663519"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "C Kekai Rios roster status changed by Toronto Blue Jays."
+    },
+    {
+      "id": 752861,
+      "person": {
+        "id": 682225,
+        "fullName": "Billy Corcoran",
+        "link": "/api/v1/people/682225"
+      },
+      "toTeam": {
+        "id": 109,
+        "name": "Arizona Diamondbacks",
+        "link": "/api/v1/teams/109"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Billy Corcoran assigned to Arizona Diamondbacks."
+    },
+    {
+      "id": 752863,
+      "person": {
+        "id": 691708,
+        "fullName": "Junior Tilien",
+        "link": "/api/v1/people/691708"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Junior Tilien assigned to New York Mets."
+    },
+    {
+      "id": 752865,
+      "person": {
+        "id": 683402,
+        "fullName": "Juan Daniel Encarnacion",
+        "link": "/api/v1/people/683402"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Juan Daniel Encarnacion assigned to Boston Red Sox."
+    },
+    {
+      "id": 752873,
+      "person": {
+        "id": 701056,
+        "fullName": "Josh Grosz",
+        "link": "/api/v1/people/701056"
+      },
+      "toTeam": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Josh Grosz assigned to New York Yankees."
+    },
+    {
+      "id": 752914,
+      "person": {
+        "id": 683227,
+        "fullName": "Cody Freeman",
+        "link": "/api/v1/people/683227"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Cody Freeman assigned to Texas Rangers."
+    },
+    {
+      "id": 752875,
+      "person": {
+        "id": 669920,
+        "fullName": "Jason Alexander",
+        "link": "/api/v1/people/669920"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jason Alexander assigned to Boston Red Sox."
+    },
+    {
+      "id": 752879,
+      "person": {
+        "id": 699082,
+        "fullName": "Yhoangel Aponte",
+        "link": "/api/v1/people/699082"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "CF Yhoangel Aponte assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752871,
+      "person": {
+        "id": 702690,
+        "fullName": "Cutter Coffey",
+        "link": "/api/v1/people/702690"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Cutter Coffey assigned to Boston Red Sox."
+    },
+    {
+      "id": 756700,
+      "person": {
+        "id": 699082,
+        "fullName": "Yhoangel Aponte",
+        "link": "/api/v1/people/699082"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "CF Yhoangel Aponte roster status changed by Toronto Blue Jays."
+    },
+    {
+      "id": 752864,
+      "person": {
+        "id": 690969,
+        "fullName": "Kellum Clark",
+        "link": "/api/v1/people/690969"
+      },
+      "toTeam": {
+        "id": 121,
+        "name": "New York Mets",
+        "link": "/api/v1/teams/121"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Kellum Clark assigned to New York Mets."
+    },
+    {
+      "id": 753071,
+      "person": {
+        "id": 677954,
+        "fullName": "Jordan Groshans",
+        "link": "/api/v1/people/677954"
+      },
+      "toTeam": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "SS Jordan Groshans roster status changed by New York Yankees."
+    },
+    {
+      "id": 752915,
+      "person": {
+        "id": 686863,
+        "fullName": "Daniel Mateo",
+        "link": "/api/v1/people/686863"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "CF Daniel Mateo assigned to Texas Rangers."
+    },
+    {
+      "id": 752877,
+      "person": {
+        "id": 672078,
+        "fullName": "Eric Pardinho",
+        "link": "/api/v1/people/672078"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Eric Pardinho assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752874,
+      "person": {
+        "id": 622338,
+        "fullName": "Jes\u00fas Liranzo",
+        "link": "/api/v1/people/622338"
+      },
+      "toTeam": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Jes\u00fas Liranzo assigned to New York Yankees."
+    },
+    {
+      "id": 752911,
+      "person": {
+        "id": 694504,
+        "fullName": "Luke Savage",
+        "link": "/api/v1/people/694504"
+      },
+      "toTeam": {
+        "id": 140,
+        "name": "Texas Rangers",
+        "link": "/api/v1/teams/140"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Luke Savage assigned to Texas Rangers."
+    },
+    {
+      "id": 752876,
+      "person": {
+        "id": 696291,
+        "fullName": "Jordan McCants",
+        "link": "/api/v1/people/696291"
+      },
+      "toTeam": {
+        "id": 146,
+        "name": "Miami Marlins",
+        "link": "/api/v1/teams/146"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Jordan McCants assigned to Miami Marlins."
+    },
+    {
+      "id": 752867,
+      "person": {
+        "id": 675976,
+        "fullName": "Mark Washington",
+        "link": "/api/v1/people/675976"
+      },
+      "toTeam": {
+        "id": 117,
+        "name": "Houston Astros",
+        "link": "/api/v1/teams/117"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Mark Washington assigned to Houston Astros."
+    },
+    {
+      "id": 752882,
+      "person": {
+        "id": 696140,
+        "fullName": "Ethan Murray",
+        "link": "/api/v1/people/696140"
+      },
+      "toTeam": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "link": "/api/v1/teams/158"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Ethan Murray assigned to Milwaukee Brewers."
+    },
+    {
+      "id": 752906,
+      "person": {
+        "id": 683172,
+        "fullName": "Joe Naranjo",
+        "link": "/api/v1/people/683172"
+      },
+      "toTeam": {
+        "id": 114,
+        "name": "Cleveland Guardians",
+        "link": "/api/v1/teams/114"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "1B Joe Naranjo assigned to Cleveland Guardians."
+    },
+    {
+      "id": 752890,
+      "person": {
+        "id": 687192,
+        "fullName": "Cade Hunter",
+        "link": "/api/v1/people/687192"
+      },
+      "toTeam": {
+        "id": 113,
+        "name": "Cincinnati Reds",
+        "link": "/api/v1/teams/113"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Cade Hunter assigned to Cincinnati Reds."
+    },
+    {
+      "id": 752921,
+      "person": {
+        "id": 673872,
+        "fullName": "Bobby Milacki",
+        "link": "/api/v1/people/673872"
+      },
+      "toTeam": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "link": "/api/v1/teams/135"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Bobby Milacki assigned to San Diego Padres."
+    },
+    {
+      "id": 752891,
+      "person": {
+        "id": 699302,
+        "fullName": "H\u00e9ctor Rodr\u00edguez",
+        "link": "/api/v1/people/699302"
+      },
+      "toTeam": {
+        "id": 113,
+        "name": "Cincinnati Reds",
+        "link": "/api/v1/teams/113"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Hector Rodriguez assigned to Cincinnati Reds."
+    },
+    {
+      "id": 754831,
+      "person": {
+        "id": 663519,
+        "fullName": "Kekai Rios",
+        "link": "/api/v1/people/663519"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "C Kekai Rios roster status changed by Toronto Blue Jays."
+    },
+    {
+      "id": 752892,
+      "person": {
+        "id": 800198,
+        "fullName": "Cristofer Torin",
+        "link": "/api/v1/people/800198"
+      },
+      "toTeam": {
+        "id": 109,
+        "name": "Arizona Diamondbacks",
+        "link": "/api/v1/teams/109"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "SS Cristofer Torin assigned to Arizona Diamondbacks."
+    },
+    {
+      "id": 752920,
+      "person": {
+        "id": 687258,
+        "fullName": "Johnny Ray",
+        "link": "/api/v1/people/687258"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Johnny Ray assigned to Chicago White Sox."
+    },
+    {
+      "id": 752872,
+      "person": {
+        "id": 676498,
+        "fullName": "Alex Cornwell",
+        "link": "/api/v1/people/676498"
+      },
+      "toTeam": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "link": "/api/v1/teams/138"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "LHP Alex Cornwell assigned to St. Louis Cardinals."
+    },
+    {
+      "id": 754705,
+      "person": {
+        "id": 687258,
+        "fullName": "Johnny Ray",
+        "link": "/api/v1/people/687258"
+      },
+      "toTeam": {
+        "id": 145,
+        "name": "Chicago White Sox",
+        "link": "/api/v1/teams/145"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Johnny Ray roster status changed by Chicago White Sox."
+    },
+    {
+      "id": 752904,
+      "person": {
+        "id": 674384,
+        "fullName": "Eduarniel N\u00fa\u00f1ez",
+        "link": "/api/v1/people/674384"
+      },
+      "toTeam": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "link": "/api/v1/teams/112"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Eduarniel Nunez assigned to Chicago Cubs."
+    },
+    {
+      "id": 752966,
+      "person": {
+        "id": 669920,
+        "fullName": "Jason Alexander",
+        "link": "/api/v1/people/669920"
+      },
+      "toTeam": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "link": "/api/v1/teams/111"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "SC",
+      "typeDesc": "Status Change",
+      "description": "RHP Jason Alexander roster status changed by Boston Red Sox."
+    },
+    {
+      "id": 752868,
+      "person": {
+        "id": 672795,
+        "fullName": "Samuel Reyes",
+        "link": "/api/v1/people/672795"
+      },
+      "toTeam": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "link": "/api/v1/teams/120"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Samuel Reyes assigned to Washington Nationals."
+    },
+    {
+      "id": 752878,
+      "person": {
+        "id": 663519,
+        "fullName": "Kekai Rios",
+        "link": "/api/v1/people/663519"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "C Kekai Rios assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752922,
+      "person": {
+        "id": 800543,
+        "fullName": "Josue De Paula",
+        "link": "/api/v1/people/800543"
+      },
+      "toTeam": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "link": "/api/v1/teams/119"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "CF Josue De Paula assigned to Los Angeles Dodgers."
+    },
+    {
+      "id": 752931,
+      "person": {
+        "id": 804588,
+        "fullName": "Bubba Alleyne",
+        "link": "/api/v1/people/804588"
+      },
+      "toTeam": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "link": "/api/v1/teams/119"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "OF Chris Alleyne assigned to Los Angeles Dodgers."
+    },
+    {
+      "id": 752860,
+      "person": {
+        "id": 683272,
+        "fullName": "Eli Saul",
+        "link": "/api/v1/people/683272"
+      },
+      "toTeam": {
+        "id": 109,
+        "name": "Arizona Diamondbacks",
+        "link": "/api/v1/teams/109"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "RHP Eli Saul assigned to Arizona Diamondbacks."
+    },
+    {
+      "id": 752880,
+      "person": {
+        "id": 672018,
+        "fullName": "Dasan Brown",
+        "link": "/api/v1/people/672018"
+      },
+      "toTeam": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "link": "/api/v1/teams/141"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "CF Dasan Brown assigned to Toronto Blue Jays."
+    },
+    {
+      "id": 752866,
+      "person": {
+        "id": 681888,
+        "fullName": "Greg Cullen",
+        "link": "/api/v1/people/681888"
+      },
+      "toTeam": {
+        "id": 110,
+        "name": "Baltimore Orioles",
+        "link": "/api/v1/teams/110"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "resolutionDate": "2024-03-02",
+      "typeCode": "ASG",
+      "typeDesc": "Assigned",
+      "description": "2B Greg Cullen assigned to Baltimore Orioles."
+    },
+    {
+      "id": 752933,
+      "person": {
+        "id": 666130,
+        "fullName": "Jay Groome",
+        "link": "/api/v1/people/666130"
+      },
+      "fromTeam": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "link": "/api/v1/teams/135"
+      },
+      "toTeam": {
+        "id": 4904,
+        "name": "El Paso Chihuahuas",
+        "link": "/api/v1/teams/4904"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "typeCode": "OPT",
+      "typeDesc": "Optioned",
+      "description": "San Diego Padres optioned LHP Jay Groome to El Paso Chihuahuas."
+    },
+    {
+      "id": 752934,
+      "person": {
+        "id": 669308,
+        "fullName": "Sean Reynolds",
+        "link": "/api/v1/people/669308"
+      },
+      "fromTeam": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "link": "/api/v1/teams/135"
+      },
+      "toTeam": {
+        "id": 4904,
+        "name": "El Paso Chihuahuas",
+        "link": "/api/v1/teams/4904"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "typeCode": "OPT",
+      "typeDesc": "Optioned",
+      "description": "San Diego Padres optioned RHP Sean Reynolds to El Paso Chihuahuas."
+    },
+    {
+      "id": 752932,
+      "person": {
+        "id": 661309,
+        "fullName": "Adri\u00e1n Martinez",
+        "link": "/api/v1/people/661309"
+      },
+      "fromTeam": {
+        "id": 133,
+        "name": "Athletics",
+        "link": "/api/v1/teams/133"
+      },
+      "toTeam": {
+        "id": 400,
+        "name": "Las Vegas Aviators",
+        "link": "/api/v1/teams/400"
+      },
+      "date": "2024-03-02",
+      "effectiveDate": "2024-03-02",
+      "typeCode": "OPT",
+      "typeDesc": "Optioned",
+      "description": "Oakland Athletics optioned RHP Adri\u00e1n Mart\u00ednez to Las Vegas Aviators."
+    }
+  ]
+}

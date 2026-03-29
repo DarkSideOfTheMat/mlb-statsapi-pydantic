@@ -104,7 +104,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 3: Simple Domain Models (sports, divisions, leagues, venues, seasons)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the simplest response models — flat arrays with minimal nesting.
 
@@ -120,7 +120,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 4: Teams & People Models
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the team and player models with nested references.
 
@@ -135,7 +135,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 5: Schedule & Standings Models
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 2
 **Goal:** TDD the most complex response hierarchies.
 
@@ -150,7 +150,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 6: Game Models (Boxscore, Linescore, Live Feed)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 4 (reuses Team/Person models)
 **Goal:** TDD the deepest, most complex models.
 
@@ -165,7 +165,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 7: Endpoint Registry
-**Status:** not started
+**Status:** completed
 **Depends on:** Tasks 2–6
 **Goal:** Define all 60+ MLB API endpoints in a typed registry.
 
@@ -182,7 +182,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 8: Client Implementation (Sync + Async)
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 7
 **Goal:** Build the httpx-based client with typed convenience methods.
 
@@ -200,7 +200,7 @@ src/mlb_statsapi/
 ---
 
 ### Task 9: Remaining Models & Public API Polish
-**Status:** not started
+**Status:** completed
 **Depends on:** Task 8
 **Goal:** Fill in Tier 2 models and finalize the package surface.
 

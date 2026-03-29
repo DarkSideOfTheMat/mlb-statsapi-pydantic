@@ -1,0 +1,65 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "records": [
+    {
+      "openingsTotal": 160,
+      "openingsTotalAway": 81,
+      "openingsTotalHome": 79,
+      "openingsTotalLost": 2,
+      "gamesTotal": 165,
+      "gamesAwayTotal": 82,
+      "gamesHomeTotal": 83,
+      "year": "2024",
+      "attendanceAverageAway": 32569,
+      "attendanceAverageHome": 41897,
+      "attendanceAverageYtd": 37175,
+      "attendanceHigh": 48760,
+      "attendanceHighDate": "2024-07-24T00:00:00",
+      "attendanceHighGame": {
+        "gamePk": 745716,
+        "link": "/api/v1.1/game/745716/feed/live",
+        "content": {
+          "link": "/api/v1/game/745716/content"
+        },
+        "dayNight": "day"
+      },
+      "attendanceLow": 30060,
+      "attendanceLowDate": "2024-08-10T00:00:00",
+      "attendanceLowGame": {
+        "gamePk": 745712,
+        "link": "/api/v1.1/game/745712/feed/live",
+        "content": {
+          "link": "/api/v1/game/745712/content"
+        },
+        "dayNight": "day"
+      },
+      "attendanceOpeningAverage": 40849,
+      "attendanceTotal": 5947960,
+      "attendanceTotalAway": 2638122,
+      "attendanceTotalHome": 3309838,
+      "gameType": {
+        "id": "R",
+        "description": "Regular Season"
+      },
+      "team": {
+        "id": 147,
+        "name": "New York Yankees",
+        "link": "/api/v1/teams/147"
+      }
+    }
+  ],
+  "aggregateTotals": {
+    "openingsTotalAway": 81,
+    "openingsTotalHome": 79,
+    "openingsTotalLost": 2,
+    "openingsTotalYtd": 0,
+    "attendanceAverageAway": 32569,
+    "attendanceAverageHome": 41897,
+    "attendanceAverageYtd": 37175,
+    "attendanceHigh": 48760,
+    "attendanceHighDate": "2024-07-24T00:00:00",
+    "attendanceTotal": 5947960,
+    "attendanceTotalAway": 2638122,
+    "attendanceTotalHome": 3309838
+  }
+}
