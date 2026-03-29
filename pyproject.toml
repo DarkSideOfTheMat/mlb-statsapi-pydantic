@@ -9,18 +9,15 @@ description = "Pydantic v2 typed client for the MLB Stats API"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
-dependencies = [
-    "pydantic>=2.0",
-    "httpx>=0.25",
-]
+dependencies = ["pydantic>=2.0", "httpx>=0.25"]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0",
-    "pytest-asyncio>=0.23",
-    "respx>=0.21",
-    "ruff>=0.4",
-    "mypy>=1.10",
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "respx>=0.21",
+  "ruff>=0.4",
+  "mypy>=1.10",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -28,9 +25,7 @@ packages = ["src/mlb_statsapi"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = [
-    "integration: tests that hit the live MLB Stats API",
-]
+markers = ["integration: tests that hit the live MLB Stats API"]
 asyncio_mode = "auto"
 
 [tool.ruff]
