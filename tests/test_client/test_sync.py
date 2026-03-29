@@ -67,6 +67,30 @@ class TestMlbClientGet:
         with pytest.raises(MlbApiError):
             client.get("sports")
 
+    def test_get_invalid_json_raises(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").respond(
+            200, content=b"not json", headers={"content-type": "text/plain"}
+        )
+
+        client = MlbClient()
+        with pytest.raises(MlbApiError, match="Invalid JSON"):
+            client.get("sports")
+
+    def test_get_timeout_raises(self, mock_api):
+        import httpx
+
+        from mlb_statsapi.client.sync_client import MlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").mock(side_effect=httpx.ReadTimeout("timed out"))
+
+        client = MlbClient()
+        with pytest.raises(MlbApiError, match="timed out"):
+            client.get("sports")
+
 
 class TestMlbClientConvenience:
     """Test typed convenience methods."""

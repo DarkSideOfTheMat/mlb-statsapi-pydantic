@@ -60,3 +60,29 @@ class TestAsyncMlbClient:
         async with AsyncMlbClient() as client:
             with pytest.raises(MlbApiError):
                 await client.get("sports")
+
+    @pytest.mark.asyncio
+    async def test_invalid_json_raises(self, mock_api):
+        from mlb_statsapi.client.async_client import AsyncMlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").respond(
+            200, content=b"not json", headers={"content-type": "text/plain"}
+        )
+
+        async with AsyncMlbClient() as client:
+            with pytest.raises(MlbApiError, match="Invalid JSON"):
+                await client.get("sports")
+
+    @pytest.mark.asyncio
+    async def test_timeout_raises(self, mock_api):
+        import httpx
+
+        from mlb_statsapi.client.async_client import AsyncMlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").mock(side_effect=httpx.ReadTimeout("timed out"))
+
+        async with AsyncMlbClient() as client:
+            with pytest.raises(MlbApiError, match="timed out"):
+                await client.get("sports")
