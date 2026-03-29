@@ -35,7 +35,7 @@ class TestPerson:
 
         data = load_fixture("people_660271")
         person = Person.model_validate(data["people"][0])
-        assert person.height == '6\' 4"'
+        assert person.height == "6' 4\""
         assert person.weight == 210
 
     def test_primary_position(self):

@@ -93,11 +93,24 @@ class Ref(MlbBaseModel, Generic[IdT]):
         league: Ref[LeagueId]   # league.id is LeagueId
 
     ``name`` is optional because some refs (e.g. ``springVenue``) omit it.
+
+    Domain models (Team, Venue, etc.) inherit from ``Ref`` so that
+    ``isinstance(team, Ref)`` is always ``True``. When the API returns
+    hydrated data, the extra fields are populated; otherwise they are ``None``.
     """
 
     id: IdT
     name: str | None = None
     link: ApiLink
+
+    @property
+    def is_hydrated(self) -> bool:
+        """Whether this object has data beyond the basic ref fields (id/name/link)."""
+        return bool(self.model_extra) or any(
+            v is not None
+            for k, v in self.__dict__.items()
+            if k not in ("id", "name", "link")
+        )
 
 
 # Backwards-compatible alias — prefer ``Ref[TeamId]`` etc. in new code
@@ -116,11 +129,23 @@ class PersonRef(MlbBaseModel):
 
     Used throughout the API for pitchers, batters, umpires, etc.
     Unlike ``Ref``, uses ``fullName`` (not ``name``) and link is optional.
+
+    The ``Person`` model inherits from ``PersonRef`` so that
+    ``isinstance(person, PersonRef)`` is always ``True``.
     """
 
     id: PersonId
     full_name: str | None = None
     link: ApiLink | None = None
+
+    @property
+    def is_hydrated(self) -> bool:
+        """Whether this object has data beyond the basic ref fields."""
+        return bool(self.model_extra) or any(
+            v is not None
+            for k, v in self.__dict__.items()
+            if k not in ("id", "full_name", "link")
+        )
 
 
 class PositionRef(MlbBaseModel):

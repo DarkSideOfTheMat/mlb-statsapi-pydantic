@@ -1,8 +1,17 @@
 """Live feed and play-by-play models.
 
-The live feed (``/api/v1.1/game/{gamePk}/feed/live``) is the richest
-single endpoint in the MLB Stats API, containing the full game state
-including every play, pitch, and runner movement.
+Endpoint: ``/api/v1.1/game/{gamePk}/feed/live``
+
+The live feed is the richest single endpoint in the MLB Stats API,
+containing the full game state including every play, pitch, and runner
+movement. The response is structured as two top-level sections:
+
+- ``gameData`` — static game metadata (teams, players, venue, weather)
+- ``liveData`` — dynamic game state (plays, linescore, boxscore, decisions)
+
+The GUMBO (Game Used MlB Objects) feed provides granular data including
+Statcast pitch tracking (velocity, spin, movement, coordinates) and
+hit data (exit velocity, launch angle, distance).
 """
 
 from __future__ import annotations
@@ -30,6 +39,7 @@ from mlb_statsapi.models.enums import (
     FieldingCredit,
     GameType,
     HalfInning,
+    HitTrajectory,
     PitchCode,
     Sky,
     TiebreakerCode,
@@ -38,6 +48,7 @@ from mlb_statsapi.models.enums import (
     PitchType as PitchTypeEnum,
 )
 from mlb_statsapi.models.people import Person
+from mlb_statsapi.models.venues import Venue
 
 # ---------------------------------------------------------------------------
 # Pitch data — the core of play events
@@ -45,7 +56,11 @@ from mlb_statsapi.models.people import Person
 
 
 class PitchCoordinates(MlbBaseModel):
-    """Pitch tracking coordinates (PITCHf/x and Statcast)."""
+    """Pitch tracking coordinates (PITCHf/x and Statcast).
+
+    Contains acceleration, movement, velocity, and position data
+    for a pitch from release to the plate.
+    """
 
     a_x: float | None = None
     a_y: float | None = None
@@ -65,7 +80,11 @@ class PitchCoordinates(MlbBaseModel):
 
 
 class PitchBreaks(MlbBaseModel):
-    """Pitch break data."""
+    """Pitch break and spin data.
+
+    ``spin_rate`` is in RPM, ``spin_direction`` is in degrees.
+    Break measurements describe horizontal and vertical movement.
+    """
 
     break_angle: float | None = None
     break_length: float | None = None
@@ -84,8 +103,34 @@ class PitchTypeInfo(MlbBaseModel):
     description: str | None = None
 
 
+class HitData(MlbBaseModel):
+    """Statcast hit tracking data.
+
+    Contains exit velocity (``launch_speed``), launch angle, total
+    distance, trajectory classification, and barrel designation.
+    """
+
+    launch_speed: float | None = None
+    launch_angle: float | None = None
+    total_distance: float | None = None
+    trajectory: HitTrajectory | str | None = None
+    hardness: str | None = None
+    location: str | None = None
+    coordinates: MlbBaseModel | None = None
+    is_barrel: bool | None = None
+    hit_probability: float | None = None
+    bat_speed: float | None = None
+    is_sword_swing: bool | None = None
+
+
 class PitchData(MlbBaseModel):
-    """Statcast pitch tracking data."""
+    """Statcast pitch tracking data.
+
+    ``start_speed`` and ``end_speed`` are in MPH. ``zone`` is the
+    strike zone region (1-14, see plate zone diagram). ``plate_time``
+    is seconds from release to plate. ``extension`` is pitcher's
+    release extension in feet.
+    """
 
     start_speed: float | None = None
     end_speed: float | None = None
@@ -112,7 +157,11 @@ class PlayEventCall(MlbBaseModel):
 
 
 class PlayEventDetails(MlbBaseModel):
-    """Details for a single play event (pitch or action)."""
+    """Details for a single play event (pitch or action).
+
+    Pitch events include the call, pitch type, and in-play flags.
+    Action events include the event type and scoring information.
+    """
 
     call: PlayEventCall | None = None
     description: str | None = None
@@ -134,7 +183,7 @@ class PlayEventDetails(MlbBaseModel):
 
 
 class Count(MlbBaseModel):
-    """Ball-strike-out count."""
+    """Ball-strike-out count at a point in time."""
 
     balls: int = 0
     strikes: int = 0
@@ -146,11 +195,13 @@ class PlayEvent(MlbBaseModel):
 
     Pitch events have ``is_pitch=True``, ``pitch_data``, and ``pitch_number``.
     Action events have ``type="action"`` and action-specific details.
+    Hit data is present when the ball is put in play.
     """
 
     details: PlayEventDetails | None = None
     count: Count | None = None
     pitch_data: PitchData | None = None
+    hit_data: HitData | None = None
     index: int | None = None
     play_id: str | None = None
     pitch_number: int | None = None
@@ -159,9 +210,14 @@ class PlayEvent(MlbBaseModel):
     is_pitch: bool | None = None
     type: str | None = None
     player: PersonRef | None = None
+    position: PositionRef | None = None
+    batting_order: str | None = None
+    is_substitution: bool | None = None
+    is_base_running_play: bool | None = None
 
     @property
     def is_action(self) -> bool:
+        """Whether this event is an action (substitution, etc.) rather than a pitch."""
         return self.type == "action"
 
 
@@ -171,7 +227,7 @@ class PlayEvent(MlbBaseModel):
 
 
 class RunnerMovement(MlbBaseModel):
-    """Base-to-base runner movement."""
+    """Base-to-base runner movement within a play."""
 
     origin_base: str | None = None
     start: str | None = None
@@ -205,7 +261,11 @@ class RunnerCredit(MlbBaseModel):
 
 
 class Runner(MlbBaseModel):
-    """A runner's movement and outcome during a play."""
+    """A runner's movement and outcome during a play.
+
+    Combines the physical movement (base to base), the event details,
+    and any fielding credits earned.
+    """
 
     movement: RunnerMovement | None = None
     details: RunnerDetails | None = None
@@ -218,7 +278,7 @@ class Runner(MlbBaseModel):
 
 
 class MatchupSplits(MlbBaseModel):
-    """Batter/pitcher split context."""
+    """Batter/pitcher split context (e.g. vs LHP, runners on base)."""
 
     batter: str | None = None
     pitcher: str | None = None
@@ -226,7 +286,10 @@ class MatchupSplits(MlbBaseModel):
 
 
 class HotColdZone(MlbBaseModel):
-    """Strike zone heat map zone for a batter or pitcher."""
+    """Strike zone heat map zone for a batter or pitcher.
+
+    Used to display hot/cold zone overlays on the strike zone.
+    """
 
     zone: str | None = None
     color: str | None = None
@@ -235,7 +298,10 @@ class HotColdZone(MlbBaseModel):
 
 
 class Matchup(MlbBaseModel):
-    """Batter vs. pitcher matchup for an at-bat."""
+    """Batter vs. pitcher matchup for an at-bat.
+
+    Includes handedness, hot/cold zones, and split context.
+    """
 
     batter: PersonRef
     bat_side: CodeDescription | None = None
@@ -252,7 +318,10 @@ class Matchup(MlbBaseModel):
 
 
 class PlayResult(MlbBaseModel):
-    """Outcome of an at-bat."""
+    """Outcome of an at-bat.
+
+    Contains the event type, description, RBI count, and resulting score.
+    """
 
     type: str | None = None
     event: str | None = None
@@ -265,7 +334,11 @@ class PlayResult(MlbBaseModel):
 
 
 class PlayAbout(MlbBaseModel):
-    """Metadata about when/where a play occurred."""
+    """Metadata about when/where a play occurred.
+
+    Includes the inning, half, timing, and various flags.
+    ``captivating_index`` is an API-computed excitement score.
+    """
 
     at_bat_index: int | None = None
     half_inning: HalfInning | str | None = None
@@ -303,6 +376,9 @@ class Play(MlbBaseModel):
     play_events: list[PlayEvent] = []
     play_end_time: datetime.datetime | None = None
     at_bat_index: int | None = None
+    is_double_play: bool | None = None
+    is_triple_play: bool | None = None
+    is_grounded_into_double_play: bool | None = None
 
     @property
     def pitches(self) -> list[PlayEvent]:
@@ -358,6 +434,8 @@ class Plays(MlbBaseModel):
 
 
 class Decisions(MlbBaseModel):
+    """Game decisions — winning pitcher, losing pitcher, and save."""
+
     winner: PersonRef | None = None
     loser: PersonRef | None = None
     save: PersonRef | None = None
@@ -369,7 +447,7 @@ class Decisions(MlbBaseModel):
 
 
 class GameInfo(MlbBaseModel):
-    """Game identification from gameData.game."""
+    """Game identification from ``gameData.game``."""
 
     pk: GamePk | None = None
     type: GameType | str | None = None
@@ -384,7 +462,7 @@ class GameInfo(MlbBaseModel):
 
 
 class GameDateTime(MlbBaseModel):
-    """Date and time info from gameData.datetime."""
+    """Date and time info from ``gameData.datetime``."""
 
     date_time: datetime.datetime | None = None
     original_date: str | None = None
@@ -395,7 +473,10 @@ class GameDateTime(MlbBaseModel):
 
 
 class GameInfoDetails(MlbBaseModel):
-    """Game logistics from gameData.gameInfo."""
+    """Game logistics from ``gameData.gameInfo``.
+
+    Contains attendance, first pitch time, and game duration.
+    """
 
     attendance: int | None = None
     first_pitch: datetime.datetime | None = None
@@ -418,7 +499,10 @@ class ReviewInfo(MlbBaseModel):
 
 
 class GameFlags(MlbBaseModel):
-    """No-hitter and perfect game flags."""
+    """No-hitter and perfect game flags.
+
+    Tracked per-team and combined for the overall game.
+    """
 
     no_hitter: bool | None = None
     perfect_game: bool | None = None
@@ -429,6 +513,8 @@ class GameFlags(MlbBaseModel):
 
 
 class GameDataTeam(MlbBaseModel):
+    """Team info within ``gameData.teams``."""
+
     id: TeamId
     name: str | None = None
     link: ApiLink | None = None
@@ -436,30 +522,40 @@ class GameDataTeam(MlbBaseModel):
 
 
 class GameDataTeams(MlbBaseModel):
+    """Away and home teams in ``gameData.teams``."""
+
     away: GameDataTeam | None = None
     home: GameDataTeam | None = None
 
 
 class Weather(MlbBaseModel):
+    """Weather conditions at game time."""
+
     condition: Sky | str | None = None
     temp: str | None = None
     wind: str | None = None
 
 
 class ProbablePitchers(MlbBaseModel):
+    """Probable starting pitchers for the game."""
+
     away: PersonRef | None = None
     home: PersonRef | None = None
 
 
 class GameData(MlbBaseModel):
-    """Top-level gameData from live feed."""
+    """Top-level ``gameData`` from live feed.
+
+    Contains static game metadata: identification, date/time, status,
+    teams, players, venue, weather, and review information.
+    """
 
     game: GameInfo | None = None
     datetime: GameDateTime | None = None
     status: GameStatus | None = None
     teams: GameDataTeams | None = None
-    venue: Ref[VenueId] | None = None
-    official_venue: Ref[VenueId] | None = None
+    venue: Venue | Ref[VenueId] | None = None
+    official_venue: Venue | Ref[VenueId] | None = None
     weather: Weather | None = None
     game_info: GameInfoDetails | None = None
     review: ReviewInfo | None = None
@@ -474,7 +570,11 @@ class GameData(MlbBaseModel):
 
 
 class LiveData(MlbBaseModel):
-    """Top-level liveData from live feed."""
+    """Top-level ``liveData`` from live feed.
+
+    Contains the dynamic game state: play-by-play data, linescore,
+    boxscore, decisions, and leaders.
+    """
 
     plays: Plays | None = None
     # TODO: type as LinescoreResponse once response hierarchy is refactored
@@ -486,11 +586,14 @@ class LiveData(MlbBaseModel):
 
 
 class LiveFeedResponse(BaseResponse):
-    """Full live game feed response.
+    """Response from ``/api/v1.1/game/{gamePk}/feed/live``.
 
     This is the largest and most detailed response in the API, containing
-    the complete game state: all plays with pitch-level data, linescore,
-    boxscore, decisions, and game metadata.
+    the complete game state: all plays with pitch-level Statcast data,
+    linescore, boxscore, decisions, and game metadata.
+
+    Available hydrations: ``credits``, ``alignment``, ``flags``,
+    ``officials``, ``preState``.
     """
 
     game_pk: GamePk

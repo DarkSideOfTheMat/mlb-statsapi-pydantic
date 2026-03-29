@@ -150,9 +150,7 @@ class TestScheduleLive:
     def test_parse_schedule_response(self, http: httpx.Client):
         from mlb_statsapi.models.schedule import ScheduleResponse
 
-        resp = http.get(
-            "/schedule", params={"sportId": 1, "date": "07/01/2024"}
-        )
+        resp = http.get("/schedule", params={"sportId": 1, "date": "07/01/2024"})
         resp.raise_for_status()
         result = ScheduleResponse.model_validate(resp.json())
         assert len(result.dates) >= 1

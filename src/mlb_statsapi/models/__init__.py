@@ -21,7 +21,7 @@ from mlb_statsapi.models._base import (
     WinLossRecord,
 )
 from mlb_statsapi.models.attendance import AttendanceRecord, AttendanceResponse
-from mlb_statsapi.models.awards import Award, AwardsResponse
+from mlb_statsapi.models.awards import Award, AwardResult, AwardsResponse, AwardWinner
 from mlb_statsapi.models.divisions import Division, DivisionsResponse
 from mlb_statsapi.models.draft import Draft, DraftPick, DraftResponse, DraftRound
 from mlb_statsapi.models.enums import (
@@ -32,12 +32,14 @@ from mlb_statsapi.models.enums import (
     DoubleHeaderCode,
     EventType,
     FieldingCredit,
+    GamedayType,
     GameType,
     HalfInning,
     HandCode,
     HitTrajectory,
     PitchCode,
     PitchType,
+    PlayerStatusCode,
     PositionAbbreviation,
     PositionType,
     RosterType,
@@ -48,13 +50,21 @@ from mlb_statsapi.models.enums import (
     StatType,
     StreakType,
     TiebreakerCode,
+    TrackingSystemType,
     TransactionType,
     WindDirection,
 )
 from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
+from mlb_statsapi.models.hydrations import (
+    PeopleHydrations,
+    ScheduleHydrations,
+    StandingsHydrations,
+    TeamsHydrations,
+    VenueHydrations,
+)
 from mlb_statsapi.models.jobs import JobEntry, JobsResponse
 from mlb_statsapi.models.leagues import League, LeaguesResponse
-from mlb_statsapi.models.livefeed import LiveFeedResponse
+from mlb_statsapi.models.livefeed import HitData, LiveFeedResponse
 from mlb_statsapi.models.meta import MetaItem
 from mlb_statsapi.models.people import PeopleResponse, Person
 from mlb_statsapi.models.schedule import (
@@ -106,12 +116,14 @@ __all__ = [
     "DoubleHeaderCode",
     "EventType",
     "FieldingCredit",
+    "GamedayType",
     "GameType",
     "HalfInning",
     "HandCode",
     "HitTrajectory",
     "PitchCode",
     "PitchType",
+    "PlayerStatusCode",
     "PositionAbbreviation",
     "PositionType",
     "RosterType",
@@ -122,12 +134,21 @@ __all__ = [
     "StandingsType",
     "StreakType",
     "TiebreakerCode",
+    "TrackingSystemType",
     "TransactionType",
     "WindDirection",
+    # Hydrations
+    "PeopleHydrations",
+    "ScheduleHydrations",
+    "StandingsHydrations",
+    "TeamsHydrations",
+    "VenueHydrations",
     # Domain models
     "AttendanceRecord",
     "AttendanceResponse",
     "Award",
+    "AwardResult",
+    "AwardWinner",
     "AwardsResponse",
     "BoxscoreResponse",
     "Division",
@@ -136,6 +157,7 @@ __all__ = [
     "DraftPick",
     "DraftResponse",
     "DraftRound",
+    "HitData",
     "JobEntry",
     "JobsResponse",
     "LeaderCategory",
