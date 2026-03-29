@@ -36,6 +36,10 @@ asyncio_mode = "auto"
 [tool.ruff]
 src = ["src"]
 target-version = "py310"
+line-length = 88
+
+[tool.ruff.format]
+docstring-code-format = true
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
