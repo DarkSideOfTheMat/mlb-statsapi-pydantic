@@ -66,14 +66,38 @@ class MlbClient(ClientMixin):
     def sports(self, **params: Any) -> SportsResponse:
         return cast(SportsResponse, self._request("sports", **params))
 
-    def teams(self, sport_id: int = 1, **params: Any) -> TeamsResponse:
-        return cast(TeamsResponse, self._request("teams", sportId=sport_id, **params))
+    def teams(
+        self,
+        sport_id: int = 1,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> TeamsResponse:
+        kw: dict[str, Any] = {"sportId": sport_id, **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(TeamsResponse, self._request("teams", **kw))
 
-    def team(self, team_id: int, **params: Any) -> TeamsResponse:
-        return cast(TeamsResponse, self._request("team", teamId=str(team_id), **params))
+    def team(
+        self,
+        team_id: int,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> TeamsResponse:
+        kw: dict[str, Any] = {"teamId": str(team_id), **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(TeamsResponse, self._request("team", **kw))
 
-    def person(self, person_id: int, **params: Any) -> PeopleResponse:
-        return cast(PeopleResponse, self._request("person", personId=str(person_id), **params))
+    def person(
+        self,
+        person_id: int,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> PeopleResponse:
+        kw: dict[str, Any] = {"personId": str(person_id), **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(PeopleResponse, self._request("person", **kw))
 
     def schedule(
         self,
@@ -82,6 +106,7 @@ class MlbClient(ClientMixin):
         start_date: str | None = None,
         end_date: str | None = None,
         team_id: int | None = None,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> ScheduleResponse:
         kw: dict[str, Any] = {"sportId": sport_id, **params}
@@ -93,27 +118,40 @@ class MlbClient(ClientMixin):
             kw["endDate"] = end_date
         if team_id:
             kw["teamId"] = team_id
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(ScheduleResponse, self._request("schedule", **kw))
 
     def standings(
         self,
         league_id: str = "103,104",
         season: int | None = None,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> StandingsResponse:
         kw: dict[str, Any] = {"leagueId": league_id, **params}
         if season:
             kw["season"] = season
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(StandingsResponse, self._request("standings", **kw))
 
     def game(self, game_pk: int, **params: Any) -> LiveFeedResponse:
-        return cast(LiveFeedResponse, self._request("game", gamePk=str(game_pk), **params))
+        return cast(
+            LiveFeedResponse, self._request("game", gamePk=str(game_pk), **params)
+        )
 
     def boxscore(self, game_pk: int, **params: Any) -> BoxscoreResponse:
-        return cast(BoxscoreResponse, self._request("game_boxscore", gamePk=str(game_pk), **params))
+        return cast(
+            BoxscoreResponse,
+            self._request("game_boxscore", gamePk=str(game_pk), **params),
+        )
 
     def linescore(self, game_pk: int, **params: Any) -> LinescoreResponse:
-        return cast(LinescoreResponse, self._request("game_linescore", gamePk=str(game_pk), **params))
+        return cast(
+            LinescoreResponse,
+            self._request("game_linescore", gamePk=str(game_pk), **params),
+        )
 
     def league_leaders(
         self,
@@ -121,6 +159,7 @@ class MlbClient(ClientMixin):
         season: int | None = None,
         sport_id: int = 1,
         limit: int = 10,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> StatsResponse:
         kw: dict[str, Any] = {
@@ -131,4 +170,6 @@ class MlbClient(ClientMixin):
         }
         if season:
             kw["season"] = season
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(StatsResponse, self._request("stats_leaders", **kw))

@@ -14,6 +14,13 @@ from mlb_statsapi.models._base import BaseResponse
 class ClientMixin:
     """Non-I/O logic shared by sync and async clients."""
 
+    @staticmethod
+    def _hydrate_value(hydrate: str | list[str] | None) -> str | None:
+        """Convert hydrate parameter to comma-separated string."""
+        if hydrate is None:
+            return None
+        return ",".join(hydrate) if isinstance(hydrate, list) else hydrate
+
     def _resolve_endpoint(self, endpoint: str) -> EndpointDef:
         try:
             return ENDPOINTS[endpoint]
@@ -25,14 +32,16 @@ class ClientMixin:
     ) -> tuple[str, dict[str, str]]:
         ep = self._resolve_endpoint(endpoint)
         # Separate path params from query params
-        path_params = {k: str(params.pop(k)) for k in list(params) if k in ep.path_params or k == "ver"}
+        path_params = {
+            k: str(params.pop(k))
+            for k in list(params)
+            if k in ep.path_params or k == "ver"
+        }
         url = ep.build_url(**path_params)
         query = ep.filter_query_params(**params)
         return url, query
 
-    def _parse_response(
-        self, endpoint: str, data: dict[str, Any]
-    ) -> BaseResponse:
+    def _parse_response(self, endpoint: str, data: dict[str, Any]) -> BaseResponse:
         ep = self._resolve_endpoint(endpoint)
         model = ep.response_model or BaseResponse
         try:

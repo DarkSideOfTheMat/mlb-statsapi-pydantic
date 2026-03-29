@@ -95,12 +95,14 @@ class TestIdNameLink:
         """Extended refs like springLeague include abbreviation."""
         from mlb_statsapi.models._base import IdNameLink
 
-        obj = IdNameLink.model_validate({
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        })
+        obj = IdNameLink.model_validate(
+            {
+                "id": 114,
+                "name": "Cactus League",
+                "link": "/api/v1/league/114",
+                "abbreviation": "CL",
+            }
+        )
         assert obj.model_extra["abbreviation"] == "CL"
 
 
@@ -135,29 +137,27 @@ class TestRef:
     def test_ref_name_optional(self):
         from mlb_statsapi.models._base import Ref, VenueId
 
-        venue = Ref[VenueId].model_validate(
-            {"id": 4249, "link": "/api/v1/venues/4249"}
-        )
+        venue = Ref[VenueId].model_validate({"id": 4249, "link": "/api/v1/venues/4249"})
         assert venue.name is None
 
     def test_ref_extra_fields_preserved(self):
         from mlb_statsapi.models._base import LeagueId, Ref
 
-        obj = Ref[LeagueId].model_validate({
-            "id": 114,
-            "name": "Cactus League",
-            "link": "/api/v1/league/114",
-            "abbreviation": "CL",
-        })
+        obj = Ref[LeagueId].model_validate(
+            {
+                "id": 114,
+                "name": "Cactus League",
+                "link": "/api/v1/league/114",
+                "abbreviation": "CL",
+            }
+        )
         assert obj.model_extra["abbreviation"] == "CL"
 
     def test_idnamelink_alias_works(self):
         """IdNameLink = Ref[int] should remain backwards compatible."""
         from mlb_statsapi.models._base import IdNameLink
 
-        obj = IdNameLink.model_validate(
-            {"id": 1, "name": "Test", "link": "/test"}
-        )
+        obj = IdNameLink.model_validate({"id": 1, "name": "Test", "link": "/test"})
         assert obj.id == 1
 
 
@@ -218,3 +218,93 @@ class TestCodeDescription:
 
         with pytest.raises(Exception):
             CodeDescription.model_validate({"code": "R"})
+
+
+class TestRefInheritance:
+    """Test that domain models inherit from Ref/PersonRef."""
+
+    def test_team_is_ref(self):
+        from mlb_statsapi.models._base import Ref
+        from mlb_statsapi.models.teams import Team
+
+        team = Team(id=147, name="New York Yankees", link="/api/v1/teams/147")
+        assert isinstance(team, Ref)
+
+    def test_venue_is_ref(self):
+        from mlb_statsapi.models._base import Ref
+        from mlb_statsapi.models.venues import Venue
+
+        venue = Venue(id=3313, name="Yankee Stadium", link="/api/v1/venues/3313")
+        assert isinstance(venue, Ref)
+
+    def test_league_is_ref(self):
+        from mlb_statsapi.models._base import Ref
+        from mlb_statsapi.models.leagues import League
+
+        league = League(id=103, name="American League", link="/api/v1/league/103")
+        assert isinstance(league, Ref)
+
+    def test_division_is_ref(self):
+        from mlb_statsapi.models._base import Ref
+        from mlb_statsapi.models.divisions import Division
+
+        division = Division(id=200, name="AL West", link="/api/v1/divisions/200")
+        assert isinstance(division, Ref)
+
+    def test_sport_is_ref(self):
+        from mlb_statsapi.models._base import Ref
+        from mlb_statsapi.models.sports import Sport
+
+        sport = Sport(id=1, name="MLB", link="/api/v1/sports/1")
+        assert isinstance(sport, Ref)
+
+    def test_person_is_person_ref(self):
+        from mlb_statsapi.models._base import PersonRef
+        from mlb_statsapi.models.people import Person
+
+        person = Person(id=660271, full_name="Shohei Ohtani")
+        assert isinstance(person, PersonRef)
+
+
+class TestIsHydrated:
+    """Test the is_hydrated property on Ref and PersonRef."""
+
+    def test_bare_ref_not_hydrated(self):
+        from mlb_statsapi.models._base import Ref, TeamId
+
+        ref = Ref[TeamId](id=147, name="New York Yankees", link="/api/v1/teams/147")
+        assert not ref.is_hydrated
+
+    def test_team_without_extra_not_hydrated(self):
+        from mlb_statsapi.models.teams import Team
+
+        team = Team(id=147, name="New York Yankees", link="/api/v1/teams/147")
+        assert not team.is_hydrated
+
+    def test_team_with_data_is_hydrated(self):
+        from mlb_statsapi.models.teams import Team
+
+        team = Team(
+            id=147,
+            name="New York Yankees",
+            link="/api/v1/teams/147",
+            abbreviation="NYY",
+        )
+        assert team.is_hydrated
+
+    def test_person_ref_not_hydrated(self):
+        from mlb_statsapi.models._base import PersonRef
+
+        ref = PersonRef(id=660271, full_name="Shohei Ohtani")
+        assert not ref.is_hydrated
+
+    def test_person_with_data_is_hydrated(self):
+        from mlb_statsapi.models.people import Person
+
+        person = Person(
+            id=660271,
+            full_name="Shohei Ohtani",
+            first_name="Shohei",
+            last_name="Ohtani",
+        )
+        assert person.is_hydrated

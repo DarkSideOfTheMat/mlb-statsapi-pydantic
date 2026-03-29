@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import PersonRef, Ref, TeamId
+from mlb_statsapi.models._base import PersonRef
 from mlb_statsapi.models.game import (
     BoxscorePlayer,
     BoxscoreResponse,
@@ -10,6 +10,7 @@ from mlb_statsapi.models.game import (
     LinescoreInning,
     LinescoreResponse,
 )
+from mlb_statsapi.models.teams import Team
 from tests.conftest import load_fixture
 
 
@@ -121,7 +122,7 @@ class TestBoxscoreTeamResolveIds:
             for pid in all_ids
         }
         return BoxscoreTeam(
-            team=Ref[TeamId](id=1, name="Test", link="/api/v1/teams/1"),
+            team=Team(id=1, name="Test", link="/api/v1/teams/1"),
             players=players,
             batters=batters or [],
             pitchers=pitchers or [],
@@ -216,5 +217,3 @@ class TestBoxscoreTeamResolveIds:
         bullpen_players = away.bullpen_players
         assert len(bullpen_players) > 0
         assert len(bullpen_players) == len(away.bullpen)
-
-

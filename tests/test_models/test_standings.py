@@ -10,11 +10,9 @@ class TestTeamStanding:
         from mlb_statsapi.models.standings import TeamStanding
 
         data = load_fixture("standings")
-        record = TeamStanding.model_validate(
-            data["records"][0]["teamRecords"][0]
-        )
+        record = TeamStanding.model_validate(data["records"][0]["teamRecords"][0])
         assert record.team.name == "Yankees"
-        assert record.season == 2024
+        assert record.season == "2024"
         assert record.division_rank == "1"
         assert record.games_played == 162
 
@@ -22,9 +20,7 @@ class TestTeamStanding:
         from mlb_statsapi.models.standings import TeamStanding
 
         data = load_fixture("standings")
-        record = TeamStanding.model_validate(
-            data["records"][0]["teamRecords"][0]
-        )
+        record = TeamStanding.model_validate(data["records"][0]["teamRecords"][0])
         assert record.streak.streak_code == "W1"
         assert record.streak.streak_type == "wins"
         assert record.streak.streak_number == 1
@@ -33,9 +29,7 @@ class TestTeamStanding:
         from mlb_statsapi.models.standings import TeamStanding
 
         data = load_fixture("standings")
-        record = TeamStanding.model_validate(
-            data["records"][0]["teamRecords"][0]
-        )
+        record = TeamStanding.model_validate(data["records"][0]["teamRecords"][0])
         assert record.league_record.wins == 94
         assert record.league_record.losses == 68
         assert record.league_record.pct == ".580"
@@ -44,9 +38,7 @@ class TestTeamStanding:
         from mlb_statsapi.models.standings import TeamStanding
 
         data = load_fixture("standings")
-        record = TeamStanding.model_validate(
-            data["records"][0]["teamRecords"][0]
-        )
+        record = TeamStanding.model_validate(data["records"][0]["teamRecords"][0])
         assert record.games_back == "-"
         assert record.wild_card_games_back == "-"
 

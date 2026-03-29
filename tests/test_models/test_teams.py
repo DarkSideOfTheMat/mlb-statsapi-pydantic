@@ -20,7 +20,7 @@ class TestTeam:
         assert team.franchise_name == "Athletics"
         assert team.club_name == "Athletics"
         assert team.active is True
-        assert team.first_year_of_play == 1901
+        assert team.first_year_of_play == "1901"
         assert team.season == 2026
 
     def test_venue_reference(self):
