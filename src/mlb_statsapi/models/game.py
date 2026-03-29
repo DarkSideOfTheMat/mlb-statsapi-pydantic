@@ -23,6 +23,9 @@ from mlb_statsapi.models._base import (
 from mlb_statsapi.models.enums import HalfInning
 from mlb_statsapi.models.teams import Team
 
+StatValue = int | float | str | None
+"""Type for individual stat values returned by the API."""
+
 # ---------------------------------------------------------------------------
 # Linescore
 # ---------------------------------------------------------------------------
@@ -130,9 +133,9 @@ class PlayerGameStats(MlbBaseModel):
     and the API does not guarantee a fixed schema.
     """
 
-    batting: dict[str, object] = {}
-    pitching: dict[str, object] = {}
-    fielding: dict[str, object] = {}
+    batting: dict[str, StatValue] = {}
+    pitching: dict[str, StatValue] = {}
+    fielding: dict[str, StatValue] = {}
 
 
 class PlayerGameStatus(MlbBaseModel):
@@ -166,9 +169,9 @@ class BoxscorePlayer(MlbBaseModel):
 class BoxscoreTeamStats(MlbBaseModel):
     """Team-level aggregate stats (batting, pitching, fielding)."""
 
-    batting: dict[str, object] | None = None
-    pitching: dict[str, object] | None = None
-    fielding: dict[str, object] | None = None
+    batting: dict[str, StatValue] | None = None
+    pitching: dict[str, StatValue] | None = None
+    fielding: dict[str, StatValue] | None = None
 
 
 class BoxscoreTeam(MlbBaseModel):
