@@ -45,11 +45,21 @@ class AsyncMlbClient(ClientMixin):
         try:
             resp = await self._http.get(url, params=query)
             resp.raise_for_status()
+        except httpx.TimeoutException as e:
+            raise MlbApiError(0, f"Request timed out: {e}", url) from e
         except httpx.HTTPStatusError as e:
             raise MlbApiError(e.response.status_code, str(e), url) from e
         except httpx.HTTPError as e:
             raise MlbApiError(0, str(e), url) from e
-        return self._parse_response(endpoint, resp.json())
+        try:
+            data = resp.json()
+        except ValueError as e:
+            raise MlbApiError(
+                resp.status_code,
+                f"Invalid JSON in response: {e}",
+                url,
+            ) from e
+        return self._parse_response(endpoint, data)
 
     # -- Generic access --
 
