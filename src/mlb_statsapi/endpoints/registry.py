@@ -222,6 +222,7 @@ def _build_endpoints() -> dict[str, EndpointDef]:
                 "gamePk",
                 "gamePks",
                 "venueIds",
+                "gameType",
                 "gameTypes",
                 "date",
                 "startDate",
