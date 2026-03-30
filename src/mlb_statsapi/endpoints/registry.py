@@ -7,6 +7,7 @@ definitions linking each endpoint to its Pydantic response model.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from functools import wraps
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
@@ -47,6 +48,38 @@ class EndpointDef:
     def filter_query_params(self, **params: Any) -> dict[str, str]:
         """Filter params to only those accepted by this endpoint."""
         return {k: str(v) for k, v in params.items() if k in self.query_params}
+
+    def create_docstring(self) -> str:
+        if self.query_params:
+            p = "\n\t".join(self.query_params)
+            query_params_doc = f"Query Params:\n{p}"
+        else:
+            query_params_doc = ""
+        return f"""
+        Endpoint {self.url_template}
+        {query_params_doc}
+        """
+
+
+def with_endpoint_optional_params(endpoint_def: EndpointDef):
+    """Modify the function signature to include the optional
+    params available according to the EndpointDef
+
+    Keeps client function signatures consistent with the endpoints
+    they reference
+    """
+
+    def decorator(func):
+        func.__doc__ = endpoint_def.create_docstring()
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            return func(*args, **kwargs)
+
+        wrapper.__doc__ = endpoint_def.create_docstring()
+        return wrapper
+
+    return decorator
 
 
 def _build_endpoints() -> dict[str, EndpointDef]:

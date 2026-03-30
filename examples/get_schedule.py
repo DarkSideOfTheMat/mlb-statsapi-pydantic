@@ -34,7 +34,9 @@ with MlbClient() as client:
         season=2026,
         gameTypes=GAME_TYPES.REGULAR_SEASON,
     )
-    print("Giants Schedule")
+    print(
+        "Giants Schedule",
+    )
     for giants_gameday in giants_schedule.dates:
         for game in giants_gameday.games:
             home = game.teams.home
@@ -42,4 +44,4 @@ with MlbClient() as client:
             print(f"{giants_gameday.date} - {away.team.name} @ {home.team.name}")
 
     # hydrate schedule with additional team info
-    ...
+    print("")

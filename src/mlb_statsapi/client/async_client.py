@@ -7,6 +7,7 @@ from typing import Any, cast
 import httpx
 
 from mlb_statsapi.client._base import ClientMixin
+from mlb_statsapi.endpoints.registry import ENDPOINTS, with_endpoint_optional_params
 from mlb_statsapi.exceptions import MlbApiError
 from mlb_statsapi.models._base import BaseResponse
 from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
@@ -95,6 +96,7 @@ class AsyncMlbClient(ClientMixin):
             kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(PeopleResponse, await self._request("person", **kw))
 
+    @with_endpoint_optional_params(ENDPOINTS["schedule"])
     async def schedule(
         self,
         sport_id: int = 1,
@@ -105,6 +107,7 @@ class AsyncMlbClient(ClientMixin):
         hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> ScheduleResponse:
+        """TEST TEST TEST TES"""
         kw: dict[str, Any] = {"sportId": sport_id, **params}
         if date:
             kw["date"] = date
