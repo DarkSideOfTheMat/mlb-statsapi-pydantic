@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from mlb_statsapi.models._base import IdNameLink, PersonRef
+from mlb_statsapi.models._base import PersonRef
 from mlb_statsapi.models.game import (
     BoxscorePlayer,
     BoxscoreResponse,

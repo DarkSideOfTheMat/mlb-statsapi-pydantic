@@ -99,6 +99,7 @@ class LinescoreResponse(BaseResponse):
 # Boxscore
 # ---------------------------------------------------------------------------
 
+
 class BoxscoreInfoField(MlbBaseModel):
     """A single label/value field within a boxscore info section."""
 
