@@ -1,6 +1,13 @@
 MIT License
 
-Copyright (c) 2026
+Copyright (c) 2026 Mat Cleveland
+
+This package and its author are not affiliated with MLB or any MLB team.
+This API wrapper interfaces with MLB's Stats API. Use of MLB data is
+subject to the notice posted at http://gdx.mlb.com/components/copyright.txt.
+
+Inspired by MLB-StatsAPI (https://github.com/toddrob99/MLB-StatsAPI)
+by Todd Roberts, licensed under GPL-3.0.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
