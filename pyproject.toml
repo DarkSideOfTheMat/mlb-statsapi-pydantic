@@ -58,7 +58,7 @@ asyncio_mode = "auto"
 
 [tool.coverage.run]
 source = ["mlb_statsapi"]
-omit = ["tests/*"]
+omit = ["tests/*", "examples/*"]
 
 [tool.coverage.report]
 show_missing = true
@@ -85,3 +85,4 @@ python_version = "3.10"
 strict = true
 packages = ["mlb_statsapi"]
 mypy_path = "src"
+exclude = "examples"
