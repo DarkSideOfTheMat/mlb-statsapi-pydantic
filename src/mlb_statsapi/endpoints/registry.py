@@ -48,17 +48,6 @@ class EndpointDef:
         """Filter params to only those accepted by this endpoint."""
         return {k: str(v) for k, v in params.items() if k in self.query_params}
 
-    def create_docstring(self) -> str:
-        if self.query_params:
-            p = "\n\t".join(self.query_params)
-            query_params_doc = f"Query Params:\n{p}"
-        else:
-            query_params_doc = ""
-        return f"""
-        Endpoint {self.url_template}
-        {query_params_doc}
-        """
-
 
 def _build_endpoints() -> dict[str, EndpointDef]:
     """Build the full endpoint registry with response model links."""
