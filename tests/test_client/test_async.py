@@ -60,3 +60,20 @@ class TestAsyncMlbClient:
         async with AsyncMlbClient() as client:
             with pytest.raises(MlbApiError):
                 await client.get("sports")
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize(
+        "status_code",
+        [400, 404, 429, 503],
+        ids=["bad_request", "not_found", "rate_limited", "unavailable"],
+    )
+    async def test_http_status_error(self, mock_api, status_code):
+        from mlb_statsapi.client.async_client import AsyncMlbClient
+        from mlb_statsapi.exceptions import MlbApiError
+
+        mock_api.get("/v1/sports").respond(status_code)
+
+        async with AsyncMlbClient() as client:
+            with pytest.raises(MlbApiError) as exc_info:
+                await client.get("sports")
+            assert exc_info.value.status_code == status_code

@@ -23,6 +23,9 @@ from mlb_statsapi.models._base import (
 from mlb_statsapi.models.enums import HalfInning
 from mlb_statsapi.models.teams import Team
 
+StatValue = int | float | str | None
+"""Type for individual stat values returned by the API."""
+
 # ---------------------------------------------------------------------------
 # Linescore
 # ---------------------------------------------------------------------------
@@ -67,11 +70,12 @@ class LinescoreTeams(MlbBaseModel):
     away: LinescoreTeamTotal
 
 
-class LinescoreResponse(BaseResponse):
-    """Response from ``/api/v1/game/{gamePk}/linescore``.
+class Linescore(MlbBaseModel):
+    """Linescore data for a game.
 
     Contains the inning-by-inning breakdown and current game state
-    (current inning, half, and scheduled innings).
+    (current inning, half, and scheduled innings).  Used directly when
+    the linescore is embedded inside another response (e.g. live feed).
     """
 
     current_inning: int | None = None
@@ -93,6 +97,10 @@ class LinescoreResponse(BaseResponse):
     on_first: PersonRef | None = None
     on_second: PersonRef | None = None
     on_third: PersonRef | None = None
+
+
+class LinescoreResponse(BaseResponse, Linescore):
+    """Response from ``/api/v1/game/{gamePk}/linescore``."""
 
 
 # ---------------------------------------------------------------------------
@@ -125,9 +133,9 @@ class PlayerGameStats(MlbBaseModel):
     and the API does not guarantee a fixed schema.
     """
 
-    batting: dict[str, object] = {}
-    pitching: dict[str, object] = {}
-    fielding: dict[str, object] = {}
+    batting: dict[str, StatValue] = {}
+    pitching: dict[str, StatValue] = {}
+    fielding: dict[str, StatValue] = {}
 
 
 class PlayerGameStatus(MlbBaseModel):
@@ -161,9 +169,9 @@ class BoxscorePlayer(MlbBaseModel):
 class BoxscoreTeamStats(MlbBaseModel):
     """Team-level aggregate stats (batting, pitching, fielding)."""
 
-    batting: dict[str, object] | None = None
-    pitching: dict[str, object] | None = None
-    fielding: dict[str, object] | None = None
+    batting: dict[str, StatValue] | None = None
+    pitching: dict[str, StatValue] | None = None
+    fielding: dict[str, StatValue] | None = None
 
 
 class BoxscoreTeam(MlbBaseModel):
@@ -233,15 +241,20 @@ class BoxscoreOfficial(MlbBaseModel):
     official_type: str | None = None
 
 
-class BoxscoreResponse(BaseResponse):
-    """Response from ``/api/v1/game/{gamePk}/boxscore``.
+class Boxscore(MlbBaseModel):
+    """Boxscore data for a game.
 
     Contains team-level and player-level statistics, batting orders,
-    game officials, and supplementary info sections.
+    game officials, and supplementary info sections.  Used directly
+    when the boxscore is embedded inside another response (e.g. live feed).
     """
 
     teams: BoxscoreTeams
     officials: list[BoxscoreOfficial] = []
-    info: list[BoxscoreInfoField] = []
+    info: list[BoxscoreInfo] = []
     pitching_notes: list[str] = []
     top_performers: list[MlbBaseModel] = []
+
+
+class BoxscoreResponse(BaseResponse, Boxscore):
+    """Response from ``/api/v1/game/{gamePk}/boxscore``."""

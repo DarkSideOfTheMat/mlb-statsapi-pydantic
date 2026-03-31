@@ -10,6 +10,7 @@ from pydantic.alias_generators import to_camel
 from mlb_statsapi.models.enums import (
     AbstractGameState,
     CodedGameState,
+    PositionAbbreviation,
     PositionType,
 )
 
@@ -65,6 +66,7 @@ class ListResponse(BaseResponse, Generic[T]):
         class SportsResponse(ListResponse[Sport], items_field="sports"):
             sports: list[Sport] = []
 
+
         resp.items  # -> list[Sport], same as resp.sports
     """
 
@@ -88,9 +90,9 @@ class Ref(MlbBaseModel, Generic[IdT]):
     teams, venues, leagues, divisions, sports, etc. The generic
     parameter gives each reference an explicit ID type::
 
-        team: Ref[TeamId]       # team.id is TeamId (not bare int)
-        venue: Ref[VenueId]     # venue.id is VenueId
-        league: Ref[LeagueId]   # league.id is LeagueId
+        team: Ref[TeamId]  # team.id is TeamId (not bare int)
+        venue: Ref[VenueId]  # venue.id is VenueId
+        league: Ref[LeagueId]  # league.id is LeagueId
 
     ``name`` is optional because some refs (e.g. ``springVenue``) omit it.
 
@@ -157,7 +159,7 @@ class PositionRef(MlbBaseModel):
     code: str
     name: str | None = None
     type: PositionType | str | None = None
-    abbreviation: str | None = None
+    abbreviation: PositionAbbreviation | str | None = None
 
 
 class WinLossRecord(MlbBaseModel):
