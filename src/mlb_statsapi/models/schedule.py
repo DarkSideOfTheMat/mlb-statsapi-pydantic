@@ -77,8 +77,8 @@ class ScheduleGame(MlbBaseModel):
     link: ApiLink
     game_type: GameType | str
     season: int | None = None
-    game_date: datetime.datetime | None = None
-    official_date: datetime.date | None = None
+    game_date: datetime.datetime
+    official_date: datetime.date
     status: GameStatus
     teams: ScheduleTeams
     venue: Venue | Ref[VenueId]
