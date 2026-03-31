@@ -3,10 +3,10 @@
 these could change in the future.
 """
 
-from enum import StrEnum
+from enum import Enum
 
 
-class GAME_TYPES(StrEnum):
+class GAME_TYPES(str, Enum):
     SPRING_TRAINING = "S"
     REGULAR_SEASON = "R"
     WILD_CARD_GAME = "F"
