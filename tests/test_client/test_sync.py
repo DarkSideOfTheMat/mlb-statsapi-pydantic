@@ -153,6 +153,37 @@ class TestMlbClientConvenience:
         assert result.game_pk == 744914
 
 
+class TestHydrateParam:
+    """Test that hydrate parameter is correctly passed."""
+
+    def test_hydrate_string(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("schedule_hydrated_team")
+        mock_api.get("/v1/schedule").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.schedule(sport_id=1, hydrate="team")
+        assert result.dates[0].games[0].teams.away.team.abbreviation == "HOU"
+
+    def test_hydrate_list(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("schedule_hydrated_team")
+        mock_api.get("/v1/schedule").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.schedule(sport_id=1, hydrate=["team", "venue"])
+        assert result.dates[0].games[0].teams.away.team.abbreviation == "HOU"
+
+    def test_hydrate_value_helper(self):
+        from mlb_statsapi.client._base import ClientMixin
+
+        assert ClientMixin._hydrate_value(None) is None
+        assert ClientMixin._hydrate_value("team") == "team"
+        assert ClientMixin._hydrate_value(["team", "venue"]) == "team,venue"
+
+
 class TestMlbClientContext:
     """Test context manager usage."""
 

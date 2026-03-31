@@ -10,6 +10,7 @@ from mlb_statsapi.models.game import (
     LinescoreInning,
     LinescoreResponse,
 )
+from mlb_statsapi.models.teams import Team
 from tests.conftest import load_fixture
 
 
@@ -121,7 +122,7 @@ class TestBoxscoreTeamResolveIds:
             for pid in all_ids
         }
         return BoxscoreTeam(
-            team=IdNameLink(id=1, name="Test", link="/api/v1/teams/1"),
+            team=Team(id=1, name="Test", link="/api/v1/teams/1"),
             players=players,
             batters=batters or [],
             pitchers=pitchers or [],

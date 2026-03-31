@@ -62,21 +62,38 @@ class AsyncMlbClient(ClientMixin):
     async def sports(self, **params: Any) -> SportsResponse:
         return cast(SportsResponse, await self._request("sports", **params))
 
-    async def teams(self, sport_id: int = 1, **params: Any) -> TeamsResponse:
-        return cast(
-            TeamsResponse, await self._request("teams", sportId=sport_id, **params)
-        )
+    async def teams(
+        self,
+        sport_id: int = 1,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> TeamsResponse:
+        kw: dict[str, Any] = {"sportId": sport_id, **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(TeamsResponse, await self._request("teams", **kw))
 
-    async def team(self, team_id: int, **params: Any) -> TeamsResponse:
-        return cast(
-            TeamsResponse, await self._request("team", teamId=str(team_id), **params)
-        )
+    async def team(
+        self,
+        team_id: int,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> TeamsResponse:
+        kw: dict[str, Any] = {"teamId": str(team_id), **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(TeamsResponse, await self._request("team", **kw))
 
-    async def person(self, person_id: int, **params: Any) -> PeopleResponse:
-        return cast(
-            PeopleResponse,
-            await self._request("person", personId=str(person_id), **params),
-        )
+    async def person(
+        self,
+        person_id: int,
+        hydrate: str | list[str] | None = None,
+        **params: Any,
+    ) -> PeopleResponse:
+        kw: dict[str, Any] = {"personId": str(person_id), **params}
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
+        return cast(PeopleResponse, await self._request("person", **kw))
 
     async def schedule(
         self,
@@ -85,6 +102,7 @@ class AsyncMlbClient(ClientMixin):
         start_date: str | None = None,
         end_date: str | None = None,
         team_id: int | None = None,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> ScheduleResponse:
         kw: dict[str, Any] = {"sportId": sport_id, **params}
@@ -96,17 +114,22 @@ class AsyncMlbClient(ClientMixin):
             kw["endDate"] = end_date
         if team_id:
             kw["teamId"] = team_id
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(ScheduleResponse, await self._request("schedule", **kw))
 
     async def standings(
         self,
         league_id: str = "103,104",
         season: int | None = None,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> StandingsResponse:
         kw: dict[str, Any] = {"leagueId": league_id, **params}
         if season:
             kw["season"] = season
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(StandingsResponse, await self._request("standings", **kw))
 
     async def game(self, game_pk: int, **params: Any) -> LiveFeedResponse:
@@ -132,6 +155,7 @@ class AsyncMlbClient(ClientMixin):
         season: int | None = None,
         sport_id: int = 1,
         limit: int = 10,
+        hydrate: str | list[str] | None = None,
         **params: Any,
     ) -> StatsResponse:
         kw: dict[str, Any] = {
@@ -142,4 +166,6 @@ class AsyncMlbClient(ClientMixin):
         }
         if season:
             kw["season"] = season
+        if hydrate:
+            kw["hydrate"] = self._hydrate_value(hydrate)
         return cast(StatsResponse, await self._request("stats_leaders", **kw))

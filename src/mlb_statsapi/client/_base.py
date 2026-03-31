@@ -14,6 +14,13 @@ from mlb_statsapi.models._base import BaseResponse
 class ClientMixin:
     """Non-I/O logic shared by sync and async clients."""
 
+    @staticmethod
+    def _hydrate_value(hydrate: str | list[str] | None) -> str | None:
+        """Convert hydrate parameter to comma-separated string."""
+        if hydrate is None:
+            return None
+        return ",".join(hydrate) if isinstance(hydrate, list) else hydrate
+
     def _resolve_endpoint(self, endpoint: str) -> EndpointDef:
         try:
             return ENDPOINTS[endpoint]

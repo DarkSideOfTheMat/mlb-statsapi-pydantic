@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import datetime
 
+from mlb_statsapi.models._base import Ref
+from mlb_statsapi.models.teams import Team
 from tests.conftest import load_fixture
 
 
@@ -85,3 +87,66 @@ class TestScheduleResponse:
         assert resp.total_games == 3
         assert len(resp.dates) == 1
         assert len(resp.dates[0].games) == 3
+
+
+class TestHydratedSchedule:
+    """Test parsing schedule data with hydrated team objects."""
+
+    def test_hydrated_team_has_abbreviation(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule_hydrated_team")
+        resp = ScheduleResponse.model_validate(data)
+        game = resp.dates[0].games[0]
+        assert game.teams.away.team.abbreviation == "HOU"
+        assert game.teams.home.team.abbreviation == "TOR"
+
+    def test_hydrated_team_has_team_name(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule_hydrated_team")
+        resp = ScheduleResponse.model_validate(data)
+        game = resp.dates[0].games[0]
+        assert game.teams.away.team.team_name == "Astros"
+        assert game.teams.home.team.team_name == "Blue Jays"
+
+    def test_hydrated_team_isinstance_ref(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule_hydrated_team")
+        resp = ScheduleResponse.model_validate(data)
+        team = resp.dates[0].games[0].teams.away.team
+        assert isinstance(team, Team)
+        assert isinstance(team, Ref)
+
+    def test_hydrated_team_is_hydrated(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule_hydrated_team")
+        resp = ScheduleResponse.model_validate(data)
+        team = resp.dates[0].games[0].teams.away.team
+        assert team.is_hydrated
+
+    def test_non_hydrated_team_fields_none(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule")
+        resp = ScheduleResponse.model_validate(data)
+        team = resp.dates[0].games[0].teams.away.team
+        assert team.id == 117
+        assert team.name == "Houston Astros"
+        assert team.abbreviation is None
+        assert not team.is_hydrated
+
+    def test_hydrated_team_nested_refs(self):
+        from mlb_statsapi.models.schedule import ScheduleResponse
+
+        data = load_fixture("schedule_hydrated_team")
+        resp = ScheduleResponse.model_validate(data)
+        team = resp.dates[0].games[0].teams.away.team
+        assert team.league is not None
+        assert team.league.id == 103
+        assert team.league.name == "American League"
+        assert team.division is not None
+        assert team.division.id == 200
+        assert team.division.name == "American League West"
