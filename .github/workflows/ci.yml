@@ -54,7 +54,7 @@ jobs:
         run: pytest --cov --cov-report=xml -q
       - name: Upload coverage
         if: matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage.xml
