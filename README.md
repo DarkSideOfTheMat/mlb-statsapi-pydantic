@@ -7,6 +7,8 @@
 
 Pydantic v2 typed client for the [MLB Stats API](https://statsapi.mlb.com/api/).
 
+> **Note:** This project is in early pre-release. The API surface may change between versions.
+
 Every response is parsed into fully-typed Pydantic models with `extra="allow"` for forward compatibility. Includes both sync and async clients.
 
 ## Install
@@ -21,28 +23,27 @@ pip install mlb-statsapi-pydantic
 from mlb_statsapi import MlbClient
 
 with MlbClient() as client:
-# Today's schedule
-  schedule = client.schedule(date="07/01/2024")
-  for date in schedule.dates:
-      for game in date.games:
-          print(f"{game.teams.away.team.name} @ {game.teams.home.team.name}")
+    # Today's schedule
+    schedule = client.schedule(date="07/01/2024")
+    for date in schedule.dates:
+        for game in date.games:
+            print(f"{game.teams.away.team.name} @ {game.teams.home.team.name}")
 
-# Team roster
-  roster = client.roster(team_id=147)  # Yankees
-  for entry in roster.roster:
-      print(f"{entry.person.full_name} — {entry.position.abbreviation}")
+    # Team info
+    teams = client.teams(sport_id=1)
+    for team in teams.teams:
+        print(f"{team.name} ({team.abbreviation})")
 
-# Player stats
-  stats = client.player_stats(person_id=660271, group="hitting", type="season")
-  for split in stats.stats[0].splits:
-      print(f"{split.season}: {split.stat}")
+    # Standings
+    standings = client.standings(season=2024)
+    for record in standings.records:
+        for entry in record.team_records:
+            print(f"{entry.team.name}: {entry.wins}-{entry.losses}")
 
-# Live game feed
-  feed = client.live_feed(game_pk=745570)
-  for play in feed.live_data.plays.all_plays:
-      if play.result and play.result.description:
-          print(play.result.description)
-  ```
+    # Live game data
+    game = client.game(game_pk=745570)
+    print(game.game_data.teams.home.name)
+```
 
 ### Async
 
@@ -64,7 +65,7 @@ See `examples/` for more details
 
 - Fully-typed Pydantic v2 models for all major endpoints
 - Sync (`MlbClient`) and async (`AsyncMlbClient`) HTTP clients
-- 25+ enum types for API codes (game type, pitch type, events, etc.)
+- Enum helpers for game types and team IDs
 - Endpoint registry with URL building and parameter validation
 - `extra="allow"` on all models — new API fields won't break your code
 - PEP 561 compatible (`py.typed`)
