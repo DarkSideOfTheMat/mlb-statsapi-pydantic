@@ -1,0 +1,358 @@
+{
+  "result": {
+    "type": "atBat",
+    "event": "Forceout",
+    "eventType": "force_out",
+    "description": "Daylen Lile grounds into a force out, second baseman Edmundo Sosa to shortstop Trea Turner. James Wood scores. Luis García Jr. to 3rd. Brady House out at 2nd. Daylen Lile to 1st.",
+    "rbi": 1,
+    "awayScore": 13,
+    "homeScore": 2,
+    "isOut": true
+  },
+  "about": {
+    "atBatIndex": 83,
+    "halfInning": "top",
+    "isTopInning": true,
+    "inning": 9,
+    "startTime": "2026-03-31T01:33:52.494Z",
+    "endTime": "2026-03-31T01:34:22.474Z",
+    "isComplete": true,
+    "isScoringPlay": true,
+    "hasReview": false,
+    "hasOut": true,
+    "captivatingIndex": 0
+  },
+  "count": {
+    "balls": 0,
+    "strikes": 1,
+    "outs": 2
+  },
+  "matchup": {
+    "batter": {
+      "id": 695734,
+      "fullName": "Daylen Lile",
+      "link": "/api/v1/people/695734"
+    },
+    "batSide": {
+      "code": "L",
+      "description": "Left"
+    },
+    "pitcher": {
+      "id": 664238,
+      "fullName": "Dylan Moore",
+      "link": "/api/v1/people/664238"
+    },
+    "pitchHand": {
+      "code": "R",
+      "description": "Right"
+    },
+    "postOnFirst": {
+      "id": 695734,
+      "fullName": "Daylen Lile",
+      "link": "/api/v1/people/695734"
+    },
+    "postOnThird": {
+      "id": 671277,
+      "fullName": "Luis García Jr.",
+      "link": "/api/v1/people/671277"
+    },
+    "batterHotColdZones": [],
+    "pitcherHotColdZones": [],
+    "splits": {
+      "batter": "vs_RHP",
+      "pitcher": "vs_LHB",
+      "menOnBase": "RISP"
+    }
+  },
+  "pitchIndex": [
+    0,
+    1
+  ],
+  "actionIndex": [],
+  "runnerIndex": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "runners": [
+    {
+      "movement": {
+        "originBase": "1B",
+        "start": "1B",
+        "end": null,
+        "outBase": "2B",
+        "isOut": true,
+        "outNumber": 2
+      },
+      "details": {
+        "event": "Forceout",
+        "eventType": "force_out",
+        "movementReason": "r_force_out",
+        "runner": {
+          "id": 691781,
+          "fullName": "Brady House",
+          "link": "/api/v1/people/691781"
+        },
+        "responsiblePitcher": null,
+        "isScoringEvent": false,
+        "rbi": false,
+        "earned": false,
+        "teamUnearned": false,
+        "playIndex": 1
+      },
+      "credits": [
+        {
+          "player": {
+            "id": 624641,
+            "link": "/api/v1/people/624641"
+          },
+          "position": {
+            "code": "4",
+            "name": "Second Base",
+            "type": "Infielder",
+            "abbreviation": "2B"
+          },
+          "credit": "f_assist"
+        },
+        {
+          "player": {
+            "id": 607208,
+            "link": "/api/v1/people/607208"
+          },
+          "position": {
+            "code": "6",
+            "name": "Shortstop",
+            "type": "Infielder",
+            "abbreviation": "SS"
+          },
+          "credit": "f_putout"
+        }
+      ]
+    },
+    {
+      "movement": {
+        "originBase": "3B",
+        "start": "3B",
+        "end": "score",
+        "outBase": null,
+        "isOut": false,
+        "outNumber": null
+      },
+      "details": {
+        "event": "Forceout",
+        "eventType": "force_out",
+        "movementReason": "r_adv_play",
+        "runner": {
+          "id": 695578,
+          "fullName": "James Wood",
+          "link": "/api/v1/people/695578"
+        },
+        "responsiblePitcher": {
+          "id": 621237,
+          "link": "/api/v1/people/621237"
+        },
+        "isScoringEvent": true,
+        "rbi": true,
+        "earned": true,
+        "teamUnearned": false,
+        "playIndex": 1
+      },
+      "credits": []
+    },
+    {
+      "movement": {
+        "originBase": "2B",
+        "start": "2B",
+        "end": "3B",
+        "outBase": null,
+        "isOut": false,
+        "outNumber": null
+      },
+      "details": {
+        "event": "Forceout",
+        "eventType": "force_out",
+        "movementReason": "r_adv_play",
+        "runner": {
+          "id": 671277,
+          "fullName": "Luis García Jr.",
+          "link": "/api/v1/people/671277"
+        },
+        "responsiblePitcher": null,
+        "isScoringEvent": false,
+        "rbi": false,
+        "earned": false,
+        "teamUnearned": false,
+        "playIndex": 1
+      },
+      "credits": []
+    },
+    {
+      "movement": {
+        "originBase": null,
+        "start": null,
+        "end": "1B",
+        "outBase": null,
+        "isOut": false,
+        "outNumber": null
+      },
+      "details": {
+        "event": "Forceout",
+        "eventType": "force_out",
+        "movementReason": null,
+        "runner": {
+          "id": 695734,
+          "fullName": "Daylen Lile",
+          "link": "/api/v1/people/695734"
+        },
+        "responsiblePitcher": null,
+        "isScoringEvent": false,
+        "rbi": false,
+        "earned": false,
+        "teamUnearned": false,
+        "playIndex": 1
+      },
+      "credits": [
+        {
+          "player": {
+            "id": 624641,
+            "link": "/api/v1/people/624641"
+          },
+          "position": {
+            "code": "4",
+            "name": "Second Base",
+            "type": "Infielder",
+            "abbreviation": "2B"
+          },
+          "credit": "f_fielded_ball"
+        }
+      ]
+    }
+  ],
+  "playEvents": [
+    {
+      "details": {
+        "call": {
+          "code": "F",
+          "description": "Foul"
+        },
+        "description": "Foul",
+        "code": "F",
+        "ballColor": "rgba(170, 21, 11, 1.0)",
+        "trailColor": "rgba(153, 171, 0, 1.0)",
+        "isInPlay": false,
+        "isStrike": true,
+        "isBall": false,
+        "type": {
+          "code": "EP",
+          "description": "Eephus"
+        },
+        "isOut": false,
+        "hasReview": false
+      },
+      "count": {
+        "balls": 0,
+        "strikes": 1,
+        "outs": 1
+      },
+      "pitchData": {
+        "startSpeed": 34.9,
+        "endSpeed": 33.5,
+        "strikeZoneTop": 3.181,
+        "strikeZoneBottom": 1.605,
+        "strikeZoneWidth": 17.0,
+        "strikeZoneDepth": 8.5,
+        "coordinates": {
+          "aY": 4.838640212278559,
+          "aZ": -29.60798557260935,
+          "pfxX": -0.5254715048103815,
+          "pfxZ": 10.659322621754669,
+          "pX": 0.5003660558094291,
+          "pZ": 3.0133073184448644,
+          "vX0": 0.8463890338612555,
+          "vY0": -49.34933084578651,
+          "vZ0": 9.39506405270451,
+          "x": 97.93,
+          "y": 157.42,
+          "x0": -0.3095610312552642,
+          "y0": 50.00104875782218,
+          "z0": 9.19498920986774,
+          "aX": -0.12638955806373073
+        },
+        "breaks": {
+          "breakAngle": 0.0,
+          "breakLength": 48.0,
+          "breakY": 24.0,
+          "breakVertical": -214.4,
+          "breakVerticalInduced": 28.1,
+          "breakHorizontal": 0.4,
+          "spinRate": 874,
+          "spinDirection": 185
+        },
+        "zone": 6,
+        "typeConfidence": 2.0,
+        "plateTime": 1.1206468578283826,
+        "extension": 4.079346874890729
+      },
+      "index": 0,
+      "playId": "207dde1e-4d4a-30c1-a871-359cbbc3ae15",
+      "pitchNumber": 1,
+      "startTime": "2026-03-31T01:33:58.322Z",
+      "endTime": "2026-03-31T01:34:02.680Z",
+      "isPitch": true,
+      "type": "pitch"
+    },
+    {
+      "details": {
+        "call": {
+          "code": "E",
+          "description": "In play, run(s)"
+        },
+        "description": "In play, run(s)",
+        "code": "E",
+        "ballColor": "rgba(26, 86, 190, 1.0)",
+        "trailColor": "rgba(50, 50, 50, 1.0)",
+        "isInPlay": true,
+        "isStrike": false,
+        "isBall": false,
+        "type": {
+          "description": "Unknown"
+        },
+        "isOut": true,
+        "hasReview": false
+      },
+      "count": {
+        "balls": 0,
+        "strikes": 1,
+        "outs": 1
+      },
+      "pitchData": {
+        "strikeZoneTop": 3.181,
+        "strikeZoneBottom": 1.605,
+        "coordinates": {
+          "x": 103.51,
+          "y": 126.76
+        },
+        "breaks": {}
+      },
+      "hitData": {
+        "trajectory": "ground_ball",
+        "hardness": "medium",
+        "location": "4",
+        "coordinates": {
+          "coordX": 151.15,
+          "coordY": 154.05
+        }
+      },
+      "index": 1,
+      "playId": "e780a821-193e-4e4e-bb2d-dbe619c35e87",
+      "pitchNumber": 2,
+      "startTime": "2026-03-31T01:34:16.154Z",
+      "endTime": "2026-03-31T01:34:22.474Z",
+      "isPitch": true,
+      "type": "pitch"
+    }
+  ],
+  "playEndTime": "2026-03-31T01:34:22.474Z",
+  "atBatIndex": 83
+}

@@ -108,11 +108,13 @@ class PitchTypeInfo(MlbBaseModel):
 
     @model_validator(mode="before")
     @classmethod
-    def clean_pitch_codes(cls, data: dict[str, Any]) -> dict[str, Any]:
-        # Sometimes code is not set for unknown pitches
-        # see: github.com/DarkSideOfTheMat/mlb-statsapi-pydantic/issues/35
-        if "code" not in data and data.get("description") == "unknown":
-            data["code"] = PitchTypeEnum.UNKNOWN
+    def clean_pitch_codes(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # Sometimes code is not set for unknown pitches
+            # see: github.com/DarkSideOfTheMat/mlb-statsapi-pydantic/issues/35
+            if "code" not in data and data.get("description") == "Unknown":
+                data["code"] = PitchTypeEnum.UNKNOWN
+            return data
         return data
 
 
