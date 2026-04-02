@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from mlb_statsapi.models._base import PersonRef
+from mlb_statsapi.models.enums import PitchType as PitchTypeEnum
 from mlb_statsapi.models.livefeed import (
     Count,
     LiveFeedResponse,
@@ -449,6 +450,15 @@ class TestPlayEvents:
         actions = [e for e in play.play_events if not e.is_pitch]
         assert len(actions) > 0
         assert actions[0].is_action is True
+
+    def test_play_events_unknown_handling(self):
+        data = load_fixture("malformed_play_events")
+        play = Play.model_validate(data)
+
+        for event in play.play_events:
+            assert event.details.type.code is not None
+            if event.details.type.description.lower() == "unknown":
+                assert event.details.type.code == PitchTypeEnum.UNKNOWN
 
 
 class TestRunners:
