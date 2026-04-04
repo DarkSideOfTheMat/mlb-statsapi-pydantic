@@ -25,11 +25,7 @@ from __future__ import annotations
 import datetime
 from typing import Any
 
-from pydantic import model_validator
-
-from pydantic import Field
-
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from mlb_statsapi.models._base import (
     ApiLink,
