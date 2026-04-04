@@ -28,19 +28,14 @@ from mlb_statsapi.models._base import (
     GamePk,
     GameStatus,
     MlbBaseModel,
-    PersonRef,
     Ref,
     VenueId,
-    WinLossRecord,
 )
 from mlb_statsapi.models.enums import (
-    DayNight,
-    DoubleHeaderCode,
     GameType,
-    TiebreakerCode,
 )
 from mlb_statsapi.models.livefeed import Play
-from mlb_statsapi.models.teams import Team
+from mlb_statsapi.models.schedule import ScheduleDate as ScheduleDate
 from mlb_statsapi.models.venues import Venue
 
 # ---------------------------------------------------------------------------
@@ -134,85 +129,19 @@ class TimestampsResponse(RootModel[list[str]]):
 # ---------------------------------------------------------------------------
 
 
-class GameChangesTeamInfo(MlbBaseModel):
-    """Team info within a game changes entry."""
-
-    team: Team | Ref[int] | None = None
-    league_record: WinLossRecord | None = None
-    score: int | None = None
-    is_winner: bool | None = None
-    probable_pitcher: PersonRef | None = None
-    split_squad: bool | None = None
-    series_number: int | None = None
-
-
-class GameChangesTeams(MlbBaseModel):
-    """Away and home teams in a game changes entry."""
-
-    away: GameChangesTeamInfo | None = None
-    home: GameChangesTeamInfo | None = None
-
-
-class GameChangesGame(MlbBaseModel):
-    """A single game within the changes response.
-
-    Mirrors :class:`~mlb_statsapi.models.schedule.ScheduleGame` but
-    with all fields optional since the changes endpoint may return
-    partial data.
-    """
-
-    game_pk: GamePk | None = None
-    game_guid: str | None = None
-    link: ApiLink | None = None
-    game_type: GameType | str | None = None
-    season: str | None = None
-    game_date: datetime.datetime | None = None
-    official_date: datetime.date | None = None
-    status: GameStatus | None = None
-    teams: GameChangesTeams | None = None
-    venue: Venue | Ref[VenueId] | None = None
-    day_night: DayNight | str | None = None
-    scheduled_innings: int | None = None
-    game_number: int | None = None
-    double_header: DoubleHeaderCode | str | None = None
-    gameday_type: str | None = None
-    tiebreaker: TiebreakerCode | str | None = None
-    is_tie: bool | None = None
-    season_display: str | None = None
-    public_facing: bool | None = None
-    series_description: str | None = None
-    series_game_number: int | None = None
-    games_in_series: int | None = None
-    if_necessary: str | None = None
-    if_necessary_description: str | None = None
-    record_source: str | None = None
-    inning_break_length: int | None = None
-    reverse_home_away_status: bool | None = None
-
-
-class GameChangesDate(MlbBaseModel):
-    """Games grouped by date in the changes response."""
-
-    date: datetime.date | None = None
-    total_items: int | None = None
-    total_events: int | None = None
-    total_games: int | None = None
-    total_games_in_progress: int | None = None
-    games: list[GameChangesGame] = []
-    events: list[MlbBaseModel] = []
-
-
 class GameChangesResponse(BaseResponse):
     """Response from ``/api/v1/game/changes``.
 
     Returns schedule-like data for games updated since a given timestamp.
+    Reuses :class:`~mlb_statsapi.models.schedule.ScheduleDate` since
+    the structure is identical.
     """
 
     total_items: int | None = None
     total_events: int | None = None
     total_games: int | None = None
     total_games_in_progress: int | None = None
-    dates: list[GameChangesDate] = []
+    dates: list[ScheduleDate] = []
 
 
 # ---------------------------------------------------------------------------
