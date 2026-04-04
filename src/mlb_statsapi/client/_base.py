@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from pydantic import ValidationError
+
+if TYPE_CHECKING:
+    from pydantic import BaseModel
 
 from mlb_statsapi.endpoints.registry import ENDPOINTS, EndpointDef
 from mlb_statsapi.exceptions import MlbApiError, MlbValidationError
@@ -59,7 +62,7 @@ class ClientMixin:
         query = ep.filter_query_params(**params)
         return url, query
 
-    def _parse_response(self, endpoint: str, data: Any) -> Any:
+    def _parse_response(self, endpoint: str, data: Any) -> BaseModel:
         ep = self._resolve_endpoint(endpoint)
         model = ep.response_model or BaseResponse
         try:

@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 import httpx
 
 from mlb_statsapi.client._base import ClientMixin
 from mlb_statsapi.exceptions import MlbApiError
-from mlb_statsapi.models._base import BaseResponse
+
+if TYPE_CHECKING:
+    from pydantic import BaseModel
 from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
 from mlb_statsapi.models.game_responses import (
     ContextMetricsResponse,
@@ -48,7 +50,7 @@ class AsyncMlbClient(ClientMixin):
     async def __aexit__(self, *args: object) -> None:
         await self.close()
 
-    async def _request(self, endpoint: str, **params: Any) -> BaseResponse:
+    async def _request(self, endpoint: str, **params: Any) -> BaseModel:
         url, query = self._build_request(endpoint, **params)
         try:
             resp = await self._http.get(url, params=query)
@@ -61,7 +63,7 @@ class AsyncMlbClient(ClientMixin):
 
     # -- Generic access --
 
-    async def get(self, endpoint: str, **params: Any) -> BaseResponse:
+    async def get(self, endpoint: str, **params: Any) -> BaseModel:
         """Query any endpoint by name with automatic model parsing."""
         return await self._request(endpoint, **params)
 
