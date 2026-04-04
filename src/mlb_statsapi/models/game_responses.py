@@ -18,10 +18,30 @@ the standard ``copyright`` wrapper.
 
 from __future__ import annotations
 
+import datetime
+
 from pydantic import RootModel
 
-from mlb_statsapi.models._base import BaseResponse, GamePk, MlbBaseModel
+from mlb_statsapi.models._base import (
+    ApiLink,
+    BaseResponse,
+    GamePk,
+    GameStatus,
+    MlbBaseModel,
+    PersonRef,
+    Ref,
+    VenueId,
+    WinLossRecord,
+)
+from mlb_statsapi.models.enums import (
+    DayNight,
+    DoubleHeaderCode,
+    GameType,
+    TiebreakerCode,
+)
 from mlb_statsapi.models.livefeed import Play
+from mlb_statsapi.models.teams import Team
+from mlb_statsapi.models.venues import Venue
 
 # ---------------------------------------------------------------------------
 # Win probability — /game/{gamePk}/winProbability
@@ -47,6 +67,32 @@ class WinProbabilityResponse(RootModel[list[Play]]):
 # ---------------------------------------------------------------------------
 
 
+class ContextMetricsGame(MlbBaseModel):
+    """Game identification within context metrics.
+
+    Contains the same fields as a :class:`ScheduleGame` — game identity,
+    status, teams, and venue.
+    """
+
+    game_pk: GamePk | None = None
+    game_guid: str | None = None
+    link: ApiLink | None = None
+    game_type: GameType | str | None = None
+    season: str | None = None
+    game_date: datetime.datetime | None = None
+    official_date: datetime.date | None = None
+    status: GameStatus | None = None
+    teams: MlbBaseModel | None = None
+    venue: Venue | Ref[VenueId] | None = None
+
+
+class SacFlyProbability(MlbBaseModel):
+    """Sac-fly probability data for an outfield zone.
+
+    May be empty when no data is available (e.g. finished games).
+    """
+
+
 class ContextMetricsResponse(MlbBaseModel):
     """Response from ``/api/v1/game/{gamePk}/contextMetrics``.
 
@@ -57,12 +103,12 @@ class ContextMetricsResponse(MlbBaseModel):
         This endpoint does not include a ``copyright`` field.
     """
 
-    game: MlbBaseModel | None = None
+    game: ContextMetricsGame | None = None
     away_win_probability: float | None = None
     home_win_probability: float | None = None
-    left_field_sac_fly_probability: MlbBaseModel | None = None
-    center_field_sac_fly_probability: MlbBaseModel | None = None
-    right_field_sac_fly_probability: MlbBaseModel | None = None
+    left_field_sac_fly_probability: SacFlyProbability | None = None
+    center_field_sac_fly_probability: SacFlyProbability | None = None
+    right_field_sac_fly_probability: SacFlyProbability | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -88,6 +134,74 @@ class TimestampsResponse(RootModel[list[str]]):
 # ---------------------------------------------------------------------------
 
 
+class GameChangesTeamInfo(MlbBaseModel):
+    """Team info within a game changes entry."""
+
+    team: Team | Ref[int] | None = None
+    league_record: WinLossRecord | None = None
+    score: int | None = None
+    is_winner: bool | None = None
+    probable_pitcher: PersonRef | None = None
+    split_squad: bool | None = None
+    series_number: int | None = None
+
+
+class GameChangesTeams(MlbBaseModel):
+    """Away and home teams in a game changes entry."""
+
+    away: GameChangesTeamInfo | None = None
+    home: GameChangesTeamInfo | None = None
+
+
+class GameChangesGame(MlbBaseModel):
+    """A single game within the changes response.
+
+    Mirrors :class:`~mlb_statsapi.models.schedule.ScheduleGame` but
+    with all fields optional since the changes endpoint may return
+    partial data.
+    """
+
+    game_pk: GamePk | None = None
+    game_guid: str | None = None
+    link: ApiLink | None = None
+    game_type: GameType | str | None = None
+    season: str | None = None
+    game_date: datetime.datetime | None = None
+    official_date: datetime.date | None = None
+    status: GameStatus | None = None
+    teams: GameChangesTeams | None = None
+    venue: Venue | Ref[VenueId] | None = None
+    day_night: DayNight | str | None = None
+    scheduled_innings: int | None = None
+    game_number: int | None = None
+    double_header: DoubleHeaderCode | str | None = None
+    gameday_type: str | None = None
+    tiebreaker: TiebreakerCode | str | None = None
+    is_tie: bool | None = None
+    season_display: str | None = None
+    public_facing: bool | None = None
+    series_description: str | None = None
+    series_game_number: int | None = None
+    games_in_series: int | None = None
+    if_necessary: str | None = None
+    if_necessary_description: str | None = None
+    record_source: str | None = None
+    inning_break_length: int | None = None
+    reverse_home_away_status: bool | None = None
+
+
+class GameChangesDate(MlbBaseModel):
+    """Games grouped by date in the changes response."""
+
+    date: datetime.date | None = None
+    total_items: int | None = None
+    total_events: int | None = None
+    total_games: int | None = None
+    total_games_in_progress: int | None = None
+    games: list[GameChangesGame] = []
+    events: list[MlbBaseModel] = []
+
+
 class GameChangesResponse(BaseResponse):
     """Response from ``/api/v1/game/changes``.
 
@@ -98,7 +212,7 @@ class GameChangesResponse(BaseResponse):
     total_events: int | None = None
     total_games: int | None = None
     total_games_in_progress: int | None = None
-    dates: list[MlbBaseModel] = []
+    dates: list[GameChangesDate] = []
 
 
 # ---------------------------------------------------------------------------
@@ -115,13 +229,32 @@ class MediaPlayback(MlbBaseModel):
     height: str | None = None
 
 
+class ImageCut(MlbBaseModel):
+    """A single image cut (resolution variant)."""
+
+    aspect_ratio: str | None = None
+    width: int | None = None
+    height: int | None = None
+    src: str | None = None
+    at2x: str | None = None
+    at3x: str | None = None
+
+
 class MediaImage(MlbBaseModel):
-    """Image metadata with template URL and cuts."""
+    """Image metadata with template URL and resolution cuts."""
 
     title: str | None = None
     alt_text: str | None = None
     template_url: str | None = None
-    cuts: list[MlbBaseModel] | MlbBaseModel | None = None
+    cuts: list[ImageCut] | MlbBaseModel | None = None
+
+
+class Keyword(MlbBaseModel):
+    """A keyword tag on content items."""
+
+    type: str | None = None
+    value: str | None = None
+    display_name: str | None = None
 
 
 class ContentItem(MlbBaseModel):
@@ -133,7 +266,7 @@ class ContentItem(MlbBaseModel):
 
     type: str | None = None
     state: str | None = None
-    date: str | None = None
+    date: datetime.date | str | None = None
     id: str | int | None = None
     headline: str | None = None
     seo_title: str | None = None
@@ -146,8 +279,8 @@ class ContentItem(MlbBaseModel):
     media_playback_url: str | None = None
     image: MediaImage | None = None
     playbacks: list[MediaPlayback] = []
-    keywords_all: list[MlbBaseModel] = []
-    keywords_display: list[MlbBaseModel] = []
+    keywords_all: list[Keyword] = []
+    keywords_display: list[Keyword] = []
     no_index: bool | None = None
 
 
@@ -242,13 +375,20 @@ class ColorFeedResponse(MlbBaseModel):
 # ---------------------------------------------------------------------------
 
 
+class UniformAssetType(MlbBaseModel):
+    """Uniform asset type classification."""
+
+    uniform_asset_type_desc: str | None = None
+    uniform_asset_type_id: int | None = None
+
+
 class UniformAsset(MlbBaseModel):
     """A single uniform asset (jersey, cap, helmet, etc.)."""
 
     uniform_asset_id: int | None = None
     uniform_asset_code: str | None = None
     uniform_asset_text: str | None = None
-    uniform_asset_type: MlbBaseModel | str | None = None
+    uniform_asset_type: UniformAssetType | str | None = None
     active: bool | None = None
 
 
