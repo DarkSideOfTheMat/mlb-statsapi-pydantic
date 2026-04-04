@@ -23,20 +23,13 @@ import datetime
 from pydantic import RootModel
 
 from mlb_statsapi.models._base import (
-    ApiLink,
     BaseResponse,
     GamePk,
-    GameStatus,
     MlbBaseModel,
-    Ref,
-    VenueId,
-)
-from mlb_statsapi.models.enums import (
-    GameType,
 )
 from mlb_statsapi.models.livefeed import Play
 from mlb_statsapi.models.schedule import ScheduleDate as ScheduleDate
-from mlb_statsapi.models.venues import Venue
+from mlb_statsapi.models.schedule import ScheduleGame as ScheduleGame
 
 # ---------------------------------------------------------------------------
 # Win probability — /game/{gamePk}/winProbability
@@ -62,25 +55,6 @@ class WinProbabilityResponse(RootModel[list[Play]]):
 # ---------------------------------------------------------------------------
 
 
-class ContextMetricsGame(MlbBaseModel):
-    """Game identification within context metrics.
-
-    Contains the same fields as a :class:`ScheduleGame` — game identity,
-    status, teams, and venue.
-    """
-
-    game_pk: GamePk | None = None
-    game_guid: str | None = None
-    link: ApiLink | None = None
-    game_type: GameType | str | None = None
-    season: str | None = None
-    game_date: datetime.datetime | None = None
-    official_date: datetime.date | None = None
-    status: GameStatus | None = None
-    teams: MlbBaseModel | None = None
-    venue: Venue | Ref[VenueId] | None = None
-
-
 class SacFlyProbability(MlbBaseModel):
     """Sac-fly probability data for an outfield zone.
 
@@ -92,13 +66,15 @@ class ContextMetricsResponse(MlbBaseModel):
     """Response from ``/api/v1/game/{gamePk}/contextMetrics``.
 
     Contains game-level win probabilities and sac-fly probabilities
-    by outfield zone.
+    by outfield zone. The ``game`` field reuses
+    :class:`~mlb_statsapi.models.schedule.ScheduleGame` since the
+    structure is identical.
 
     .. note::
         This endpoint does not include a ``copyright`` field.
     """
 
-    game: ContextMetricsGame | None = None
+    game: ScheduleGame | None = None
     away_win_probability: float | None = None
     home_win_probability: float | None = None
     left_field_sac_fly_probability: SacFlyProbability | None = None
