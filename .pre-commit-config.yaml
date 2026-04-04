@@ -15,3 +15,12 @@ repos:
       - id: check-added-large-files
         args: [--maxkb=500]
       - id: check-merge-conflict
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: "mypy --python-executable .venv/bin/python3.14"
+        language: python
+        types: [python]
+        require_serial: true
+        verbose: true

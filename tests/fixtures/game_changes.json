@@ -1,0 +1,183 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 5615,
+  "totalEvents": 0,
+  "totalGames": 5615,
+  "totalGamesInProgress": 0,
+  "dates": [
+    {
+      "date": "1984-08-05",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 187527,
+          "gameGuid": "d02018c9-c20b-47ce-af75-e9e2c17353bc",
+          "link": "/api/v1.1/game/187527/feed/live",
+          "gameType": "R",
+          "season": "1984",
+          "gameDate": "1984-08-05T07:33:00Z",
+          "officialDate": "1984-08-05",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
+            "startTimeTBD": true,
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "leagueRecord": {
+                "wins": 63,
+                "losses": 45,
+                "pct": ".583"
+              },
+              "score": 4,
+              "isWinner": true,
+              "splitSquad": false,
+              "seriesNumber": 36
+            },
+            "home": {
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "leagueRecord": {
+                "wins": 58,
+                "losses": 51,
+                "pct": ".532"
+              },
+              "score": 3,
+              "isWinner": false,
+              "splitSquad": false,
+              "seriesNumber": 36
+            }
+          },
+          "venue": {
+            "id": 3134,
+            "name": "Memorial Stadium",
+            "link": "/api/v1/venues/3134"
+          },
+          "content": {
+            "link": "/api/v1/game/187527/content"
+          },
+          "isTie": false,
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "N",
+          "tiebreaker": "N",
+          "calendarEventID": "14-187527-1984-08-05",
+          "seasonDisplay": "1984",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    },
+    {
+      "date": "1998-05-01",
+      "totalItems": 1,
+      "totalEvents": 0,
+      "totalGames": 1,
+      "totalGamesInProgress": 0,
+      "games": [
+        {
+          "gamePk": 215861,
+          "gameGuid": "a1753a2d-8321-447e-84e1-e7c0c2dd85bf",
+          "link": "/api/v1.1/game/215861/feed/live",
+          "gameType": "R",
+          "season": "1998",
+          "gameDate": "1998-05-01T23:05:00Z",
+          "officialDate": "1998-05-01",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "F",
+            "detailedState": "Final",
+            "statusCode": "F",
+            "startTimeTBD": false,
+            "abstractGameCode": "F"
+          },
+          "teams": {
+            "away": {
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 13,
+                "pct": ".519"
+              },
+              "score": 4,
+              "isWinner": false,
+              "splitSquad": false,
+              "seriesNumber": 10
+            },
+            "home": {
+              "team": {
+                "id": 134,
+                "name": "Pittsburgh Pirates",
+                "link": "/api/v1/teams/134"
+              },
+              "leagueRecord": {
+                "wins": 12,
+                "losses": 16,
+                "pct": ".429"
+              },
+              "score": 5,
+              "isWinner": true,
+              "splitSquad": false,
+              "seriesNumber": 10
+            }
+          },
+          "venue": {
+            "id": 27,
+            "name": "Three Rivers Stadium",
+            "link": "/api/v1/venues/27"
+          },
+          "content": {
+            "link": "/api/v1/game/215861/content"
+          },
+          "isTie": false,
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "B",
+          "tiebreaker": "N",
+          "calendarEventID": "14-215861-1998-05-01",
+          "seasonDisplay": "1998",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "reverseHomeAwayStatus": false,
+          "inningBreakLength": 120,
+          "gamesInSeries": 4,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}

@@ -6,8 +6,19 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(git *)",
+            "if": "Bash(git commit *)",
             "command": "cd \"$CLAUDE_PROJECT_DIR\" && .claude/hooks/run_pytest.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ruff check --fix && ruff format"
           }
         ]
       }

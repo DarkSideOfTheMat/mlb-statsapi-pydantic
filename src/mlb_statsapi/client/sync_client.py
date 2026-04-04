@@ -2,15 +2,25 @@
 
 from __future__ import annotations
 
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 import httpx
 
 from mlb_statsapi.client._base import ClientMixin
 from mlb_statsapi.exceptions import MlbApiError
-from mlb_statsapi.models._base import BaseResponse
+
+if TYPE_CHECKING:
+    from pydantic import BaseModel
 from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
-from mlb_statsapi.models.livefeed import LiveFeedResponse
+from mlb_statsapi.models.game_responses import (
+    ContextMetricsResponse,
+    GameChangesResponse,
+    GameContentResponse,
+    TimestampsResponse,
+    UniformsResponse,
+    WinProbabilityResponse,
+)
+from mlb_statsapi.models.livefeed import LiveFeedResponse, PlayByPlayResponse
 from mlb_statsapi.models.people import PeopleResponse
 from mlb_statsapi.models.schedule import ScheduleResponse
 from mlb_statsapi.models.sports import SportsResponse
@@ -44,7 +54,7 @@ class MlbClient(ClientMixin):
     def __exit__(self, *args: object) -> None:
         self.close()
 
-    def _request(self, endpoint: str, **params: Any) -> BaseResponse:
+    def _request(self, endpoint: str, **params: Any) -> BaseModel:
         url, query = self._build_request(endpoint, **params)
         try:
             resp = self._http.get(url, params=query)
@@ -57,7 +67,7 @@ class MlbClient(ClientMixin):
 
     # -- Generic access --
 
-    def get(self, endpoint: str, **params: Any) -> BaseResponse:
+    def get(self, endpoint: str, **params: Any) -> BaseModel:
         """Query any endpoint by name with automatic model parsing."""
         return self._request(endpoint, **params)
 
@@ -151,6 +161,48 @@ class MlbClient(ClientMixin):
         return cast(
             LinescoreResponse,
             self._request("game_linescore", gamePk=str(game_pk), **params),
+        )
+
+    def play_by_play(self, game_pk: int, **params: Any) -> PlayByPlayResponse:
+        return cast(
+            PlayByPlayResponse,
+            self._request("game_playByPlay", gamePk=str(game_pk), **params),
+        )
+
+    def win_probability(self, game_pk: int, **params: Any) -> WinProbabilityResponse:
+        return cast(
+            WinProbabilityResponse,
+            self._request("game_winProbability", gamePk=str(game_pk), **params),
+        )
+
+    def context_metrics(self, game_pk: int, **params: Any) -> ContextMetricsResponse:
+        return cast(
+            ContextMetricsResponse,
+            self._request("game_contextMetrics", gamePk=str(game_pk), **params),
+        )
+
+    def game_timestamps(self, game_pk: int, **params: Any) -> TimestampsResponse:
+        return cast(
+            TimestampsResponse,
+            self._request("game_timestamps", gamePk=str(game_pk), **params),
+        )
+
+    def game_changes(self, updated_since: str, **params: Any) -> GameChangesResponse:
+        return cast(
+            GameChangesResponse,
+            self._request("game_changes", updatedSince=updated_since, **params),
+        )
+
+    def game_content(self, game_pk: int, **params: Any) -> GameContentResponse:
+        return cast(
+            GameContentResponse,
+            self._request("game_content", gamePk=str(game_pk), **params),
+        )
+
+    def game_uniforms(self, game_pks: str, **params: Any) -> UniformsResponse:
+        return cast(
+            UniformsResponse,
+            self._request("game_uniforms", gamePks=game_pks, **params),
         )
 
     def league_leaders(

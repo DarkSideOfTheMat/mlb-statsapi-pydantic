@@ -1,6 +1,9 @@
 """Live feed and play-by-play models.
 
-Endpoint: ``/api/v1.1/game/{gamePk}/feed/live``
+Endpoints:
+
+- ``/api/v1.1/game/{gamePk}/feed/live`` → :class:`LiveFeedResponse`
+- ``/api/v1/game/{gamePk}/playByPlay`` → :class:`PlayByPlayResponse`
 
 The live feed is the richest single endpoint in the MLB Stats API,
 containing the full game state including every play, pitch, and runner
@@ -8,6 +11,9 @@ movement. The response is structured as two top-level sections:
 
 - ``gameData`` — static game metadata (teams, players, venue, weather)
 - ``liveData`` — dynamic game state (plays, linescore, boxscore, decisions)
+
+The play-by-play endpoint returns a subset: just the plays data
+(all plays, scoring plays, plays by inning) without game metadata.
 
 The GUMBO (Game Used MlB Objects) feed provides granular data including
 Statcast pitch tracking (velocity, spin, movement, coordinates) and
@@ -19,7 +25,7 @@ from __future__ import annotations
 import datetime
 from typing import Any
 
-from pydantic import model_validator
+from pydantic import Field, model_validator
 
 from mlb_statsapi.models._base import (
     ApiLink,
@@ -395,6 +401,14 @@ class Play(MlbBaseModel):
     is_triple_play: bool | None = None
     is_grounded_into_double_play: bool | None = None
 
+    # Win probability fields — only present in /game/{gamePk}/winProbability responses
+    home_team_win_probability: float | None = None
+    away_team_win_probability: float | None = None
+    home_team_win_probability_added: float | None = None
+    context_metrics: MlbBaseModel | None = None
+    credits: list[MlbBaseModel] = []
+    flags: list[MlbBaseModel] = []
+
     @property
     def pitches(self) -> list[PlayEvent]:
         """Resolve pitch_index to PlayEvent objects."""
@@ -614,3 +628,24 @@ class LiveFeedResponse(BaseResponse):
     meta_data: MlbBaseModel | None = None
     game_data: GameData
     live_data: LiveData
+
+
+class PlayByPlayResponse(BaseResponse):
+    """Response from ``/api/v1/game/{gamePk}/playByPlay``.
+
+    Contains the same play data as ``liveData.plays`` in the live feed,
+    but as a standalone response. The ``scoring_plays`` property returns
+    resolved :class:`Play` objects; use ``scoring_play_indices`` for the
+    raw integer indices from the API.
+    """
+
+    all_plays: list[Play] = []
+    current_play: Play | None = None
+    scoring_play_indices: list[int] = Field(default=[], alias="scoringPlays")
+    plays_by_inning: list[InningPlays] = []
+
+    @property
+    def scoring_plays(self) -> list[Play]:
+        """Resolve scoring play indices to Play objects."""
+        n = len(self.all_plays)
+        return [self.all_plays[i] for i in self.scoring_play_indices if i < n]
