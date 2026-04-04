@@ -59,7 +59,7 @@ class ClientMixin:
         query = ep.filter_query_params(**params)
         return url, query
 
-    def _parse_response(self, endpoint: str, data: dict[str, Any]) -> BaseResponse:
+    def _parse_response(self, endpoint: str, data: Any) -> Any:
         ep = self._resolve_endpoint(endpoint)
         model = ep.response_model or BaseResponse
         try:

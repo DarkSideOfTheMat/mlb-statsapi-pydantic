@@ -180,6 +180,67 @@ class TestMlbClientConvenience:
         result = client.game(game_pk=744914)
         assert result.game_pk == 744914
 
+    def test_play_by_play(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("play_by_play")
+        mock_api.get("/v1/game/745570/playByPlay").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.play_by_play(game_pk=745570)
+        assert len(result.all_plays) == 62
+        assert len(result.scoring_plays) > 0
+
+    def test_win_probability(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("win_probability")
+        mock_api.get("/v1/game/745570/winProbability").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.win_probability(game_pk=745570)
+        assert len(result.root) > 0
+
+    def test_context_metrics(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("context_metrics")
+        mock_api.get("/v1/game/745570/contextMetrics").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.context_metrics(game_pk=745570)
+        assert result.home_win_probability is not None
+
+    def test_game_content(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("game_content")
+        mock_api.get("/v1/game/745570/content").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.game_content(game_pk=745570)
+        assert result.highlights is not None
+
+    def test_game_changes(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("game_changes")
+        mock_api.get("/v1/game/changes").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.game_changes(updated_since="2024-06-05T20:00:00Z")
+        assert result.total_games is not None
+
+    def test_game_uniforms(self, mock_api):
+        from mlb_statsapi.client.sync_client import MlbClient
+
+        data = load_fixture("uniforms")
+        mock_api.get("/v1/uniforms/game").respond(200, json=data)
+
+        client = MlbClient()
+        result = client.game_uniforms(game_pks="745570")
+        assert len(result.uniforms) > 0
+
 
 class TestHydrateParam:
     """Test that hydrate parameter is correctly passed."""

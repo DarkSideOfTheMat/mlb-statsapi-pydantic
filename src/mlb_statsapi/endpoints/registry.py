@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from mlb_statsapi.models._base import BaseResponse
+    from pydantic import BaseModel
 
 BASE_URL = "https://statsapi.mlb.com/api/"
 
@@ -24,7 +24,7 @@ class EndpointDef:
     query_params: tuple[str, ...] = ()
     required_params: tuple[tuple[str, ...], ...] = ((),)
     default_version: str = "v1"
-    response_model: type[BaseResponse] | None = None
+    response_model: type[BaseModel] | None = None
     note: str | None = None
 
     def build_url(self, **params: str) -> str:
@@ -57,9 +57,18 @@ def _build_endpoints() -> dict[str, EndpointDef]:
     from mlb_statsapi.models.divisions import DivisionsResponse
     from mlb_statsapi.models.draft import DraftResponse
     from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
+    from mlb_statsapi.models.game_responses import (
+        ColorFeedResponse,
+        ContextMetricsResponse,
+        GameChangesResponse,
+        GameContentResponse,
+        TimestampsResponse,
+        UniformsResponse,
+        WinProbabilityResponse,
+    )
     from mlb_statsapi.models.jobs import JobsResponse
     from mlb_statsapi.models.leagues import LeaguesResponse
-    from mlb_statsapi.models.livefeed import LiveFeedResponse
+    from mlb_statsapi.models.livefeed import LiveFeedResponse, PlayByPlayResponse
     from mlb_statsapi.models.people import PeopleResponse
     from mlb_statsapi.models.schedule import ScheduleResponse
     from mlb_statsapi.models.seasons import SeasonsResponse
@@ -300,11 +309,13 @@ def _build_endpoints() -> dict[str, EndpointDef]:
             url_template="{ver}/game/{gamePk}/playByPlay",
             path_params={"gamePk": ""},
             query_params=("timecode", "fields"),
+            response_model=PlayByPlayResponse,
         ),
         "game_content": EndpointDef(
             url_template="{ver}/game/{gamePk}/content",
             path_params={"gamePk": ""},
             query_params=("highlightLimit",),
+            response_model=GameContentResponse,
         ),
         "game_diff": EndpointDef(
             url_template="{ver}/game/{gamePk}/feed/live/diffPatch",
@@ -312,46 +323,55 @@ def _build_endpoints() -> dict[str, EndpointDef]:
             query_params=("startTimecode", "endTimecode"),
             required_params=(("startTimecode", "endTimecode"),),
             default_version="v1.1",
+            response_model=LiveFeedResponse,
         ),
         "game_timestamps": EndpointDef(
             url_template="{ver}/game/{gamePk}/feed/live/timestamps",
             path_params={"gamePk": ""},
             default_version="v1.1",
+            response_model=TimestampsResponse,
         ),
         "game_changes": EndpointDef(
             url_template="{ver}/game/changes",
             query_params=("updatedSince", "sportId", "gameType", "season", "fields"),
             required_params=(("updatedSince",),),
+            response_model=GameChangesResponse,
         ),
         "game_contextMetrics": EndpointDef(
             url_template="{ver}/game/{gamePk}/contextMetrics",
             path_params={"gamePk": ""},
             query_params=("timecode", "fields"),
+            response_model=ContextMetricsResponse,
         ),
         "game_winProbability": EndpointDef(
             url_template="{ver}/game/{gamePk}/winProbability",
             path_params={"gamePk": ""},
             query_params=("timecode", "fields"),
+            response_model=WinProbabilityResponse,
         ),
         "game_color": EndpointDef(
             url_template="{ver}/game/{gamePk}/feed/color",
             path_params={"gamePk": ""},
             query_params=("timecode", "fields"),
+            response_model=ColorFeedResponse,
         ),
         "game_color_diff": EndpointDef(
             url_template="{ver}/game/{gamePk}/feed/color/diffPatch",
             path_params={"gamePk": ""},
             query_params=("startTimecode", "endTimecode"),
             required_params=(("startTimecode", "endTimecode"),),
+            response_model=ColorFeedResponse,
         ),
         "game_color_timestamps": EndpointDef(
             url_template="{ver}/game/{gamePk}/feed/color/timestamps",
             path_params={"gamePk": ""},
+            response_model=TimestampsResponse,
         ),
         "game_uniforms": EndpointDef(
             url_template="{ver}/uniforms/game",
             query_params=("gamePks", "fields"),
             required_params=(("gamePks",),),
+            response_model=UniformsResponse,
         ),
         # --- Stats ---
         "stats": EndpointDef(

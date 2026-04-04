@@ -10,7 +10,15 @@ from mlb_statsapi.client._base import ClientMixin
 from mlb_statsapi.exceptions import MlbApiError
 from mlb_statsapi.models._base import BaseResponse
 from mlb_statsapi.models.game import BoxscoreResponse, LinescoreResponse
-from mlb_statsapi.models.livefeed import LiveFeedResponse
+from mlb_statsapi.models.game_responses import (
+    ContextMetricsResponse,
+    GameChangesResponse,
+    GameContentResponse,
+    TimestampsResponse,
+    UniformsResponse,
+    WinProbabilityResponse,
+)
+from mlb_statsapi.models.livefeed import LiveFeedResponse, PlayByPlayResponse
 from mlb_statsapi.models.people import PeopleResponse
 from mlb_statsapi.models.schedule import ScheduleResponse
 from mlb_statsapi.models.sports import SportsResponse
@@ -147,6 +155,54 @@ class AsyncMlbClient(ClientMixin):
         return cast(
             LinescoreResponse,
             await self._request("game_linescore", gamePk=str(game_pk), **params),
+        )
+
+    async def play_by_play(self, game_pk: int, **params: Any) -> PlayByPlayResponse:
+        return cast(
+            PlayByPlayResponse,
+            await self._request("game_playByPlay", gamePk=str(game_pk), **params),
+        )
+
+    async def win_probability(
+        self, game_pk: int, **params: Any
+    ) -> WinProbabilityResponse:
+        return cast(
+            WinProbabilityResponse,
+            await self._request("game_winProbability", gamePk=str(game_pk), **params),
+        )
+
+    async def context_metrics(
+        self, game_pk: int, **params: Any
+    ) -> ContextMetricsResponse:
+        return cast(
+            ContextMetricsResponse,
+            await self._request("game_contextMetrics", gamePk=str(game_pk), **params),
+        )
+
+    async def game_timestamps(self, game_pk: int, **params: Any) -> TimestampsResponse:
+        return cast(
+            TimestampsResponse,
+            await self._request("game_timestamps", gamePk=str(game_pk), **params),
+        )
+
+    async def game_changes(
+        self, updated_since: str, **params: Any
+    ) -> GameChangesResponse:
+        return cast(
+            GameChangesResponse,
+            await self._request("game_changes", updatedSince=updated_since, **params),
+        )
+
+    async def game_content(self, game_pk: int, **params: Any) -> GameContentResponse:
+        return cast(
+            GameContentResponse,
+            await self._request("game_content", gamePk=str(game_pk), **params),
+        )
+
+    async def game_uniforms(self, game_pks: str, **params: Any) -> UniformsResponse:
+        return cast(
+            UniformsResponse,
+            await self._request("game_uniforms", gamePks=game_pks, **params),
         )
 
     async def league_leaders(
