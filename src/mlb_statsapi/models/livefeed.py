@@ -23,6 +23,11 @@ hit data (exit velocity, launch angle, distance).
 from __future__ import annotations
 
 import datetime
+from typing import Any
+
+from pydantic import model_validator
+
+from pydantic import Field
 
 from pydantic import Field
 
@@ -110,6 +115,17 @@ class PitchTypeInfo(MlbBaseModel):
 
     code: PitchTypeEnum | str
     description: str | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def clean_pitch_codes(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # Sometimes code is not set for unknown pitches
+            # see: github.com/DarkSideOfTheMat/mlb-statsapi-pydantic/issues/35
+            if "code" not in data and data.get("description") == "Unknown":
+                data["code"] = PitchTypeEnum.UNKNOWN
+            return data
+        return data
 
 
 class HitData(MlbBaseModel):
