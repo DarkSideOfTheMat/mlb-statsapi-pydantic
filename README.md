@@ -61,10 +61,37 @@ asyncio.run(main())
 
 See `examples/` for more details
 
+### Live Game
+
+Watch games in real time with WebSocket push notifications:
+
+```python
+import asyncio
+from mlb_statsapi import LiveGameClient, GameEvent, GameEventData
+
+async def main():
+    client = LiveGameClient(game_pk=824782)
+
+    @client.on(GameEvent.PITCH)
+    async def on_pitch(event: GameEventData):
+        pe = event.play_event
+        if pe and pe.details:
+            print(f"Pitch: {pe.details.description}")
+
+    await client.watch()
+
+asyncio.run(main())
+```
+
+See [docs/live-game-client.md](docs/live-game-client.md) for full documentation on granularity, event types, sync client, and more.
+
 ## Features
 
 - Fully-typed Pydantic v2 models for all major endpoints
 - Sync (`MlbClient`) and async (`AsyncMlbClient`) HTTP clients
+- **Live game client** with WebSocket push notifications and REST enrichment
+- Configurable granularity (every pitch, every play, scoring only, custom)
+- Both async (`LiveGameClient`) and sync (`SyncLiveGameClient`) live clients
 - Enum helpers for game types and team IDs
 - Endpoint registry with URL building and parameter validation
 - `extra="allow"` on all models — new API fields won't break your code
