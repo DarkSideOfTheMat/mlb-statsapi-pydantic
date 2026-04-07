@@ -233,20 +233,20 @@ def _should_fetch(msg: WsMessage, config: LiveGameConfig) -> bool:
 # Event detection
 # ---------------------------------------------------------------------------
 
-# Event types that indicate a strikeout — use .value for Python 3.10 compat
+# Event types that indicate a strikeout
 _STRIKEOUT_EVENTS: frozenset[str] = frozenset(
     {
-        EventType.STRIKEOUT.value,
-        EventType.STRIKE_OUT.value,
-        EventType.STRIKEOUT_DOUBLE_PLAY.value,
-        EventType.STRIKEOUT_TRIPLE_PLAY.value,
+        EventType.STRIKEOUT,
+        EventType.STRIKE_OUT,
+        EventType.STRIKEOUT_DOUBLE_PLAY,
+        EventType.STRIKEOUT_TRIPLE_PLAY,
     }
 )
 
 _WALK_EVENTS: frozenset[str] = frozenset(
     {
-        EventType.WALK.value,
-        EventType.INTENT_WALK.value,
+        EventType.WALK,
+        EventType.INTENT_WALK,
     }
 )
 
@@ -300,9 +300,9 @@ def _detect_events(
 
     if old_state and new_state and old_state != new_state:
         events.append(_make(GameEvent.GAME_STATE_CHANGE))
-        if new_state == AbstractGameState.LIVE.value:
+        if new_state == AbstractGameState.LIVE:
             events.append(_make(GameEvent.GAME_START))
-        elif new_state == AbstractGameState.FINAL.value:
+        elif new_state == AbstractGameState.FINAL:
             events.append(_make(GameEvent.GAME_END))
 
     new_plays = new.live_data.plays if new.live_data else None
@@ -317,12 +317,11 @@ def _detect_events(
 
         event_type = play.result.event_type if play.result else None
         if event_type:
-            et = event_type if isinstance(event_type, str) else event_type.value
-            if et in _STRIKEOUT_EVENTS:
+            if event_type in _STRIKEOUT_EVENTS:
                 events.append(_make(GameEvent.STRIKEOUT, play=play))
-            elif et in _WALK_EVENTS:
+            elif event_type in _WALK_EVENTS:
                 events.append(_make(GameEvent.WALK, play=play))
-            elif et == EventType.HOME_RUN.value:
+            elif event_type == EventType.HOME_RUN:
                 events.append(_make(GameEvent.HOME_RUN, play=play))
 
     # --- New pitches in current play ---
@@ -452,9 +451,9 @@ async def _rest_poll(
         interval = config.poll_interval
         if last_feed and last_feed.game_data and last_feed.game_data.status:
             state = last_feed.game_data.status.abstract_game_state or ""
-            if state == AbstractGameState.PREVIEW.value:
+            if state == AbstractGameState.PREVIEW:
                 interval = config.pregame_poll_interval
-            elif state == AbstractGameState.FINAL.value:
+            elif state == AbstractGameState.FINAL:
                 return
 
         try:
@@ -863,7 +862,7 @@ class LiveGameClient:
     def _is_game_over(feed: LiveFeedResponse) -> bool:
         if feed.game_data and feed.game_data.status:
             state = feed.game_data.status.abstract_game_state
-            return state == AbstractGameState.FINAL.value if state else False
+            return state == AbstractGameState.FINAL if state else False
         return False
 
 
