@@ -92,6 +92,7 @@ from mlb_statsapi.models.stats import (
 from mlb_statsapi.models.teams import Team, TeamsResponse
 from mlb_statsapi.models.transactions import Transaction, TransactionsResponse
 from mlb_statsapi.models.venues import Venue, VenuesResponse
+from mlb_statsapi.models.ws import ChangeEvent, WsGameEvent, WsLogicalEvent, WsMessage
 
 __all__ = [
     # Base & generics
@@ -193,4 +194,9 @@ __all__ = [
     "TransactionsResponse",
     "Venue",
     "VenuesResponse",
+    # WebSocket
+    "ChangeEvent",
+    "WsGameEvent",
+    "WsLogicalEvent",
+    "WsMessage",
 ]

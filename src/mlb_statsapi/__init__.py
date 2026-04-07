@@ -3,6 +3,14 @@
 from importlib.metadata import PackageNotFoundError, version
 
 from mlb_statsapi.client.async_client import AsyncMlbClient
+from mlb_statsapi.client.live import (
+    FetchGranularity,
+    GameEvent,
+    GameEventData,
+    LiveGameClient,
+    LiveGameConfig,
+    SyncLiveGameClient,
+)
 from mlb_statsapi.client.sync_client import MlbClient
 from mlb_statsapi.exceptions import MlbApiError, MlbValidationError
 
@@ -13,8 +21,14 @@ except PackageNotFoundError:
 
 __all__ = [
     "AsyncMlbClient",
+    "FetchGranularity",
+    "GameEvent",
+    "GameEventData",
+    "LiveGameClient",
+    "LiveGameConfig",
     "MlbApiError",
     "MlbClient",
     "MlbValidationError",
+    "SyncLiveGameClient",
     "__version__",
 ]

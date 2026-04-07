@@ -23,7 +23,7 @@ classifiers = [
   "Typing :: Typed",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["pydantic>=2.0", "httpx>=0.25"]
+dependencies = ["pydantic>=2.0", "httpx>=0.25", "httpx-ws>=0.6"]
 
 [project.urls]
 Homepage = "https://github.com/DarkSideOfTheMat/mlb-statsapi-pydantic"
